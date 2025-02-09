@@ -1,0 +1,12 @@
+{
+	"nodes":[
+		{"id":"aa1085a5a5121121","type":"text","text":"Here are some beautiful photos from Istanbul, the birthplace, and hometown of Dorkodu!","x":-1000,"y":-797,"width":250,"height":137},
+		{"id":"0d963b15926fdbba","type":"text","text":"This is Trekie's idea board.","x":-120,"y":-750,"width":285,"height":110,"color":"4"},
+		{"id":"9d83c8924966afae","type":"text","text":"Hello!","x":-102,"y":-940,"width":250,"height":60,"color":"5"},
+		{"id":"e304086fcdac5d93","x":-177,"y":-580,"width":400,"height":225,"type":"file","file":"attachments/GfveKuybQAAlzY1.jpeg"}
+	],
+	"edges":[
+		{"id":"b5373e33bb57fe0f","fromNode":"9d83c8924966afae","fromSide":"bottom","toNode":"0d963b15926fdbba","toSide":"top"},
+		{"id":"bebada283413b813","fromNode":"0d963b15926fdbba","fromSide":"bottom","toNode":"e304086fcdac5d93","toSide":"top"}
+	]
+}
