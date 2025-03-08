@@ -1,3 +1,0 @@
-# Trekie SDK
-
-`@trekie/sdk`
