@@ -1,32 +1,36 @@
-import { QueryClientProvider } from '@tanstack/react-query'
-import OverlayLoader from '@web/shared/components/loaders/OverlayLoader'
-import ApplicationError from '@web/shared/components/misc/ApplicationError'
-import { onError, onReset } from '@web/shared/lib/errors'
-import { queryClient } from "@web/shared/lib/react-query"
-import { trekie, useDailyRefresh } from '@web/shared/lib/trekie'
-import { useAppStore } from '@web/shared/stores/appStore'
-import { FlagsProvider } from 'flagged'
-import { ErrorBoundary } from 'react-error-boundary'
-import { Outlet, ScrollRestoration } from 'react-router-dom'
-import { useAuthCheck } from './shared/lib/auth'
+import logo from "./logo.svg";
 
 function App() {
-  const loading = useAppStore($ => $.loading)
-
-  useDailyRefresh() // trekie daily game refresh
-  useAuthCheck() // check user session, do auth
-
-  return (
-    <ErrorBoundary FallbackComponent={ApplicationError} onError={onError} onReset={onReset}>
-      <FlagsProvider features={{ beta: true, premium }}>
-        <QueryClientProvider client={queryClient}>
-          {loading.auth && <OverlayLoader full={true} />}
-          {!loading.auth && <Outlet />}
-          <ScrollRestoration />
-        </QueryClientProvider>
-      </FlagsProvider>
-    </ErrorBoundary>
-  )
+	return (
+		<div className="text-center">
+			<header className="min-h-screen flex flex-col items-center justify-center bg-[#282c34] text-white text-[calc(10px+2vmin)]">
+				<img
+					src={logo}
+					className="h-[40vmin] pointer-events-none animate-[spin_20s_linear_infinite]"
+					alt="logo"
+				/>
+				<p>
+					Edit <code>src/App.tsx</code> and save to reload.
+				</p>
+				<a
+					className="text-[#61dafb] hover:underline"
+					href="https://reactjs.org"
+					target="_blank"
+					rel="noopener noreferrer"
+				>
+					Learn React
+				</a>
+				<a
+					className="text-[#61dafb] hover:underline"
+					href="https://tanstack.com"
+					target="_blank"
+					rel="noopener noreferrer"
+				>
+					Learn TanStack
+				</a>
+			</header>
+		</div>
+	);
 }
 
-export default App
+export default App;
