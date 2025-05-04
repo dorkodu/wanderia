@@ -1,36 +1,39 @@
-import logo from "./logo.svg";
+import { Outlet, createFileRoute, createRootRoute, createRoute, createRouter } from "@tanstack/react-router"
+import { TanStackRouterDevtools } from "@tanstack/react-router-devtools"
 
-function App() {
-	return (
-		<div className="text-center">
-			<header className="min-h-screen flex flex-col items-center justify-center bg-[#282c34] text-white text-[calc(10px+2vmin)]">
-				<img
-					src={logo}
-					className="h-[40vmin] pointer-events-none animate-[spin_20s_linear_infinite]"
-					alt="logo"
-				/>
-				<p>
-					Edit <code>src/App.tsx</code> and save to reload.
-				</p>
-				<a
-					className="text-[#61dafb] hover:underline"
-					href="https://reactjs.org"
-					target="_blank"
-					rel="noopener noreferrer"
-				>
-					Learn React
-				</a>
-				<a
-					className="text-[#61dafb] hover:underline"
-					href="https://tanstack.com"
-					target="_blank"
-					rel="noopener noreferrer"
-				>
-					Learn TanStack
-				</a>
-			</header>
-		</div>
-	);
+import TanstackQueryLayout from "./integrations/tanstack-query/layout"
+import * as TanstackQuery from "./integrations/tanstack-query/root-provider"
+
+import Header from "./components/Header"
+import { rootRoute } from "./routes/__root"
+
+// File-based router
+export const router = createRouter({
+  routeTree: rootRoute,
+  context: {
+    ...TanstackQuery.getContext(),
+  },
+  defaultPreload: "intent",
+  scrollRestoration: true,
+  defaultStructuralSharing: true,
+  defaultPreloadStaleTime: 0,
+})
+
+declare module "@tanstack/react-router" {
+  interface Register {
+    router: typeof router
+  }
 }
 
-export default App;
+function App() {
+  return (
+    <>
+      <Header />
+      <Outlet />
+      <TanStackRouterDevtools />
+      <TanstackQueryLayout />
+    </>
+  )
+}
+
+export default App
