@@ -1,0 +1,50 @@
+{
+  "name": "@trekie/api",
+  "private": true,
+  "type": "module",
+  "module": "src/index.ts",
+  "scripts": {
+    "dev": "bun --watch src/index.ts",
+    "build": "bun build src/index.ts --target bun --outdir ./dist",
+    "start": "NODE_ENV=production bun dist/index.js",
+    "test": "bun test"
+  },
+  "dependencies": {
+    "@elysiajs/trpc": "^1.1.0",
+    "@elysiajs/websocket": "^0.2.8",
+    "@langchain/core": "^0.3.40",
+    "@langchain/langgraph": "^0.2.46",
+    "@tanstack/react-query": "^5.73.3",
+    "@tanstack/react-query-devtools": "^5.73.3",
+    "@trpc/client": "^11.1.0",
+    "@trpc/react-query": "^11.1.0",
+    "@trpc/server": "^11.1.0",
+    "better-auth": "^1.2.7",
+    "dotenv": "^16.5.0",
+    "drizzle-orm": "^0.42.0",
+    "elysia": "^1.2.25",
+    "js-xxhash": "^4.0.0",
+    "langchain": "^0.3.15",
+    "nanoid": "^5.1.0",
+    "neverthrow": "^8.2.0",
+    "nodemailer": "^6.10.0",
+    "pg": "^8.14.1",
+    "ulidx": "^2.4.1",
+    "zod": "^3.24.2"
+  },
+  "peerDependencies": {
+    "typescript": "^5.7.3"
+  },
+  "devDependencies": {
+    "@types/bun": "^1.2.8",
+    "@types/cookie-parser": "^1.4.8",
+    "@types/nodemailer": "^6.4.17",
+    "@types/pg": "^8.11.13",
+    "drizzle-kit": "^0.31.0",
+    "eslint-plugin-neverthrow": "^1.1.4",
+    "tsx": "^4.19.3"
+  },
+  "publishConfig": {
+    "access": "restricted"
+  }
+}
