@@ -7,7 +7,9 @@ import reportWebVitals from "./reportWebVitals"
 
 import { routeTree } from "./routeTree.gen"
 
+import NostrProvider from "./lib/nostr/provider"
 import "./styles.css"
+import { relays } from "./lib/nostr"
 
 declare module "@tanstack/react-router" {
   interface Register {
@@ -35,7 +37,10 @@ if (rootElement && !rootElement.innerHTML) {
   root.render(
     <StrictMode>
       <TanstackQuery.Provider>
-        <RouterProvider router={router} />
+        <NostrProvider relays={relays}>
+
+          <RouterProvider router={router} />
+        </NostrProvider>
       </TanstackQuery.Provider>
     </StrictMode>,
   )
