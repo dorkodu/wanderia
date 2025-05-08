@@ -1,7 +1,7 @@
 {
   "framework": "react",
   "typescript": true,
-  "projectName": "web",
+  "projectName": "new",
   "mode": "code-router",
   "tailwind": true,
   "packageManager": "bun",
@@ -12,6 +12,7 @@
   "existingAddOns": [
     "form",
     "shadcn",
+    "table",
     "tanstack-query"
   ]
 }

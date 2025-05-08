@@ -1,0 +1,10 @@
+{
+  "name": "wanderia",
+  "private": true,
+  "workspaces": [
+    "web",
+    "api"
+  ],
+  "dependencies": {},
+  "devDependencies": {}
+}
