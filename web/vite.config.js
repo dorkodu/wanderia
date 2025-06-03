@@ -7,23 +7,23 @@ import { resolve } from "node:path";
 
 // https://vitejs.dev/config/
 export default defineConfig({
-	plugins: [
-		TanStackRouterVite({
-			target: "react",
-			autoCodeSplitting: true,
-		}),
-
-		react(),
-		tailwindcss(),
-	],
-	test: {
-		globals: true,
-		environment: "jsdom",
-	},
-	resolve: {
-		alias: {
-			"@web": resolve(__dirname, "./src"),
-			"@api": resolve(__dirname, "../api/src"),
-		},
-	},
+  plugins: [
+    TanStackRouterVite({
+      target: "react",
+      autoCodeSplitting: true,
+    }),
+    react(),
+    tailwindcss(),
+  ],
+  test: {
+    globals: true,
+    environment: "jsdom",
+  },
+  resolve: {
+    alias: {
+      "@web": resolve(__dirname, "./src"),
+      "@sdk": resolve(__dirname, "../sdk/src"),
+      "@api": resolve(__dirname, "../api/src"),
+    },
+  },
 });
