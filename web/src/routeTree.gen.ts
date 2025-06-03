@@ -14,7 +14,6 @@ import { Route as rootRoute } from './routes/__root'
 import { Route as WwwImport } from './routes/_www'
 import { Route as AppImport } from './routes/_app'
 import { Route as WwwIndexImport } from './routes/_www/index'
-import { Route as WwwWelcomeImport } from './routes/_www/welcome'
 import { Route as WwwLoginImport } from './routes/_www/login'
 import { Route as WwwLegalImport } from './routes/_www/legal'
 import { Route as WwwErrorImport } from './routes/_www/error'
@@ -24,7 +23,6 @@ import { Route as Www404Import } from './routes/_www/404'
 import { Route as AppSocialImport } from './routes/_app/social'
 import { Route as AppPremiumImport } from './routes/_app/premium'
 import { Route as AppMeImport } from './routes/_app/me'
-import { Route as AppLifeImport } from './routes/_app/life'
 import { Route as AppHomeImport } from './routes/_app/home'
 import { Route as WwwLegalIndexImport } from './routes/_www/legal/index'
 import { Route as WwwHelpIndexImport } from './routes/_www/help/index'
@@ -56,12 +54,6 @@ const AppRoute = AppImport.update({
 const WwwIndexRoute = WwwIndexImport.update({
   id: '/',
   path: '/',
-  getParentRoute: () => WwwRoute,
-} as any)
-
-const WwwWelcomeRoute = WwwWelcomeImport.update({
-  id: '/welcome',
-  path: '/welcome',
   getParentRoute: () => WwwRoute,
 } as any)
 
@@ -116,12 +108,6 @@ const AppPremiumRoute = AppPremiumImport.update({
 const AppMeRoute = AppMeImport.update({
   id: '/me',
   path: '/me',
-  getParentRoute: () => AppRoute,
-} as any)
-
-const AppLifeRoute = AppLifeImport.update({
-  id: '/life',
-  path: '/life',
   getParentRoute: () => AppRoute,
 } as any)
 
@@ -240,13 +226,6 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AppHomeImport
       parentRoute: typeof AppImport
     }
-    '/_app/life': {
-      id: '/_app/life'
-      path: '/life'
-      fullPath: '/life'
-      preLoaderRoute: typeof AppLifeImport
-      parentRoute: typeof AppImport
-    }
     '/_app/me': {
       id: '/_app/me'
       path: '/me'
@@ -308,13 +287,6 @@ declare module '@tanstack/react-router' {
       path: '/login'
       fullPath: '/login'
       preLoaderRoute: typeof WwwLoginImport
-      parentRoute: typeof WwwImport
-    }
-    '/_www/welcome': {
-      id: '/_www/welcome'
-      path: '/welcome'
-      fullPath: '/welcome'
-      preLoaderRoute: typeof WwwWelcomeImport
       parentRoute: typeof WwwImport
     }
     '/_www/': {
@@ -429,7 +401,6 @@ declare module '@tanstack/react-router' {
 
 interface AppRouteChildren {
   AppHomeRoute: typeof AppHomeRoute
-  AppLifeRoute: typeof AppLifeRoute
   AppMeRoute: typeof AppMeRoute
   AppPremiumRoute: typeof AppPremiumRoute
   AppSocialRoute: typeof AppSocialRoute
@@ -443,7 +414,6 @@ interface AppRouteChildren {
 
 const AppRouteChildren: AppRouteChildren = {
   AppHomeRoute: AppHomeRoute,
-  AppLifeRoute: AppLifeRoute,
   AppMeRoute: AppMeRoute,
   AppPremiumRoute: AppPremiumRoute,
   AppSocialRoute: AppSocialRoute,
@@ -488,7 +458,6 @@ interface WwwRouteChildren {
   WwwErrorRoute: typeof WwwErrorRoute
   WwwLegalRoute: typeof WwwLegalRouteWithChildren
   WwwLoginRoute: typeof WwwLoginRoute
-  WwwWelcomeRoute: typeof WwwWelcomeRoute
   WwwIndexRoute: typeof WwwIndexRoute
   WwwHelpIndexRoute: typeof WwwHelpIndexRoute
 }
@@ -500,7 +469,6 @@ const WwwRouteChildren: WwwRouteChildren = {
   WwwErrorRoute: WwwErrorRoute,
   WwwLegalRoute: WwwLegalRouteWithChildren,
   WwwLoginRoute: WwwLoginRoute,
-  WwwWelcomeRoute: WwwWelcomeRoute,
   WwwIndexRoute: WwwIndexRoute,
   WwwHelpIndexRoute: WwwHelpIndexRoute,
 }
@@ -510,7 +478,6 @@ const WwwRouteWithChildren = WwwRoute._addFileChildren(WwwRouteChildren)
 export interface FileRoutesByFullPath {
   '': typeof WwwRouteWithChildren
   '/home': typeof AppHomeRoute
-  '/life': typeof AppLifeRoute
   '/me': typeof AppMeRoute
   '/premium': typeof AppPremiumRoute
   '/social': typeof AppSocialRoute
@@ -520,7 +487,6 @@ export interface FileRoutesByFullPath {
   '/error': typeof WwwErrorRoute
   '/legal': typeof WwwLegalRouteWithChildren
   '/login': typeof WwwLoginRoute
-  '/welcome': typeof WwwWelcomeRoute
   '/': typeof WwwIndexRoute
   '/community/$id': typeof AppCommunityIdRoute
   '/profile/$username': typeof AppProfileUsernameRoute
@@ -541,7 +507,6 @@ export interface FileRoutesByFullPath {
 export interface FileRoutesByTo {
   '': typeof AppRouteWithChildren
   '/home': typeof AppHomeRoute
-  '/life': typeof AppLifeRoute
   '/me': typeof AppMeRoute
   '/premium': typeof AppPremiumRoute
   '/social': typeof AppSocialRoute
@@ -550,7 +515,6 @@ export interface FileRoutesByTo {
   '/create-account': typeof WwwCreateAccountRoute
   '/error': typeof WwwErrorRoute
   '/login': typeof WwwLoginRoute
-  '/welcome': typeof WwwWelcomeRoute
   '/': typeof WwwIndexRoute
   '/community/$id': typeof AppCommunityIdRoute
   '/profile/$username': typeof AppProfileUsernameRoute
@@ -573,7 +537,6 @@ export interface FileRoutesById {
   '/_app': typeof AppRouteWithChildren
   '/_www': typeof WwwRouteWithChildren
   '/_app/home': typeof AppHomeRoute
-  '/_app/life': typeof AppLifeRoute
   '/_app/me': typeof AppMeRoute
   '/_app/premium': typeof AppPremiumRoute
   '/_app/social': typeof AppSocialRoute
@@ -583,7 +546,6 @@ export interface FileRoutesById {
   '/_www/error': typeof WwwErrorRoute
   '/_www/legal': typeof WwwLegalRouteWithChildren
   '/_www/login': typeof WwwLoginRoute
-  '/_www/welcome': typeof WwwWelcomeRoute
   '/_www/': typeof WwwIndexRoute
   '/_app/community/$id': typeof AppCommunityIdRoute
   '/_app/profile/$username': typeof AppProfileUsernameRoute
@@ -606,7 +568,6 @@ export interface FileRouteTypes {
   fullPaths:
     | ''
     | '/home'
-    | '/life'
     | '/me'
     | '/premium'
     | '/social'
@@ -616,7 +577,6 @@ export interface FileRouteTypes {
     | '/error'
     | '/legal'
     | '/login'
-    | '/welcome'
     | '/'
     | '/community/$id'
     | '/profile/$username'
@@ -636,7 +596,6 @@ export interface FileRouteTypes {
   to:
     | ''
     | '/home'
-    | '/life'
     | '/me'
     | '/premium'
     | '/social'
@@ -645,7 +604,6 @@ export interface FileRouteTypes {
     | '/create-account'
     | '/error'
     | '/login'
-    | '/welcome'
     | '/'
     | '/community/$id'
     | '/profile/$username'
@@ -666,7 +624,6 @@ export interface FileRouteTypes {
     | '/_app'
     | '/_www'
     | '/_app/home'
-    | '/_app/life'
     | '/_app/me'
     | '/_app/premium'
     | '/_app/social'
@@ -676,7 +633,6 @@ export interface FileRouteTypes {
     | '/_www/error'
     | '/_www/legal'
     | '/_www/login'
-    | '/_www/welcome'
     | '/_www/'
     | '/_app/community/$id'
     | '/_app/profile/$username'
@@ -723,7 +679,6 @@ export const routeTree = rootRoute
       "filePath": "_app.tsx",
       "children": [
         "/_app/home",
-        "/_app/life",
         "/_app/me",
         "/_app/premium",
         "/_app/social",
@@ -744,17 +699,12 @@ export const routeTree = rootRoute
         "/_www/error",
         "/_www/legal",
         "/_www/login",
-        "/_www/welcome",
         "/_www/",
         "/_www/help/"
       ]
     },
     "/_app/home": {
       "filePath": "_app/home.tsx",
-      "parent": "/_app"
-    },
-    "/_app/life": {
-      "filePath": "_app/life.tsx",
       "parent": "/_app"
     },
     "/_app/me": {
@@ -800,10 +750,6 @@ export const routeTree = rootRoute
     },
     "/_www/login": {
       "filePath": "_www/login.tsx",
-      "parent": "/_www"
-    },
-    "/_www/welcome": {
-      "filePath": "_www/welcome.tsx",
       "parent": "/_www"
     },
     "/_www/": {
