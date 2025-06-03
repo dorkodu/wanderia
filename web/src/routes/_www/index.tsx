@@ -5,7 +5,5 @@ export const Route = createFileRoute('/_www/')({
 })
 
 function RouteComponent() {
-  return <>
-    <h1>Landing Page</h1>
-  </>
+  return <div>Hello "/_www/"!</div>
 }

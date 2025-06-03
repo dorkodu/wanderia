@@ -1,14 +1,15 @@
-import { createFileRoute, Outlet } from "@tanstack/react-router"
+import { createFileRoute, Outlet } from "@tanstack/react-router";
+import { Hero } from "@web/components/hero";
 
 export const Route = createFileRoute("/_www")({
   component: WebsiteLayout,
-})
+});
 
 function WebsiteLayout() {
   return (
     <div>
-      <h1>Website Layout</h1>
+      <Hero />
       <Outlet />
     </div>
-  )
+  );
 }
