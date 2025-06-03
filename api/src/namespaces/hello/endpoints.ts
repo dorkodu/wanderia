@@ -1,26 +1,10 @@
-import {
-  authOptionalProcedure,
-  authRequiredProcedure,
-  Router,
-} from "@api/lib/trpc"
-import { goalSchemas } from "./schema"
+import { authRequiredProcedure, Router } from "@api/lib/trpc";
+import { goalSchemas } from "./schema";
 
 export const router = Router({
   getGoal: authRequiredProcedure
     .input(goalSchemas.getGoal)
-    .query((opts) => { }
-    ),
+    .query(() => { }),
+});
 
-  createGoal: authRequiredProcedure
-    .input(goalSchemas.createGoal)
-    .query((opts) => { }
-    ),
-
-  updateGoal: authRequiredProcedure
-    .input(goalSchemas.updateGoal)
-    .mutation((opts) => { }
-    ),
-})
-
-export * as goalEndpoints from "./endpoints"
-
+export * as goalEndpoints from "./endpoints";
