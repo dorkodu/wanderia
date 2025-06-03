@@ -1,8 +1,8 @@
 "use client";
 
-import * as React from "react";
+import { cn } from "@web/lib/utils";
 import { cva, type VariantProps } from "class-variance-authority";
-import { cn } from "@/lib/utils";
+import * as React from "react";
 
 const textVariants = cva(
   "", // Base classes can be added here if needed
@@ -76,21 +76,21 @@ const textVariants = cva(
 );
 
 export interface TextProps
-  extends React.HTMLAttributes<HTMLElement>, // Using HTMLElement for broader compatibility with `as` prop
-    VariantProps<typeof textVariants> {
+  extends Omit<React.HTMLAttributes<HTMLElement>, "color">, // Using HTMLElement for broader compatibility with `as` prop
+  VariantProps<typeof textVariants> {
   as?:
-    | "p"
-    | "span"
-    | "div"
-    | "label"
-    | "h1"
-    | "h2"
-    | "h3"
-    | "h4"
-    | "h5"
-    | "h6"
-    | "figcaption"
-    | "blockquote";
+  | "p"
+  | "span"
+  | "div"
+  | "label"
+  | "h1"
+  | "h2"
+  | "h3"
+  | "h4"
+  | "h5"
+  | "h6"
+  | "figcaption"
+  | "blockquote";
   lineClamp?: number;
 }
 
@@ -116,11 +116,11 @@ const Text = React.forwardRef<HTMLElement, TextProps>(
   ) => {
     const lineClampStyle = lineClamp
       ? {
-          display: "-webkit-box",
-          WebkitBoxOrient: "vertical",
-          WebkitLineClamp: lineClamp,
-          overflow: "hidden",
-        }
+        display: "-webkit-box",
+        WebkitBoxOrient: "vertical" as React.CSSProperties['WebkitBoxOrient'],
+        WebkitLineClamp: lineClamp,
+        overflow: "hidden",
+      }
       : {};
 
     const combinedStyle = lineClamp ? { ...style, ...lineClampStyle } : style;
@@ -143,7 +143,7 @@ const Text = React.forwardRef<HTMLElement, TextProps>(
         )}
         style={combinedStyle}
         ref={ref as any} // Using `as any` for simplicity with polymorphic `as` prop.
-                         // For stricter typing, this would require more complex generic patterns.
+        // For stricter typing, this would require more complex generic patterns.
         {...props}
       >
         {children}
