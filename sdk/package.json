@@ -1,34 +1,63 @@
 {
   "name": "@wanderia/sdk",
-  "private": true,
-  "version": "1.0.0",
-  "type": "module",
-  "scripts": {},
+  "version": "0.1.0",
+  "description": "A decentralized web and crypto SDK in pure TypeScript, open source and npm-ready. Built with Bun.",
+  "main": "./index.ts",
+  "types": "./index.ts",
+  "exports": {
+    ".": "./index.ts"
+  },
+  "license": "MIT",
+  "files": [
+    "index.ts",
+    "src/"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/dorkodu/wanderia"
+  },
+  "keywords": [
+    "nostr",
+    "solana",
+    "decentralized",
+    "social protocol",
+    "sdk",
+    "typescript",
+    "crypto",
+    "web3"
+  ],
+  "scripts": {
+    "test": "bun test"
+  },
   "dependencies": {
-    "@tanstack/react-query": "^5.80.2",
-    "@trpc/client": "^11.2.0",
-    "@trpc/server": "^11.2.0",
-    "@trpc/tanstack-react-query": "^11.2.0",
+    "@nostrify/ndk": "npm:@jsr/nostrify__ndk",
+    "@nostrify/nostrify": "npm:@jsr/nostrify__nostrify",
+    "@nostrify/react": "npm:@jsr/nostrify__react",
+    "@tanstack/react-query": "^5.80.7",
+    "@trpc/client": "^11.4.0",
+    "@trpc/server": "^11.4.0",
+    "@trpc/tanstack-react-query": "^11.4.0",
     "dexie": "^4.0.11",
     "dexie-react-hooks": "^1.1.7",
     "immer": "^10.1.1",
     "js-xxhash": "^4.0.0",
     "neverthrow": "^8.2.0",
+    "nostr-tools": "^2.15.0",
     "ulidx": "^2.4.1",
     "url-regex": "^5.0.0",
-    "zod": "^3.25.49",
+    "zod": "^3.25.63",
     "zustand": "^5.0.5"
   },
   "peerDependencies": {
-    "react": "^19.0.0",
-    "react-dom": "^19.0.0"
+    "react": "^19.1.0",
+    "react-dom": "^19.1.0"
   },
   "devDependencies": {
     "@tanstack/eslint-plugin-query": "^5.78.0",
-    "@types/bun": "^1.2.15",
-    "@types/node": "^22.15.29",
-    "@typescript-eslint/eslint-plugin": "^8.33.1",
-    "@typescript-eslint/parser": "^8.33.1",
+    "@types/bun": "^1.2.16",
+    "@types/node": "^22.15.31",
+    "@typescript-eslint/eslint-plugin": "^8.34.0",
+    "@typescript-eslint/parser": "^8.34.0",
     "eslint": "^9.28.0",
     "eslint-plugin-neverthrow": "^1.1.4",
     "eslint-plugin-react-refresh": "^0.4.20",
