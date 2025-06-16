@@ -1,5 +1,3 @@
-"use client";
-
 import { cn } from "@web/lib/utils";
 import { cva, type VariantProps } from "class-variance-authority";
 import * as React from "react";
@@ -34,7 +32,7 @@ const titleVariants = cva(
 );
 
 export interface TitleProps
-  extends React.HTMLAttributes<HTMLHeadingElement>,
+  extends Omit<React.HTMLAttributes<HTMLHeadingElement>, 'color'>,
   VariantProps<typeof titleVariants> {
   order?: 1 | 2 | 3 | 4 | 5 | 6;
   fw?: number; // font-weight
@@ -46,7 +44,7 @@ export interface TitleProps
 
 const Title = React.forwardRef<HTMLHeadingElement, TitleProps>(
   ({ className, order = 1, color, fw, lh, size, mt, c, style, children, ...props }, ref) => {
-    const Component = `h${order}` as keyof JSX.IntrinsicElements;
+    const Component = `h${order}` as keyof React.JSX.IntrinsicElements;
 
     // Handle custom styles
     let customStyle: React.CSSProperties = { ...style };

@@ -1,5 +1,3 @@
-"use client";
-
 import { cn } from "@web/lib/utils";
 import { cva, type VariantProps } from "class-variance-authority";
 import * as React from "react";
@@ -27,8 +25,7 @@ const emojiVariants = cva(
 );
 
 export interface EmojiProps
-  extends React.HTMLAttributes<HTMLSpanElement>,
-  VariantProps<typeof emojiVariants> {
+  extends React.HTMLAttributes<HTMLSpanElement>, VariantProps<typeof emojiVariants> {
   emoji: string;
   size?: number | "xs" | "sm" | "md" | "lg" | "xl" | "2xl" | "3xl" | "4xl" | "5xl";
 }

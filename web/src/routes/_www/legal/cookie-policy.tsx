@@ -1,4 +1,9 @@
 import { createFileRoute } from "@tanstack/react-router";
+import Emoji from "@web/components/misc/Emoji";
+import { Container } from "@web/components/ui/container";
+import { Group } from "@web/components/ui/group";
+import { Stack } from "@web/components/ui/stack";
+import { Title } from "@web/components/ui/title";
 
 export const Route = createFileRoute("/_www/legal/cookie-policy")({
   component: CookiePolicy,

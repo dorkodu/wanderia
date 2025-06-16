@@ -1,4 +1,10 @@
+import { IconBrandX } from "@tabler/icons-react";
 import { createFileRoute } from "@tanstack/react-router";
+import { Button } from "@web/components/ui/button";
+import { Emoji } from "@web/components/ui/emoji";
+import { Group } from "@web/components/ui/group";
+import { Box, SimpleGrid, Stack } from "@web/components/ui/layout";
+import { Title } from "@web/components/ui/title";
 
 export const Route = createFileRoute("/_www/legal/company")({
   component: Company,
@@ -6,9 +12,9 @@ export const Route = createFileRoute("/_www/legal/company")({
 
 export function Company() {
   return (
-    <Box my={50} id="company">
+    <Box id="company" className="my-4"> ,1"a
       <SimpleGrid cols={{ base: 1, sm: 2 }}>
-        <Stack gap={4} justify="center" maw={500} mx="auto">
+        <Stack gap={4} justify="center" mx="auto" className="max-w-[500px] mx-auto justify-center">
           <Group wrap="nowrap">
             <Emoji emoji="💼" size={32} />
             <Stack gap={0}>
@@ -22,15 +28,20 @@ export function Company() {
             </Stack>
           </Group>
 
-          <Group gap="xs" my={8}>
+          <Group gap="xs" className="my-4">
+            <Button variant="outline" aria-label="Login with Google" size="icon" onClick={(e) => {
+              e.stopPropagation()
+              e.preventDefault()
+              window.open("https://x.com/dorkodu", "_blank");
+            }}>
+              <IconBrandX />
+            </Button>
             <ActionIcon
-              size="xl"
-              color="dark"
               component="a"
               href="https://x.com/dorkodu"
               target="_blank"
             >
-              <IconBrandX />
+
             </ActionIcon>
             <ActionIcon
               size="xl"

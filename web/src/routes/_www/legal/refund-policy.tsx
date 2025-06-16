@@ -101,7 +101,7 @@ export function RefundPolicy() {
       </p>
       <ul>
         <li>
-          By email: <Anchor href="mailto:hey@dorkodu.com">hey@dorkodu.com</Anchor>
+          By email: <a href="mailto:hey@dorkodu.com">hey@dorkodu.com</a>
         </li>
         <li>By submitting the form on our website: https://dorkodu.com/refund</li>
       </ul>
@@ -165,7 +165,7 @@ export function RefundPolicy() {
       <h3>Contact Us</h3>
       <p>
         If you have any questions about our Returns and Refunds Policy, please contact us:{" "}
-        <Anchor href="mailto:hey@dorkodu.com">hey@dorkodu.com</Anchor>
+        <a href="mailto:hey@dorkodu.com">hey@dorkodu.com</a>
       </p>
     </Container>
   );
