@@ -32,7 +32,7 @@ export function Hero() {
                   <Link
                     to="/"
                     className="hover:bg-background dark:hover:border-t-border bg-muted group mx-auto flex w-fit items-center gap-4 rounded-full border p-1 pl-4 shadow-md shadow-black/5 transition-all duration-300 dark:border-t-white/5 dark:shadow-zinc-950">
-                    <span className="text-foreground text-sm">Introducing Support for AI Models</span>
+                    <span className="text-foreground text-sm">Introducing SocialFi For Everyone</span>
                     <span className="dark:border-background block h-4 w-0.5 border-l bg-white dark:bg-zinc-700"></span>
 
                     <div className="bg-background group-hover:bg-muted size-6 overflow-hidden rounded-full duration-500">
@@ -48,9 +48,9 @@ export function Hero() {
                   </Link>
 
                   <h1
-                    className="mt-8 max-w-5xl mx-auto text-balance font-bold text-6xl md:text-7xl lg:mt-16 xl:text-[4.5rem]">
+                    className="mt-8 max-w-5xl mx-auto text-balance font-bold text-3xl md:text-6xl lg:text-7xl lg:mt-16 xl:text-[4.5rem]">
                     <span>Decentralized Superapp</span> <br />
-                    <span className='text-4xl md:text-5xl xl:text-[3.5rem]'>For Regenerative Communities</span>
+                    <span className='text-3xl md:text-5xl xl:text-[3.5rem]' style={{ opacity: 0.5 }}>For Regenerative Communities</span>
                   </h1>
                   <p
                     className="mx-auto mt-8 max-w-2xl text-balance text-lg">
@@ -93,19 +93,13 @@ export function Hero() {
                 />
                 <div className="inset-shadow-2xs ring-background dark:inset-shadow-white/20 bg-background relative mx-auto max-w-6xl overflow-hidden rounded-2xl border p-4 shadow-lg shadow-zinc-950/15 ring-1">
                   <img
-                    className="bg-background aspect-15/8 relative hidden rounded-2xl dark:block"
-                    src="/images/wanderia_Brand_White.svg"
+                    className="bg-background relative hidden rounded-2xl dark:block"
+                    src="/images/oasis.webp"
                     alt="app screen"
                     width="2700"
                     height="1440"
                   />
-                  <img
-                    className="z-2 border-border/25 aspect-15/8 relative rounded-2xl border dark:hidden"
-                    src="/images/wanderia_Brand.svg"
-                    alt="app screen"
-                    width="2700"
-                    height="1440"
-                  />
+
                 </div>
               </div>
             </div>

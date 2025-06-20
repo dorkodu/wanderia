@@ -49,7 +49,7 @@ export function Header() {
       <nav data-state={'active'} className="fixed z-20 w-full px-2 group">
         <div className={cn('mx-auto mt-2 max-w-6xl px-3 transition-all duration-300 lg:px-8', 'bg-background/50 max-w-4xl rounded-2xl border backdrop-blur-lg lg:px-4')}>
           <div className="relative flex flex-wrap items-center justify-between gap-6 py-1 lg:gap-0 lg:py-1.5">
-            <div className="flex h-16 items-center justify-between gap-4">
+            <div className="flex h-16 items-center justify-between gap-4 w-full">
               {/* Left side */}
               <div className="flex items-center gap-2">
                 {/* Mobile menu trigger */}
@@ -116,7 +116,7 @@ export function Header() {
                   </PopoverContent>
                 </Popover>
                 <Link to="/" className="text-primary hover:text-primary/90">
-                  <Image src="/images/wanderia_Brand_White.svg" alt="Wanderia Logo" className="h-12" />
+                  <Image src="/images/wanderia_Brand_White.svg" alt="Wanderia Logo" className="h-11" />
                 </Link>
               </div>
               <div className="flex items-center gap-2">
@@ -214,7 +214,7 @@ export function Header() {
                 </div>
               </div>
               {/* Right side */}
-              <div className="flex items-center gap-2">
+              <div className="hidden md:flex items-center gap-2  ">
                 <Button asChild size="sm" className="text-sm">
                   <a href="#">Get Started</a>
                 </Button>
