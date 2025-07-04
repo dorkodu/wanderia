@@ -1,7 +1,7 @@
+import { IconChevronLeft, IconChevronRight } from "@tabler/icons-react"
 import * as React from "react"
 import { DayPicker } from "react-day-picker"
 
-import { IconChevronLeft, IconChevronRight } from "@tabler/icons-react"
 import { buttonVariants } from "@web/components/ui/button"
 import { cn } from "@web/lib/utils"
 

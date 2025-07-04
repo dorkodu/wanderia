@@ -1,6 +1,6 @@
+import { IconAlertCircle } from "@tabler/icons-react";
 import { Text } from "@web/components/ui/text";
 import { cn } from "@web/lib/utils";
-import { AlertCircle } from "lucide-react";
 
 export default function WIPCard({ className, ...props }: React.HTMLAttributes<HTMLDivElement>) {
   return (
@@ -12,7 +12,7 @@ export default function WIPCard({ className, ...props }: React.HTMLAttributes<HT
       {...props}
     >
       <span className="text-yellow-500">
-        <AlertCircle className="w-6 h-6" />
+        <IconAlertCircle className="w-6 h-6" />
       </span>
       <Text size="md" weight="medium" className="text-yellow-800">
         This section is a work in progress. Check back soon!

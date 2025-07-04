@@ -1,10 +1,8 @@
-"use client"
-
 import { Command as CommandPrimitive, useCommandState } from "cmdk"
-import { XIcon } from "lucide-react"
 import * as React from "react"
 import { useEffect } from "react"
 
+import { IconX } from "@tabler/icons-react"
 import {
   Command,
   CommandGroup,
@@ -233,9 +231,9 @@ const MultipleSelector = ({
         if (e.key === "Delete" || e.key === "Backspace") {
           if (input.value === "" && selected.length > 0) {
             const lastSelectOption = selected[selected.length - 1]
-            // If last item is fixed, we should not remove it.
-            if (!lastSelectOption.fixed) {
-              handleUnselect(selected[selected.length - 1])
+            // If last item exists and is not fixed, remove it.
+            if (lastSelectOption && !lastSelectOption.fixed) {
+              handleUnselect(lastSelectOption)
             }
           }
         }
@@ -471,7 +469,7 @@ const MultipleSelector = ({
                   onClick={() => handleUnselect(option)}
                   aria-label="Remove"
                 >
-                  <XIcon size={14} aria-hidden="true" />
+                  <IconX size={14} aria-hidden="true" />
                 </button>
               </div>
             )
@@ -530,7 +528,7 @@ const MultipleSelector = ({
             )}
             aria-label="Clear all"
           >
-            <XIcon size={16} aria-hidden="true" />
+            <IconX size={16} aria-hidden="true" />
           </button>
         </div>
       </div>
