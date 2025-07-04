@@ -1,11 +1,9 @@
-import { createFileRoute } from '@tanstack/react-router';
+import { IconArrowRight } from '@tabler/icons-react'
+import { createFileRoute, Link } from '@tanstack/react-router'
 
 export const Route = createFileRoute('/_www/404')({
   component: NotFound,
 })
-
-import { IconArrowRight } from "@tabler/icons-react";
-import { Link } from "@tanstack/react-router";
 
 function NotFound() {
   return (
@@ -31,5 +29,3 @@ function NotFound() {
     </div>
   )
 }
-
-export default NotFound;

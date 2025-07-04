@@ -1,6 +1,6 @@
 
-import { QueryKey, useQuery, useQueryClient, UseQueryOptions, UseQueryResult } from '@tanstack/react-query'
-import { liveQuery, Observable } from 'dexie'
+import { type QueryKey, useQuery, useQueryClient, type UseQueryOptions, type UseQueryResult } from '@tanstack/react-query'
+import { liveQuery, type Observable } from 'dexie'
 import { useEffect } from 'react'
 
 /**

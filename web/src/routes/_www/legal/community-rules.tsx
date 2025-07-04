@@ -1,9 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { Container } from "@web/components/ui/container";
-import { Emoji } from "@web/components/ui/emoji";
-import { Group } from "@web/components/ui/group";
-import { Stack } from "@web/components/ui/stack";
-import { Title } from "@web/components/ui/title";
+import Emoji from "@web/components/misc/Emoji";
+import { Container, Group, Stack } from "@web/components/ui/layout";
+import { Title } from "@web/components/ui/typography";
 
 export const Route = createFileRoute("/_www/legal/community-rules")({
   component: CommunityRules,
@@ -12,14 +10,14 @@ export const Route = createFileRoute("/_www/legal/community-rules")({
 export function CommunityRules() {
   return (
     <Container size={760}>
-      <Group wrap="nowrap" maw={440}>
+      <Group wrap="nowrap" className="max-w-[440px]">
         <Emoji emoji="👥" size={40} />
         <Stack gap={0}>
-          <Title order={1} fw={750} lh={1}>
+          <Title order={1} className="font-extrabold leading-none">
             Community Rules
           </Title>
           {/* <Text span inherit variant="gradient" gradient={{ from: "#17CC38", to: "#6BD731", deg: 60 }}> Gamification</Text> */}
-          <Title order={2} c="dimmed" fw={600} lh={1.2} size={18} mt={4}>
+          <Title order={2} className="text-muted-foreground mt-1 font-semibold leading-tight text-lg">
             Guidelines for all of our community members.
           </Title>
         </Stack>

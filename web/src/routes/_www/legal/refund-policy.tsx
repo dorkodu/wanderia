@@ -1,9 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import Emoji from "@web/components/misc/Emoji";
-import { Container } from "@web/components/ui/container";
-import { Group } from "@web/components/ui/group";
-import { Stack } from "@web/components/ui/stack";
-import { Title } from "@web/components/ui/title";
+import { Container, Group, Stack } from "@web/components/ui/layout";
+import { Title } from "@web/components/ui/typography";
 
 export const Route = createFileRoute("/_www/legal/refund-policy")({
   component: RefundPolicy,
@@ -18,7 +16,7 @@ export function RefundPolicy() {
           <Title order={1} fw={750} lh={1}>
             Refund Policy
           </Title>
-          <Title order={2} c="dimmed" fw={600} lh={1.2} size={18} mt={4}>
+          <Title order={2} color="dimmed" fw={600} lh={1.2} size={18} className="mt-1">
             Our policy on refunds for products and services.
           </Title>
         </Stack>

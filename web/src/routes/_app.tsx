@@ -1,13 +1,11 @@
-import { createFileRoute, Outlet } from "@tanstack/react-router";
+import { createFileRoute, Navigate } from "@tanstack/react-router";
 
 export const Route = createFileRoute("/_app")({
-	component: AppLayout,
+  component: AppLayout,
 });
 
 function AppLayout() {
-	return (
-		<div>
-			<Outlet />
-		</div>
-	);
+  return (
+    <Navigate to="/" />
+  );
 }

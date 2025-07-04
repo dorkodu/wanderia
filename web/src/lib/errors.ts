@@ -3,8 +3,8 @@
  *  If we encounter an error, function will ,fail and call this handler with the error  
  */
 
-import { LogKind, log, reportToRemote } from "new/src/utils/log"
-import { ErrorInfo } from "react"
+import { LogKind, log, reportToRemote } from "@web/utils/log"
+import { type ErrorInfo } from "react"
 import { notifications } from "./notifications"
 
 /**

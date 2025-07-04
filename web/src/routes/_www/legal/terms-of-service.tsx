@@ -1,8 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import Emoji from "@web/components/misc/Emoji";
-import { Container } from "@web/components/ui/container";
-import { Group, Stack } from "@web/components/ui/layout";
-import { Title } from "@web/components/ui/title";
+import { Container, Group, Stack } from "@web/components/ui/layout";
+import { Title } from "@web/components/ui/typography";
 
 export const Route = createFileRoute("/_www/legal/terms-of-service")({
   component: TermsOfService,
@@ -18,7 +17,7 @@ export function TermsOfService() {
             Terms of Service
           </Title>
           {/* <Text span inherit variant="gradient" gradient={{ from: "#17CC38", to: "#6BD731", deg: 60 }}> Gamification</Text> */}
-          <Title order={2} c="dimmed" fw={600} size={18}>
+          <Title order={2} color="dimmed" fw={600} size={18}>
             Governance rules, rights and responsibilities.
           </Title>
         </Stack>
