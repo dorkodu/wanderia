@@ -22,6 +22,8 @@ app.use(cors({
 async function main() {
   await initDb();
   await loadNamespaceEndpoints(app); // 💥 dinamik route ekleme
+  console.log(
+  app.routes.map(r => `${r.method} ${r.path}`).join('\n')  );
   app.listen(3000);
   console.log('🚀 Server is running at http://localhost:3000');
 }
