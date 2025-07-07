@@ -1,0 +1,22 @@
+# DOCKER COMPOSE FILE FOR EXTERNAL COMPONENTS OF THE WANDERIA PROJECT
+# REDIS,POSTGRES,KAFKA etc. shall be implemented as docker containers below when needed.
+
+version: "3.9"
+services:
+  db:
+    image: postgres:16
+    container_name: my_postgres
+    restart: unless-stopped
+    ports:
+      - "5432:5432"
+    env_file:
+      - .env
+    environment:
+      POSTGRES_USER: ${POSTGRES_USER}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
+      POSTGRES_DB: ${POSTGRES_DB}
+    volumes:
+      - pg_data:/var/lib/postgresql/data
+
+volumes:
+  pg_data:
