@@ -8,7 +8,7 @@ services:
     container_name: my_postgres
     restart: unless-stopped
     ports:
-      - "5432:5432"
+      - "5432:${POSTGRES_PORT}"
     env_file:
       - .env
     environment:

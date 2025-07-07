@@ -5,6 +5,7 @@
     "web",
     "api"
   ],
-  "dependencies": {},
+  "dependencies": {
+  },
   "devDependencies": {}
 }
