@@ -116,8 +116,8 @@ export function Header() {
                 </PopoverContent>
               </Popover>
               <Link to="/" className="text-primary hover:text-primary/90">
-                <img src="/images/trekie_Brand_White.svg" alt="Trekie Logo" className="h-11 md:h-13 hidden dark:block" />
-                <img src="/images/trekie_Brand.svg" alt="Trekie Logo" className="h-11 md:h-13 dark:hidden" />
+                <img src="/images/wanderia_Brand_White.svg" alt="Wanderia Logo" className="h-11 md:h-13 hidden dark:block" />
+                <img src="/images/wanderia_Brand.svg" alt="Wanderia Logo" className="h-11 md:h-13 dark:hidden" />
               </Link>
             </div>
             <div className="flex items-center gap-2">

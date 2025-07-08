@@ -1,6 +1,7 @@
-import { IconShield, IconUsers } from '@tabler/icons-react';
+import { IconArrowRight, IconBuildingBank, IconCoins, IconRocket, IconShield, IconUsers } from '@tabler/icons-react';
 import { Card, CardContent } from '@web/components/ui/card';
 import { cn } from '@web/lib/utils';
+import { Button } from '../ui/button';
 
 export function Features() {
   const glassBg = 'bg-white/35 dark:bg-black/35 backdrop-blur-2xs transition-all duration-500 hover:bg-white/45 dark:hover:bg-black/45';
@@ -134,5 +135,70 @@ export function Features() {
         </div>
       </div>
     </section >
+  )
+}
+
+export function Punchline() {
+  return (
+    <section className="py-16 px-6 overflow-hidden max-w-5xl mx-auto">
+
+      <div className="relative max-w-6xl mx-auto">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center justify-center">
+          {/* Left Content */}
+          <div className="space-y-8 flex-2/3">
+            {/* Main Headline */}
+            <div className="space-y-4">
+
+              <div className="flex items-center gap-4">
+                <div className="flex items-center gap-3">
+                  <IconRocket className="bg-gradient-to-tr from-indigo-700/70 to-green-300/50 text-indigo-800 dark:text-blue-300
+                  p-1.5 size-12 rounded-lg" />
+                  <span className="text-xl font-bold">Launch</span>
+                </div>
+                <p className="text-muted-foreground font-medium">Kickstart your community with its own token on the best all-in-one launchpad.</p>
+              </div>
+
+              <div className="flex items-center gap-4">
+                <div className="flex items-center gap-3">
+                  <IconBuildingBank className="bg-gradient-to-tr from-indigo-700/70 to-green-300/50 text-indigo-800 dark:text-blue-300
+                  p-2 size-12 rounded-lg" />
+                  <span className="text-xl font-bold">Manage</span>
+                </div>
+                <p className="text-muted-foreground font-medium">Setup a DAO of your project for a community-driven governance.</p>
+              </div>
+
+              <div className="flex items-center gap-4">
+                <div className="flex items-center gap-3">
+                  <IconCoins className="bg-gradient-to-tr from-indigo-700/70 to-green-300/50 text-indigo-800 dark:text-blue-300
+                  p-2 size-12 rounded-lg" />
+                  <span className="text-xl font-bold">Reward</span>
+                </div>
+                <p className="text-muted-foreground font-medium">Raise funds through trade fees, reward members with XP and tokens based on contributions. Onchain, gamified. </p>
+              </div>
+            </div>
+          </div>
+
+          {/* Right Content */}
+          <div className="space-y-6 flex-1/3">
+            <div className="space-y-2 leading-relaxed">
+              <h2 className="text-2xl font-bold tracking-tight text-center">Community-driven Startups. <br /> Powered By Social Money.</h2>
+              <p className="text-center text-lg">
+                Embrace the democratization of value. Millions of specialized, culturally relevant tokens as social money, each governed by communities themselves.
+              </p>
+            </div>
+
+            {/* CTA Button */}
+            <Button size="xl" variant="secondary" className='
+              w-[80%] mx-auto flex items-center justify-center gap-2
+              bg-gradient-to-tr from-green-600/50 to-emerald-400/30 
+              text-green-700 dark:text-green-300
+            '>
+              <span className='font-bold text-lg text-shadow-2xs'>LAUNCH IN A MINUTE</span>
+              <IconArrowRight stroke={2.5} className='size-6' />
+            </Button>
+          </div>
+        </div>
+      </div>
+    </section>
   )
 }

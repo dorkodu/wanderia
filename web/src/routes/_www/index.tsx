@@ -1,5 +1,6 @@
 import { createFileRoute } from '@tanstack/react-router'
-import { Features } from '@web/components/www/features'
+import FAQ from '@web/components/www/faq'
+import { Features, Punchline } from '@web/components/www/features'
 import { Hero } from '@web/components/www/hero'
 
 export const Route = createFileRoute('/_www/')({
@@ -10,7 +11,9 @@ function Page() {
   return (
     <main>
       <Hero />
+      <Punchline />
       <Features />
+      <FAQ />
     </main>
   )
 }

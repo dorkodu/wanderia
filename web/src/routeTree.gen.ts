@@ -12,6 +12,7 @@ import { Route as rootRouteImport } from './routes/__root'
 import { Route as WwwRouteImport } from './routes/_www'
 import { Route as AppRouteImport } from './routes/_app'
 import { Route as WwwIndexRouteImport } from './routes/_www/index'
+import { Route as WwwPlaybookRouteImport } from './routes/_www/playbook'
 import { Route as WwwLoginRouteImport } from './routes/_www/login'
 import { Route as WwwErrorRouteImport } from './routes/_www/error'
 import { Route as WwwCreateAccountRouteImport } from './routes/_www/create-account'
@@ -50,6 +51,11 @@ const AppRoute = AppRouteImport.update({
 const WwwIndexRoute = WwwIndexRouteImport.update({
   id: '/',
   path: '/',
+  getParentRoute: () => WwwRoute,
+} as any)
+const WwwPlaybookRoute = WwwPlaybookRouteImport.update({
+  id: '/playbook',
+  path: '/playbook',
   getParentRoute: () => WwwRoute,
 } as any)
 const WwwLoginRoute = WwwLoginRouteImport.update({
@@ -195,6 +201,7 @@ export interface FileRoutesByFullPath {
   '/create-account': typeof WwwCreateAccountRoute
   '/error': typeof WwwErrorRoute
   '/login': typeof WwwLoginRoute
+  '/playbook': typeof WwwPlaybookRoute
   '/': typeof WwwIndexRoute
   '/community/$id': typeof AppCommunityIdRoute
   '/profile/$username': typeof AppProfileUsernameRoute
@@ -224,6 +231,7 @@ export interface FileRoutesByTo {
   '/create-account': typeof WwwCreateAccountRoute
   '/error': typeof WwwErrorRoute
   '/login': typeof WwwLoginRoute
+  '/playbook': typeof WwwPlaybookRoute
   '/': typeof WwwIndexRoute
   '/community/$id': typeof AppCommunityIdRoute
   '/profile/$username': typeof AppProfileUsernameRoute
@@ -256,6 +264,7 @@ export interface FileRoutesById {
   '/_www/create-account': typeof WwwCreateAccountRoute
   '/_www/error': typeof WwwErrorRoute
   '/_www/login': typeof WwwLoginRoute
+  '/_www/playbook': typeof WwwPlaybookRoute
   '/_www/': typeof WwwIndexRoute
   '/_app/community/$id': typeof AppCommunityIdRoute
   '/_app/profile/$username': typeof AppProfileUsernameRoute
@@ -287,6 +296,7 @@ export interface FileRouteTypes {
     | '/create-account'
     | '/error'
     | '/login'
+    | '/playbook'
     | '/'
     | '/community/$id'
     | '/profile/$username'
@@ -316,6 +326,7 @@ export interface FileRouteTypes {
     | '/create-account'
     | '/error'
     | '/login'
+    | '/playbook'
     | '/'
     | '/community/$id'
     | '/profile/$username'
@@ -347,6 +358,7 @@ export interface FileRouteTypes {
     | '/_www/create-account'
     | '/_www/error'
     | '/_www/login'
+    | '/_www/playbook'
     | '/_www/'
     | '/_app/community/$id'
     | '/_app/profile/$username'
@@ -391,6 +403,13 @@ declare module '@tanstack/react-router' {
       path: '/'
       fullPath: '/'
       preLoaderRoute: typeof WwwIndexRouteImport
+      parentRoute: typeof WwwRoute
+    }
+    '/_www/playbook': {
+      id: '/_www/playbook'
+      path: '/playbook'
+      fullPath: '/playbook'
+      preLoaderRoute: typeof WwwPlaybookRouteImport
       parentRoute: typeof WwwRoute
     }
     '/_www/login': {
@@ -616,6 +635,7 @@ interface WwwRouteChildren {
   WwwCreateAccountRoute: typeof WwwCreateAccountRoute
   WwwErrorRoute: typeof WwwErrorRoute
   WwwLoginRoute: typeof WwwLoginRoute
+  WwwPlaybookRoute: typeof WwwPlaybookRoute
   WwwIndexRoute: typeof WwwIndexRoute
   WwwLegalCommunityRulesRoute: typeof WwwLegalCommunityRulesRoute
   WwwLegalCompanyRoute: typeof WwwLegalCompanyRoute
@@ -634,6 +654,7 @@ const WwwRouteChildren: WwwRouteChildren = {
   WwwCreateAccountRoute: WwwCreateAccountRoute,
   WwwErrorRoute: WwwErrorRoute,
   WwwLoginRoute: WwwLoginRoute,
+  WwwPlaybookRoute: WwwPlaybookRoute,
   WwwIndexRoute: WwwIndexRoute,
   WwwLegalCommunityRulesRoute: WwwLegalCommunityRulesRoute,
   WwwLegalCompanyRoute: WwwLegalCompanyRoute,

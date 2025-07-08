@@ -14,17 +14,16 @@ export function Hero() {
               <div className="text-center sm:mx-auto lg:mr-auto lg:mt-0">
                 <img src="/images/trekie_Hero.svg" className='w-[100%] max-w-2xl mx-auto' />
                 <div>
-                  <h1 className="mt-8 max-w-5xl mx-auto text-balance font-black font-stretch-75% text-3xl/9 md:text-4xl lg:text-4xl lg:mt-16 xl:text-[3.5rem]">
+                  <h1 className="mt-8 max-w-5xl mx-auto text-balance font-extrabold font-stretch-75% text-3xl/9 md:text-4xl lg:text-4xl lg:mt-16 xl:text-[3.5rem]">
                     <span>
-                      Your Gamified Life Dashboard
+                      The Decentralized Superapp
                     </span><br />
                     <span className='text-2xl leading-0 md:text-4xl lg:text-4xl xl:text-5xl text-gray-400 font-medium'>
-                      With AI Productivity Companion
+                      For Regenerative Communities
                     </span>
                   </h1>
                   <p className="mx-auto mt-4 max-w-4xl text-balance text-lg lg:text-xl">
-                    Trekie is a gamified productivity app that treats your real life like a game.
-                    With rewards to motivate you and social features to share your journey with close friends.
+                    Simplifying onchain gamification, social-fi and AI agents. Create a project, onboard your users, form a community, manage as DAO, release a utility token, contribute things to get rewarded, build a good karma for the next era of internet, one byte at a time.
                   </p>
                 </div>
 
@@ -33,7 +32,7 @@ export function Hero() {
                     className="rounded-xl px-0 py-6
                     text-lg duration-200 
                     bg-gradient-to-tr from-green-600 to-emerald-500 
-                    hover:from-green-600 hover:to-emerald-400
+                    hover:to-emerald-400
                     focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-green-500 focus-visible:ring-offset-2">
                     <Link to="/" className="block px-8 py-3">
                       <span className="text-nowrap font-extrabold text-white text-shadow-xs">GET STARTED</span>

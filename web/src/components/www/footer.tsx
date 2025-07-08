@@ -29,12 +29,11 @@ interface FooterProps {
 
 const defaultSections = [
   {
-    title: "Product",
+    title: "Superapp",
     links: [
       { name: "Overview", href: "/#overview" },
       { name: "Features", href: "/#features" },
-      { name: "SDK", href: "/developers#sdk" },
-      { name: "Pricing", href: "/#pricing" },
+      { name: "Playbook", href: "/playbook" },
     ],
   },
   {
