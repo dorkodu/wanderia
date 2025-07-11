@@ -80,7 +80,7 @@ export const Footer = ({
   legalLinks = defaultLegalLinks,
 }: FooterProps) => {
   return (
-    <footer className={cn('mx-auto mt-2 px-3 transition-all duration-300 max-w-4xl lg:px-4')}>
+    <footer className={cn('mx-auto mt-2 px-4 transition-all duration-300 max-w-4xl lg:px-4')}>
       <section className="py-32">
         <div className="container mx-auto">
           <div className="flex w-full flex-col justify-between gap-10 lg:flex-row lg:items-start lg:text-left">
@@ -92,7 +92,7 @@ export const Footer = ({
                     src={logo.src}
                     alt={logo.alt}
                     title={logo.title}
-                    className="h-14"
+                    className="size-16"
                   />
                 </a>
               </div>
@@ -132,7 +132,7 @@ export const Footer = ({
             <ul className="order-1 flex flex-col gap-2 md:order-2 md:flex-row">
               {legalLinks.map((link, idx) => (
                 <React.Fragment key={idx}>
-                  {idx != 0 && <>·</>}
+                  {idx != 0 && <span className="hidden md:inline">·</span>}
                   <li className="hover:text-primary">
                     <a href={link.href}> {link.name}</a>
                   </li>
