@@ -12,18 +12,23 @@ export function Hero() {
             <div aria-hidden className="absolute inset-0 -z-10 size-full [background:radial-gradient(125%_125%_at_50%_100%,transparent_0%,var(--background)_75%)]" />
             <div className="mx-auto max-w-7xl px-6">
               <div className="text-center sm:mx-auto lg:mr-auto lg:mt-0">
-                <img src="/images/trekie_Hero.svg" className='w-[100%] max-w-2xl mx-auto' />
                 <div>
-                  <h1 className="mt-8 max-w-5xl mx-auto text-balance font-extrabold font-stretch-75% text-3xl/9 md:text-4xl lg:text-4xl lg:mt-16 xl:text-[3.5rem]">
-                    <span>
-                      The Decentralized Superapp
-                    </span><br />
-                    <span className='text-2xl leading-0 md:text-4xl lg:text-4xl xl:text-5xl text-gray-400 font-medium'>
+                  <h1 className="mt-6 max-w-5xl mx-auto text-balance font-extrabold font-stretch-75%
+                  text-2xl/9 md:text-3xl lg:text-2xl lg:mt-16 xl:text-[3rem]">
+                    The Decentralized Superapp<br />
+                    <span className='bg-gradient-to-r from-indigo-500 via-green-500 to-cyan-400 inline-block text-transparent bg-clip-text'>
                       For Regenerative Communities
                     </span>
                   </h1>
-                  <p className="mx-auto mt-4 max-w-4xl text-balance text-lg lg:text-xl">
-                    Simplifying onchain gamification, social-fi and AI agents. Create a project, onboard your users, form a community, manage as DAO, release a utility token, contribute things to get rewarded, build a good karma for the next era of internet, one byte at a time.
+                  <h2 className="max-w-5xl mx-auto lg:mt-4 
+                  text-balance font-bold font-stretch-75%
+                  text-lg/9 md:text-xl lg:text-2xl xl:text-3xl 
+                  text-slate-500/80 dark:text-slate-400/80 
+                  ">
+                    With onchain gamification, DAOs, AI agents and utility tokens.
+                  </h2>
+                  <p className="mx-auto mt-4 max-w-5xl text-balance text-lg lg:text-xl">
+                    Create a project, onboard your users, form a community, manage as DAO, release a utility token, contribute things to get rewarded, build a good karma for the next era of internet, one byte at a time.
                   </p>
                 </div>
 
@@ -57,12 +62,12 @@ export function Hero() {
             <div className="my-10 inset-shadow-2xs ring-background dark:inset-shadow-white/20 bg-background relative mx-auto max-w-5xl overflow-hidden rounded-2xl border p-4 shadow-lg shadow-zinc-950/15 ring-1">
               <img
                 className="bg-background relative block dark:hidden rounded-2xl"
-                src="/images/trekie-desktop-light.jpg"
+                src="/images/app-desktop-light.jpg"
                 alt="app screen"
               />
               <img
                 className="bg-background relative hidden rounded-2xl dark:block"
-                src="/images/trekie-desktop-dark.jpg"
+                src="/images/app-desktop-dark.jpg"
                 alt="app screen"
               />
             </div>

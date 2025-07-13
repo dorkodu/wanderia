@@ -1,4 +1,4 @@
-import { IconBrandInstagram, IconBrandTelegram, IconBrandTwitter, IconBrandYoutube } from "@tabler/icons-react";
+import { IconBrandGithub, IconBrandInstagram, IconBrandTelegram, IconBrandTiktok, IconBrandTwitter } from "@tabler/icons-react";
 import { createFileRoute, Outlet } from "@tanstack/react-router";
 import { Footer } from "@web/components/www/footer";
 import { Header } from "@web/components/www/header";
@@ -39,20 +39,19 @@ function WebsiteLayout() {
             ],
           },
         ]}
-        description="Your Gamified Life Dashboard & AI Productivity Companion"
+        description="The Superapp For Decentralized Communities"
         logo={{
-          src: "/images/trekie_Icon.svg",
-          alt: "Trekie Logo",
+          src: "/images/wanderia_Icon.svg",
+          alt: "Wanderia Logo",
           title: "",
           url: "/"
         }}
         socialLinks={[
-          { icon: <IconBrandTwitter />, href: "https://twitter.com/trekieapp", label: "Twitter" },
-          { icon: <IconBrandInstagram />, href: "https://instagram.com/trekieapp", label: "Instagram" },
-          { icon: <IconBrandTelegram />, href: "https://t.me/dorkodu", label: "Telegram" },
-          { icon: <IconBrandYoutube />, href: "https://youtube.com/@dorkodu", label: "YouTube" },
-          { icon: <IconBrandTwitter />, href: "https://bsky.com/user/dorkodu.com", label: "Bluesky" },
-          { icon: <IconBrandYoutube />, href: "https://github.com/dorkodu", label: "GitHub" },
+          { icon: <IconBrandTwitter />, href: "https://twitter.com/wanderiaxyz", label: "Twitter" },
+          { icon: <IconBrandInstagram />, href: "https://instagram.com/wanderia.xyz", label: "Instagram" },
+          { icon: <IconBrandTelegram />, href: "https://t.me/wanderia_xyz", label: "Telegram" },
+          { icon: <IconBrandTiktok />, href: "https://tiktok.com/@wanderia.xyz", label: "TikTok" },
+          { icon: <IconBrandGithub />, href: "https://github.com/dorkodu/wanderia", label: "GitHub" },
         ]}
       />
     </>
