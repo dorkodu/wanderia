@@ -57,20 +57,6 @@ export function Hero() {
                 </div>
               </div>
             </div>
-
-
-            <div className="my-10 inset-shadow-2xs ring-background dark:inset-shadow-white/20 bg-background relative mx-auto max-w-5xl overflow-hidden rounded-2xl border p-4 shadow-lg shadow-zinc-950/15 ring-1">
-              <img
-                className="bg-background relative block dark:hidden rounded-2xl"
-                src="/images/app-desktop-light.jpg"
-                alt="app screen"
-              />
-              <img
-                className="bg-background relative hidden rounded-2xl dark:block"
-                src="/images/app-desktop-dark.jpg"
-                alt="app screen"
-              />
-            </div>
           </div>
         </section>
       </div>

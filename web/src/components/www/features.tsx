@@ -112,7 +112,7 @@ export function Punchline() {
 
               <div className="flex items-center gap-4">
                 <div className="flex items-center gap-3">
-                  <IconRocket className="bg-gradient-to-tr from-indigo-700/70 to-green-300/50 text-indigo-800 dark:text-blue-300
+                  <IconRocket className="bg-gradient-to-tr from-indigo-700  to-green-500 text-white 
                   p-1.5 size-12 rounded-lg" />
                   <span className="text-xl font-bold">Launch</span>
                 </div>
@@ -121,7 +121,7 @@ export function Punchline() {
 
               <div className="flex items-center gap-4">
                 <div className="flex items-center gap-3">
-                  <IconBuildingBank className="bg-gradient-to-tr from-indigo-700/70 to-green-300/50 text-indigo-800 dark:text-blue-300
+                  <IconBuildingBank className="bg-gradient-to-tr from-indigo-700  to-green-500 text-white 
                   p-2 size-12 rounded-lg" />
                   <span className="text-xl font-bold">Manage</span>
                 </div>
@@ -130,11 +130,11 @@ export function Punchline() {
 
               <div className="flex items-center gap-4">
                 <div className="flex items-center gap-3">
-                  <IconCoins className="bg-gradient-to-tr from-indigo-700/70 to-green-300/50 text-indigo-800 dark:text-blue-300
+                  <IconCoins className="bg-gradient-to-tr from-indigo-700  to-green-500 text-white
                   p-2 size-12 rounded-lg" />
                   <span className="text-xl font-bold">Reward</span>
                 </div>
-                <p className="text-muted-foreground font-medium">Raise funds through trade fees, reward members with XP and tokens based on contributions. Onchain, gamified. </p>
+                <p className="text-muted-foreground font-medium">Raise funds, collect fees, reward members with XP and tokens based on contributions. </p>
               </div>
             </div>
           </div>
@@ -163,3 +163,99 @@ export function Punchline() {
     </section>
   )
 }
+
+export function SovereignAIAgents() {
+  return (
+    <section className="py-20 px-6">
+      <div className="max-w-6xl mx-auto space-y-12">
+
+
+        {/* Headline + Subheadline */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+          <div className="text-center space-y-4">
+            <h2 className="text-2xl md:text-3xl font-bold">
+              Sovereign, Crypto-Native AI Agents
+            </h2>
+          </div>
+
+          <div className="text-center space-y-4 max-w-3xl mx-auto">
+            <h3 className="text-lg md:text-xl font-semibold text-muted-foreground">
+              Your community’s own AI. <br /> Natively onchain and mission-aligned.
+            </h3>
+            <p className="text-md text-slate-300">
+              Forget generic chatbots. Spawn your own AI agent that understands your community, values, contributors, and token economy.
+            </p>
+          </div>
+        </div>
+
+        {/* Feature Grid */}
+        <div className="grid md:grid-cols-2 gap-8">
+          {[
+            {
+              title: "Mission-driven & Context-aware",
+              desc: "Trained on your community’s public feed, docs, contributions, and goals. Your agent helps newcomers onboard, keeps builders focused, and guides decision-making.",
+            },
+            {
+              title: "Built on open-source AI infrastructure",
+              desc: "Open, decentralized, and deeply integrated with your project’s token, tasks, and governance.",
+            },
+            {
+              title: "Your AI, your rules",
+              desc: "Customize your agent’s personality, knowledge scope, access levels, and behaviors. Train it on your GitHub, Discord, Farcaster, and more.",
+            },
+            {
+              title: "Token-native intelligence",
+              desc: "Agents understand your token mechanics, karma systems, and bonding curves. They can explain it, manage it, and even recommend treasury actions.",
+            },
+          ].map((feature, i) => (
+            <Card key={i} className="py-4 px-6 border rounded-2xl bg-slate-800/40 backdrop-blur gap-2">
+              <h4 className="text-lg font-semibold">{feature.title}</h4>
+              <p className="">{feature.desc}</p>
+            </Card>
+          ))}
+        </div>
+
+        {/* Visual Mockup Area */}
+        <div className="grid md:grid-cols-2 gap-8 items-center">
+          {/* Left: Chat Mockup */}
+          <div className="bg-slate-800 rounded-2xl p-6 space-y-4 shadow-lg">
+            <div className="text-slate-400 text-sm">User:</div>
+            <div className="text-white font-semibold">Hey WanderBot, how can I earn XP today?</div>
+            <div className="text-slate-400 text-sm">WanderBot:</div>
+            <div className="text-green-400">Here are 3 open tasks tied to bounties:</div>
+            <ul className="list-disc pl-5 text-slate-300">
+              <li>Write a blog post explaining our bonding curve</li>
+              <li>Help onboard new Discord members</li>
+              <li>Design XP badges for next season</li>
+            </ul>
+          </div>
+
+          {/* Right: Agent Stats / UI */}
+          <div className="space-y-4 bg-slate-800 rounded-2xl p-6 shadow-lg">
+            <h4 className="text-xl font-semibold text-white">Agent: WanderBot v1</h4>
+            <ul className="space-y-2 text-slate-300">
+              <li>🧠 Trained on: GitHub, Discord, Tokenomics docs</li>
+              <li>🪙 Treasury-aware: Yes</li>
+              <li>🔒 Permissions: Contributor, Admin</li>
+              <li>⚙️ Deployed: Onchain, Local, API</li>
+              <li>🧩 Plugin modules: Onboarding, Voting, Tasks</li>
+            </ul>
+          </div>
+        </div>
+
+        {/* CTA */}
+        <div className="text-center space-y-4">
+          <h3 className="text-2xl font-semibold text-white">
+            Every community deserves an intelligence layer. Launch yours with one click.
+          </h3>
+          <button className="px-6 py-3 bg-green-500 hover:bg-green-600 text-white font-medium rounded-xl transition">
+            ⚙️ Create My Agent
+          </button>
+        </div>
+
+
+      </div>
+    </section>
+  );
+}
+
