@@ -1,4 +1,4 @@
-import { create, StateCreator } from 'zustand'
+import { create, type StateCreator } from 'zustand'
 import { immer } from 'zustand/middleware/immer'
 
 export interface IStatus<TData> {
@@ -37,16 +37,3 @@ export function Slice<TState>
 
 const Supercell = { Cell, Event, Store, Slice }
 export default Supercell
-
-const mind = Cell({
-  HabitCreated: Event<{ id: string }>({
-    create: (data) => ({ kind: "HabitCreated", timestamp: Date.now(), data }),
-    on: (status) => console.log(status)
-  }),
-  HabitDeleted: Event<{ time: string }>({
-    create: (data) => ({ kind: "HabitDeleted", timestamp: Date.now(), data }),
-    on: (status) => console.log(status)
-  })
-})
-
-

@@ -112,7 +112,7 @@ export function Punchline() {
 
               <div className="flex items-center gap-4">
                 <div className="flex items-center gap-3">
-                  <IconRocket className="bg-gradient-to-tr from-indigo-700  to-green-500 text-white 
+                  <IconRocket className="bg-gradient-to-tr from-purple-900 via-blue-600  to-green-500 text-white 
                   p-1.5 size-12 rounded-lg" />
                   <span className="text-xl font-bold">Launch</span>
                 </div>
@@ -121,7 +121,7 @@ export function Punchline() {
 
               <div className="flex items-center gap-4">
                 <div className="flex items-center gap-3">
-                  <IconBuildingBank className="bg-gradient-to-tr from-indigo-700  to-green-500 text-white 
+                  <IconBuildingBank className="bg-gradient-to-tr from-purple-900 via-blue-600  to-green-500 text-white 
                   p-2 size-12 rounded-lg" />
                   <span className="text-xl font-bold">Manage</span>
                 </div>
@@ -130,7 +130,7 @@ export function Punchline() {
 
               <div className="flex items-center gap-4">
                 <div className="flex items-center gap-3">
-                  <IconCoins className="bg-gradient-to-tr from-indigo-700  to-green-500 text-white
+                  <IconCoins className="bg-gradient-to-tr from-purple-900 via-blue-600  to-green-500 text-white
                   p-2 size-12 rounded-lg" />
                   <span className="text-xl font-bold">Reward</span>
                 </div>
