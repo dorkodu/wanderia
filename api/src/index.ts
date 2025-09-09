@@ -1,31 +1,43 @@
-import { Elysia } from 'elysia'
-import { trpc } from '@elysiajs/trpc'
-import { router } from './router'
-import { initDb } from './db';
-import { db } from './db'; // still needed if you use db in handlers
 import { cors } from "@elysiajs/cors";
+import { trpc } from "@elysiajs/trpc";
+import { Elysia } from 'elysia';
+import { db, initDb } from './db';
+import { Router } from './lib/trpc';
+import { betterAuthMiddleware } from "./namespaces/auth/endpoints";
 import { loadNamespaceEndpoints } from './utils/loadNamespaces';
 
 const app = new Elysia()
 
-app.get('/', () => '');
-app.decorate('db', db);
-app.use(trpc(router));
+  .use(
+    cors({
+      origin: "http://localhost:5173",
+      credentials: true,
+      allowedHeaders: ["Content-Type", "Authorization"],
+      methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"]
+    })
+  )
+  .use(betterAuthMiddleware)
 
-app.use(cors({
-  origin:"http:localhost:3000",
-  methods:["GET","POST","PUT","DELETE","OPTIONS"],
-  credentials:true,
-  allowedHeaders: ["Content-Type","Authorization"]
-}))
+  .use(trpc(Router))
+
+  .decorate('db', db)
+
+  .get('/', () => 'Welcome to Trekie API -- this is the index.')
+
+  .post("/echo", ({ body }) => { return body; })
+
+  .onRequest(({ request }) => {
+    console.log(`[GLOBAL] ${request.method} ${request.url}`);
+  })
+
+  .listen(8000);
+
 
 async function main() {
   await initDb();
-  await loadNamespaceEndpoints(app); // 💥 dinamik route ekleme
-  console.log(
-  app.routes.map(r => `${r.method} ${r.path}`).join('\n')  );
-  app.listen(3000);
-  console.log('🚀 Server is running at http://localhost:3000');
+  await loadNamespaceEndpoints(app);
+
+  console.log('🚀 Server is running at http://localhost:8000');
 }
 
 main();

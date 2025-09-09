@@ -1,8 +1,9 @@
 export const maxDeckCards = 100;
 
 export const limits = {
-  deck: { free: 1, premium: 10 },
-  deckCards: { free: 50, premium: 100 },
+
 };
+
+export const USERNAME_REGEX = /^(?![_.])(?!.*[_.]{2})([a-zA-Z0-9_.]{1,16})(?<![_.])$/
 
 export * as constants from "./constants";

@@ -10,6 +10,8 @@ interface Context {
 const t = initTRPC.context<Context>().create()
 
 export const Router = t.router
+export type Router = typeof Router
+
 export const publicProcedure = t.procedure
 
 export const authRequiredProcedure = publicProcedure.use(async (opts) => {

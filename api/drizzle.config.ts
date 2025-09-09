@@ -1,11 +1,10 @@
 import 'dotenv/config'
 import { defineConfig } from 'drizzle-kit'
 
-// This database definition is only for drizzlekit cli, won't be used in runtime.
 
 export default defineConfig({
   out: './drizzle',
-  schema: './src/namespaces/**/schema.ts', // Glob imports all the schemas from namespaces.
+  schema: './src/namespaces/*/schemas/db.ts',
   dialect: 'postgresql',
   dbCredentials: {
     user: process.env.POSTGRES_USER,
