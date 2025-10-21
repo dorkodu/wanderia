@@ -40,7 +40,7 @@ export function reportToRemote(value: any) {
 function createReportMessage(value: any) {
   return {
     meta: {
-      app: "trekie/web",
+      app: "wanderia/sdk",
       timestamp: new Date().toDateString(),
     },
     data: value
