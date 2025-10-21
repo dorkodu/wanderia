@@ -1,4 +1,5 @@
 
+import { useCanGoBack, useRouter } from "@tanstack/react-router"
 import { useEffect, useState } from "react"
 
 export function useDelay() {
@@ -10,4 +11,17 @@ export function useDelay() {
   }, [])
 
   return state
+}
+
+export function useSafeGoBack() {
+  const router = useRouter()
+  const canGoBack = useCanGoBack()
+
+  return () => {
+    if (canGoBack) {
+      router.history.back()
+    } else {
+      router.navigate({ to: "/" })
+    }
+  }
 }

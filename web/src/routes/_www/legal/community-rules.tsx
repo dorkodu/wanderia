@@ -7,7 +7,7 @@ export const Route = createFileRoute("/_www/legal/community-rules")({
   component: CommunityRules,
 });
 
-export function CommunityRules() {
+function CommunityRules() {
   return (
     <Container size={760}>
       <Group wrap="nowrap" className="max-w-[440px]">

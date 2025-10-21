@@ -17,7 +17,7 @@ export const Route = createFileRoute("/_www/legal/company")({
   component: Company,
 });
 
-export function Company() {
+function Company() {
   return (
     <Box className="my-12" id="company">
       <SimpleGrid cols={{ base: 1, sm: 2 }}>

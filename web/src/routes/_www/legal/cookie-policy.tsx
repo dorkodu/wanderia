@@ -7,7 +7,7 @@ export const Route = createFileRoute("/_www/legal/cookie-policy")({
   component: CookiePolicy,
 });
 
-export function CookiePolicy() {
+function CookiePolicy() {
   return (
     <Container size={760}>
       <Group wrap="nowrap" className="max-w-[440px]">
