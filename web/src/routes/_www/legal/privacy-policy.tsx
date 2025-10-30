@@ -7,7 +7,7 @@ export const Route = createFileRoute("/_www/legal/privacy-policy")({
   component: Privacy,
 });
 
-export function Privacy() {
+function Privacy() {
   return (
     <Container size={760}>
       <Group wrap="nowrap">

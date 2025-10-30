@@ -14,12 +14,9 @@
     "skipLibCheck": true,
     "noImplicitAny": false,
     "downlevelIteration": true,
-    "jsx": "preserve",
     "allowSyntheticDefaultImports": true,
+    "jsx": "react-jsx"
   },
-  "include": [
-    "src"
-  ],
   "exclude": [
     "node_modules"
   ]

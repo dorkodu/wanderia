@@ -1,11 +1,18 @@
 {
-  "name": "wanderia",
+  "name": "trekie",
+  "version": "1.0.0",
   "private": true,
+  "dependencies": {},
+  "devDependencies": {
+    "shadcn": "^3.2.1"
+  },
   "workspaces": [
     "web",
-    "api"
+    "api",
+    "sdk",
+    "db"
   ],
-  "dependencies": {
-  },
-  "devDependencies": {}
+  "scripts": {
+    "clean": "rm -rf node_modules web/node_modules api/node_modules sdk/node_modules db/node_modules bun.lockb web/bun.lockb api/bun.lockb sdk/bun.lockb db/bun.lockb"
+  }
 }

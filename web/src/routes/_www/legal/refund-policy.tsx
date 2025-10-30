@@ -7,7 +7,7 @@ export const Route = createFileRoute("/_www/legal/refund-policy")({
   component: RefundPolicy,
 });
 
-export function RefundPolicy() {
+function RefundPolicy() {
   return (
     <Container size={760}>
       <Group wrap="nowrap" style={{ maxWidth: 440 }}>

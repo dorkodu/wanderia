@@ -1,9 +1,10 @@
 import { createFileRoute } from '@tanstack/react-router'
+import { HelpList } from '@web/components/help/HelpList'
 
 export const Route = createFileRoute('/_www/help/')({
-  component: RouteComponent,
+  component: HelpPage,
 })
 
-function RouteComponent() {
-  return <div>Hello "/_www/help/"!</div>
+function HelpPage() {
+  return <HelpList />
 }

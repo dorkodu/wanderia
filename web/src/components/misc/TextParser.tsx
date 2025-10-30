@@ -44,7 +44,7 @@ const parseables = {
       const onClick = (ev: MouseEvent) => {
         ev.preventDefault();
         ev.stopPropagation();
-        navigate({ to: `/profile/$username`, params: { username: text.slice(1) } });
+        navigate({ to: `/:username`, params: { username: text.slice(1) } });
       };
 
       return (

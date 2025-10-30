@@ -1,0 +1,3 @@
+# Wanderia API
+
+`@wanderia/api`

@@ -12,34 +12,37 @@ import { Route as rootRouteImport } from './routes/__root'
 import { Route as WwwRouteImport } from './routes/_www'
 import { Route as AppRouteImport } from './routes/_app'
 import { Route as WwwIndexRouteImport } from './routes/_www/index'
-import { Route as WwwPlaybookRouteImport } from './routes/_www/playbook'
-import { Route as WwwManifestoRouteImport } from './routes/_www/manifesto'
+import { Route as WwwSuperRouteImport } from './routes/_www/super'
 import { Route as WwwLoginRouteImport } from './routes/_www/login'
+import { Route as WwwForgotPasswordRouteImport } from './routes/_www/forgot-password'
 import { Route as WwwErrorRouteImport } from './routes/_www/error'
 import { Route as WwwCreateAccountRouteImport } from './routes/_www/create-account'
 import { Route as WwwAboutRouteImport } from './routes/_www/about'
 import { Route as Www404RouteImport } from './routes/_www/404'
-import { Route as AppSocialRouteImport } from './routes/_app/social'
-import { Route as AppPremiumRouteImport } from './routes/_app/premium'
+import { Route as AppProfileRouteImport } from './routes/_app/profile'
+import { Route as AppOnboardingRouteImport } from './routes/_app/onboarding'
 import { Route as AppMeRouteImport } from './routes/_app/me'
 import { Route as AppHomeRouteImport } from './routes/_app/home'
 import { Route as AppExploreRouteImport } from './routes/_app/explore'
-import { Route as AppUsernameRouteImport } from './routes/_app/$username'
+import { Route as AppChar58usernameRouteImport } from './routes/_app/:username'
 import { Route as WwwLegalIndexRouteImport } from './routes/_www/legal/index'
 import { Route as WwwHelpIndexRouteImport } from './routes/_www/help/index'
 import { Route as WwwDocsIndexRouteImport } from './routes/_www/docs/index'
 import { Route as AppSettingsIndexRouteImport } from './routes/_app/settings/index'
-import { Route as AppMarketIndexRouteImport } from './routes/_app/market/index'
-import { Route as AppCommunityIndexRouteImport } from './routes/_app/community/index'
+import { Route as AppOnboardingIndexRouteImport } from './routes/_app/onboarding/index'
 import { Route as WwwLegalTermsOfServiceRouteImport } from './routes/_www/legal/terms-of-service'
 import { Route as WwwLegalRefundPolicyRouteImport } from './routes/_www/legal/refund-policy'
 import { Route as WwwLegalPrivacyPolicyRouteImport } from './routes/_www/legal/privacy-policy'
 import { Route as WwwLegalCookiePolicyRouteImport } from './routes/_www/legal/cookie-policy'
 import { Route as WwwLegalCompanyRouteImport } from './routes/_www/legal/company'
 import { Route as WwwLegalCommunityRulesRouteImport } from './routes/_www/legal/community-rules'
+import { Route as WwwHelpSlugRouteImport } from './routes/_www/help/$slug'
 import { Route as AppProfileEditRouteImport } from './routes/_app/profile/edit'
 import { Route as AppProfileUsernameRouteImport } from './routes/_app/profile/$username'
-import { Route as AppCommunityIdRouteImport } from './routes/_app/community/$id'
+import { Route as AppOnboardingTodosRouteImport } from './routes/_app/onboarding/todos'
+import { Route as AppOnboardingProfileRouteImport } from './routes/_app/onboarding/profile'
+import { Route as AppOnboardingGoalsRouteImport } from './routes/_app/onboarding/goals'
+import { Route as AppOnboardingCompleteRouteImport } from './routes/_app/onboarding/complete'
 
 const WwwRoute = WwwRouteImport.update({
   id: '/_www',
@@ -54,19 +57,19 @@ const WwwIndexRoute = WwwIndexRouteImport.update({
   path: '/',
   getParentRoute: () => WwwRoute,
 } as any)
-const WwwPlaybookRoute = WwwPlaybookRouteImport.update({
-  id: '/playbook',
-  path: '/playbook',
-  getParentRoute: () => WwwRoute,
-} as any)
-const WwwManifestoRoute = WwwManifestoRouteImport.update({
-  id: '/manifesto',
-  path: '/manifesto',
+const WwwSuperRoute = WwwSuperRouteImport.update({
+  id: '/super',
+  path: '/super',
   getParentRoute: () => WwwRoute,
 } as any)
 const WwwLoginRoute = WwwLoginRouteImport.update({
   id: '/login',
   path: '/login',
+  getParentRoute: () => WwwRoute,
+} as any)
+const WwwForgotPasswordRoute = WwwForgotPasswordRouteImport.update({
+  id: '/forgot-password',
+  path: '/forgot-password',
   getParentRoute: () => WwwRoute,
 } as any)
 const WwwErrorRoute = WwwErrorRouteImport.update({
@@ -89,14 +92,14 @@ const Www404Route = Www404RouteImport.update({
   path: '/404',
   getParentRoute: () => WwwRoute,
 } as any)
-const AppSocialRoute = AppSocialRouteImport.update({
-  id: '/social',
-  path: '/social',
+const AppProfileRoute = AppProfileRouteImport.update({
+  id: '/profile',
+  path: '/profile',
   getParentRoute: () => AppRoute,
 } as any)
-const AppPremiumRoute = AppPremiumRouteImport.update({
-  id: '/premium',
-  path: '/premium',
+const AppOnboardingRoute = AppOnboardingRouteImport.update({
+  id: '/onboarding',
+  path: '/onboarding',
   getParentRoute: () => AppRoute,
 } as any)
 const AppMeRoute = AppMeRouteImport.update({
@@ -114,9 +117,9 @@ const AppExploreRoute = AppExploreRouteImport.update({
   path: '/explore',
   getParentRoute: () => AppRoute,
 } as any)
-const AppUsernameRoute = AppUsernameRouteImport.update({
-  id: '/$username',
-  path: '/$username',
+const AppChar58usernameRoute = AppChar58usernameRouteImport.update({
+  id: '/:username',
+  path: '/:username',
   getParentRoute: () => AppRoute,
 } as any)
 const WwwLegalIndexRoute = WwwLegalIndexRouteImport.update({
@@ -139,15 +142,10 @@ const AppSettingsIndexRoute = AppSettingsIndexRouteImport.update({
   path: '/settings/',
   getParentRoute: () => AppRoute,
 } as any)
-const AppMarketIndexRoute = AppMarketIndexRouteImport.update({
-  id: '/market/',
-  path: '/market/',
-  getParentRoute: () => AppRoute,
-} as any)
-const AppCommunityIndexRoute = AppCommunityIndexRouteImport.update({
-  id: '/community/',
-  path: '/community/',
-  getParentRoute: () => AppRoute,
+const AppOnboardingIndexRoute = AppOnboardingIndexRouteImport.update({
+  id: '/',
+  path: '/',
+  getParentRoute: () => AppOnboardingRoute,
 } as any)
 const WwwLegalTermsOfServiceRoute = WwwLegalTermsOfServiceRouteImport.update({
   id: '/legal/terms-of-service',
@@ -179,79 +177,104 @@ const WwwLegalCommunityRulesRoute = WwwLegalCommunityRulesRouteImport.update({
   path: '/legal/community-rules',
   getParentRoute: () => WwwRoute,
 } as any)
+const WwwHelpSlugRoute = WwwHelpSlugRouteImport.update({
+  id: '/help/$slug',
+  path: '/help/$slug',
+  getParentRoute: () => WwwRoute,
+} as any)
 const AppProfileEditRoute = AppProfileEditRouteImport.update({
-  id: '/profile/edit',
-  path: '/profile/edit',
-  getParentRoute: () => AppRoute,
+  id: '/edit',
+  path: '/edit',
+  getParentRoute: () => AppProfileRoute,
 } as any)
 const AppProfileUsernameRoute = AppProfileUsernameRouteImport.update({
-  id: '/profile/$username',
-  path: '/profile/$username',
-  getParentRoute: () => AppRoute,
+  id: '/$username',
+  path: '/$username',
+  getParentRoute: () => AppProfileRoute,
 } as any)
-const AppCommunityIdRoute = AppCommunityIdRouteImport.update({
-  id: '/community/$id',
-  path: '/community/$id',
-  getParentRoute: () => AppRoute,
+const AppOnboardingTodosRoute = AppOnboardingTodosRouteImport.update({
+  id: '/todos',
+  path: '/todos',
+  getParentRoute: () => AppOnboardingRoute,
+} as any)
+const AppOnboardingProfileRoute = AppOnboardingProfileRouteImport.update({
+  id: '/profile',
+  path: '/profile',
+  getParentRoute: () => AppOnboardingRoute,
+} as any)
+const AppOnboardingGoalsRoute = AppOnboardingGoalsRouteImport.update({
+  id: '/goals',
+  path: '/goals',
+  getParentRoute: () => AppOnboardingRoute,
+} as any)
+const AppOnboardingCompleteRoute = AppOnboardingCompleteRouteImport.update({
+  id: '/complete',
+  path: '/complete',
+  getParentRoute: () => AppOnboardingRoute,
 } as any)
 
 export interface FileRoutesByFullPath {
-  '/$username': typeof AppUsernameRoute
+  '/:username': typeof AppChar58usernameRoute
   '/explore': typeof AppExploreRoute
   '/home': typeof AppHomeRoute
   '/me': typeof AppMeRoute
-  '/premium': typeof AppPremiumRoute
-  '/social': typeof AppSocialRoute
+  '/onboarding': typeof AppOnboardingRouteWithChildren
+  '/profile': typeof AppProfileRouteWithChildren
   '/404': typeof Www404Route
   '/about': typeof WwwAboutRoute
   '/create-account': typeof WwwCreateAccountRoute
   '/error': typeof WwwErrorRoute
+  '/forgot-password': typeof WwwForgotPasswordRoute
   '/login': typeof WwwLoginRoute
-  '/manifesto': typeof WwwManifestoRoute
-  '/playbook': typeof WwwPlaybookRoute
+  '/super': typeof WwwSuperRoute
   '/': typeof WwwIndexRoute
-  '/community/$id': typeof AppCommunityIdRoute
+  '/onboarding/complete': typeof AppOnboardingCompleteRoute
+  '/onboarding/goals': typeof AppOnboardingGoalsRoute
+  '/onboarding/profile': typeof AppOnboardingProfileRoute
+  '/onboarding/todos': typeof AppOnboardingTodosRoute
   '/profile/$username': typeof AppProfileUsernameRoute
   '/profile/edit': typeof AppProfileEditRoute
+  '/help/$slug': typeof WwwHelpSlugRoute
   '/legal/community-rules': typeof WwwLegalCommunityRulesRoute
   '/legal/company': typeof WwwLegalCompanyRoute
   '/legal/cookie-policy': typeof WwwLegalCookiePolicyRoute
   '/legal/privacy-policy': typeof WwwLegalPrivacyPolicyRoute
   '/legal/refund-policy': typeof WwwLegalRefundPolicyRoute
   '/legal/terms-of-service': typeof WwwLegalTermsOfServiceRoute
-  '/community': typeof AppCommunityIndexRoute
-  '/market': typeof AppMarketIndexRoute
+  '/onboarding/': typeof AppOnboardingIndexRoute
   '/settings': typeof AppSettingsIndexRoute
   '/docs': typeof WwwDocsIndexRoute
   '/help': typeof WwwHelpIndexRoute
   '/legal': typeof WwwLegalIndexRoute
 }
 export interface FileRoutesByTo {
-  '/$username': typeof AppUsernameRoute
+  '/:username': typeof AppChar58usernameRoute
   '/explore': typeof AppExploreRoute
   '/home': typeof AppHomeRoute
   '/me': typeof AppMeRoute
-  '/premium': typeof AppPremiumRoute
-  '/social': typeof AppSocialRoute
+  '/profile': typeof AppProfileRouteWithChildren
   '/404': typeof Www404Route
   '/about': typeof WwwAboutRoute
   '/create-account': typeof WwwCreateAccountRoute
   '/error': typeof WwwErrorRoute
+  '/forgot-password': typeof WwwForgotPasswordRoute
   '/login': typeof WwwLoginRoute
-  '/manifesto': typeof WwwManifestoRoute
-  '/playbook': typeof WwwPlaybookRoute
+  '/super': typeof WwwSuperRoute
   '/': typeof WwwIndexRoute
-  '/community/$id': typeof AppCommunityIdRoute
+  '/onboarding/complete': typeof AppOnboardingCompleteRoute
+  '/onboarding/goals': typeof AppOnboardingGoalsRoute
+  '/onboarding/profile': typeof AppOnboardingProfileRoute
+  '/onboarding/todos': typeof AppOnboardingTodosRoute
   '/profile/$username': typeof AppProfileUsernameRoute
   '/profile/edit': typeof AppProfileEditRoute
+  '/help/$slug': typeof WwwHelpSlugRoute
   '/legal/community-rules': typeof WwwLegalCommunityRulesRoute
   '/legal/company': typeof WwwLegalCompanyRoute
   '/legal/cookie-policy': typeof WwwLegalCookiePolicyRoute
   '/legal/privacy-policy': typeof WwwLegalPrivacyPolicyRoute
   '/legal/refund-policy': typeof WwwLegalRefundPolicyRoute
   '/legal/terms-of-service': typeof WwwLegalTermsOfServiceRoute
-  '/community': typeof AppCommunityIndexRoute
-  '/market': typeof AppMarketIndexRoute
+  '/onboarding': typeof AppOnboardingIndexRoute
   '/settings': typeof AppSettingsIndexRoute
   '/docs': typeof WwwDocsIndexRoute
   '/help': typeof WwwHelpIndexRoute
@@ -261,31 +284,34 @@ export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/_app': typeof AppRouteWithChildren
   '/_www': typeof WwwRouteWithChildren
-  '/_app/$username': typeof AppUsernameRoute
+  '/_app/:username': typeof AppChar58usernameRoute
   '/_app/explore': typeof AppExploreRoute
   '/_app/home': typeof AppHomeRoute
   '/_app/me': typeof AppMeRoute
-  '/_app/premium': typeof AppPremiumRoute
-  '/_app/social': typeof AppSocialRoute
+  '/_app/onboarding': typeof AppOnboardingRouteWithChildren
+  '/_app/profile': typeof AppProfileRouteWithChildren
   '/_www/404': typeof Www404Route
   '/_www/about': typeof WwwAboutRoute
   '/_www/create-account': typeof WwwCreateAccountRoute
   '/_www/error': typeof WwwErrorRoute
+  '/_www/forgot-password': typeof WwwForgotPasswordRoute
   '/_www/login': typeof WwwLoginRoute
-  '/_www/manifesto': typeof WwwManifestoRoute
-  '/_www/playbook': typeof WwwPlaybookRoute
+  '/_www/super': typeof WwwSuperRoute
   '/_www/': typeof WwwIndexRoute
-  '/_app/community/$id': typeof AppCommunityIdRoute
+  '/_app/onboarding/complete': typeof AppOnboardingCompleteRoute
+  '/_app/onboarding/goals': typeof AppOnboardingGoalsRoute
+  '/_app/onboarding/profile': typeof AppOnboardingProfileRoute
+  '/_app/onboarding/todos': typeof AppOnboardingTodosRoute
   '/_app/profile/$username': typeof AppProfileUsernameRoute
   '/_app/profile/edit': typeof AppProfileEditRoute
+  '/_www/help/$slug': typeof WwwHelpSlugRoute
   '/_www/legal/community-rules': typeof WwwLegalCommunityRulesRoute
   '/_www/legal/company': typeof WwwLegalCompanyRoute
   '/_www/legal/cookie-policy': typeof WwwLegalCookiePolicyRoute
   '/_www/legal/privacy-policy': typeof WwwLegalPrivacyPolicyRoute
   '/_www/legal/refund-policy': typeof WwwLegalRefundPolicyRoute
   '/_www/legal/terms-of-service': typeof WwwLegalTermsOfServiceRoute
-  '/_app/community/': typeof AppCommunityIndexRoute
-  '/_app/market/': typeof AppMarketIndexRoute
+  '/_app/onboarding/': typeof AppOnboardingIndexRoute
   '/_app/settings/': typeof AppSettingsIndexRoute
   '/_www/docs/': typeof WwwDocsIndexRoute
   '/_www/help/': typeof WwwHelpIndexRoute
@@ -294,62 +320,67 @@ export interface FileRoutesById {
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
   fullPaths:
-    | '/$username'
+    | '/:username'
     | '/explore'
     | '/home'
     | '/me'
-    | '/premium'
-    | '/social'
+    | '/onboarding'
+    | '/profile'
     | '/404'
     | '/about'
     | '/create-account'
     | '/error'
+    | '/forgot-password'
     | '/login'
-    | '/manifesto'
-    | '/playbook'
+    | '/super'
     | '/'
-    | '/community/$id'
+    | '/onboarding/complete'
+    | '/onboarding/goals'
+    | '/onboarding/profile'
+    | '/onboarding/todos'
     | '/profile/$username'
     | '/profile/edit'
+    | '/help/$slug'
     | '/legal/community-rules'
     | '/legal/company'
     | '/legal/cookie-policy'
     | '/legal/privacy-policy'
     | '/legal/refund-policy'
     | '/legal/terms-of-service'
-    | '/community'
-    | '/market'
+    | '/onboarding/'
     | '/settings'
     | '/docs'
     | '/help'
     | '/legal'
   fileRoutesByTo: FileRoutesByTo
   to:
-    | '/$username'
+    | '/:username'
     | '/explore'
     | '/home'
     | '/me'
-    | '/premium'
-    | '/social'
+    | '/profile'
     | '/404'
     | '/about'
     | '/create-account'
     | '/error'
+    | '/forgot-password'
     | '/login'
-    | '/manifesto'
-    | '/playbook'
+    | '/super'
     | '/'
-    | '/community/$id'
+    | '/onboarding/complete'
+    | '/onboarding/goals'
+    | '/onboarding/profile'
+    | '/onboarding/todos'
     | '/profile/$username'
     | '/profile/edit'
+    | '/help/$slug'
     | '/legal/community-rules'
     | '/legal/company'
     | '/legal/cookie-policy'
     | '/legal/privacy-policy'
     | '/legal/refund-policy'
     | '/legal/terms-of-service'
-    | '/community'
-    | '/market'
+    | '/onboarding'
     | '/settings'
     | '/docs'
     | '/help'
@@ -358,31 +389,34 @@ export interface FileRouteTypes {
     | '__root__'
     | '/_app'
     | '/_www'
-    | '/_app/$username'
+    | '/_app/:username'
     | '/_app/explore'
     | '/_app/home'
     | '/_app/me'
-    | '/_app/premium'
-    | '/_app/social'
+    | '/_app/onboarding'
+    | '/_app/profile'
     | '/_www/404'
     | '/_www/about'
     | '/_www/create-account'
     | '/_www/error'
+    | '/_www/forgot-password'
     | '/_www/login'
-    | '/_www/manifesto'
-    | '/_www/playbook'
+    | '/_www/super'
     | '/_www/'
-    | '/_app/community/$id'
+    | '/_app/onboarding/complete'
+    | '/_app/onboarding/goals'
+    | '/_app/onboarding/profile'
+    | '/_app/onboarding/todos'
     | '/_app/profile/$username'
     | '/_app/profile/edit'
+    | '/_www/help/$slug'
     | '/_www/legal/community-rules'
     | '/_www/legal/company'
     | '/_www/legal/cookie-policy'
     | '/_www/legal/privacy-policy'
     | '/_www/legal/refund-policy'
     | '/_www/legal/terms-of-service'
-    | '/_app/community/'
-    | '/_app/market/'
+    | '/_app/onboarding/'
     | '/_app/settings/'
     | '/_www/docs/'
     | '/_www/help/'
@@ -417,18 +451,11 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof WwwIndexRouteImport
       parentRoute: typeof WwwRoute
     }
-    '/_www/playbook': {
-      id: '/_www/playbook'
-      path: '/playbook'
-      fullPath: '/playbook'
-      preLoaderRoute: typeof WwwPlaybookRouteImport
-      parentRoute: typeof WwwRoute
-    }
-    '/_www/manifesto': {
-      id: '/_www/manifesto'
-      path: '/manifesto'
-      fullPath: '/manifesto'
-      preLoaderRoute: typeof WwwManifestoRouteImport
+    '/_www/super': {
+      id: '/_www/super'
+      path: '/super'
+      fullPath: '/super'
+      preLoaderRoute: typeof WwwSuperRouteImport
       parentRoute: typeof WwwRoute
     }
     '/_www/login': {
@@ -436,6 +463,13 @@ declare module '@tanstack/react-router' {
       path: '/login'
       fullPath: '/login'
       preLoaderRoute: typeof WwwLoginRouteImport
+      parentRoute: typeof WwwRoute
+    }
+    '/_www/forgot-password': {
+      id: '/_www/forgot-password'
+      path: '/forgot-password'
+      fullPath: '/forgot-password'
+      preLoaderRoute: typeof WwwForgotPasswordRouteImport
       parentRoute: typeof WwwRoute
     }
     '/_www/error': {
@@ -466,18 +500,18 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof Www404RouteImport
       parentRoute: typeof WwwRoute
     }
-    '/_app/social': {
-      id: '/_app/social'
-      path: '/social'
-      fullPath: '/social'
-      preLoaderRoute: typeof AppSocialRouteImport
+    '/_app/profile': {
+      id: '/_app/profile'
+      path: '/profile'
+      fullPath: '/profile'
+      preLoaderRoute: typeof AppProfileRouteImport
       parentRoute: typeof AppRoute
     }
-    '/_app/premium': {
-      id: '/_app/premium'
-      path: '/premium'
-      fullPath: '/premium'
-      preLoaderRoute: typeof AppPremiumRouteImport
+    '/_app/onboarding': {
+      id: '/_app/onboarding'
+      path: '/onboarding'
+      fullPath: '/onboarding'
+      preLoaderRoute: typeof AppOnboardingRouteImport
       parentRoute: typeof AppRoute
     }
     '/_app/me': {
@@ -501,11 +535,11 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AppExploreRouteImport
       parentRoute: typeof AppRoute
     }
-    '/_app/$username': {
-      id: '/_app/$username'
-      path: '/$username'
-      fullPath: '/$username'
-      preLoaderRoute: typeof AppUsernameRouteImport
+    '/_app/:username': {
+      id: '/_app/:username'
+      path: '/:username'
+      fullPath: '/:username'
+      preLoaderRoute: typeof AppChar58usernameRouteImport
       parentRoute: typeof AppRoute
     }
     '/_www/legal/': {
@@ -536,19 +570,12 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AppSettingsIndexRouteImport
       parentRoute: typeof AppRoute
     }
-    '/_app/market/': {
-      id: '/_app/market/'
-      path: '/market'
-      fullPath: '/market'
-      preLoaderRoute: typeof AppMarketIndexRouteImport
-      parentRoute: typeof AppRoute
-    }
-    '/_app/community/': {
-      id: '/_app/community/'
-      path: '/community'
-      fullPath: '/community'
-      preLoaderRoute: typeof AppCommunityIndexRouteImport
-      parentRoute: typeof AppRoute
+    '/_app/onboarding/': {
+      id: '/_app/onboarding/'
+      path: '/'
+      fullPath: '/onboarding/'
+      preLoaderRoute: typeof AppOnboardingIndexRouteImport
+      parentRoute: typeof AppOnboardingRoute
     }
     '/_www/legal/terms-of-service': {
       id: '/_www/legal/terms-of-service'
@@ -592,57 +619,109 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof WwwLegalCommunityRulesRouteImport
       parentRoute: typeof WwwRoute
     }
+    '/_www/help/$slug': {
+      id: '/_www/help/$slug'
+      path: '/help/$slug'
+      fullPath: '/help/$slug'
+      preLoaderRoute: typeof WwwHelpSlugRouteImport
+      parentRoute: typeof WwwRoute
+    }
     '/_app/profile/edit': {
       id: '/_app/profile/edit'
-      path: '/profile/edit'
+      path: '/edit'
       fullPath: '/profile/edit'
       preLoaderRoute: typeof AppProfileEditRouteImport
-      parentRoute: typeof AppRoute
+      parentRoute: typeof AppProfileRoute
     }
     '/_app/profile/$username': {
       id: '/_app/profile/$username'
-      path: '/profile/$username'
+      path: '/$username'
       fullPath: '/profile/$username'
       preLoaderRoute: typeof AppProfileUsernameRouteImport
-      parentRoute: typeof AppRoute
+      parentRoute: typeof AppProfileRoute
     }
-    '/_app/community/$id': {
-      id: '/_app/community/$id'
-      path: '/community/$id'
-      fullPath: '/community/$id'
-      preLoaderRoute: typeof AppCommunityIdRouteImport
-      parentRoute: typeof AppRoute
+    '/_app/onboarding/todos': {
+      id: '/_app/onboarding/todos'
+      path: '/todos'
+      fullPath: '/onboarding/todos'
+      preLoaderRoute: typeof AppOnboardingTodosRouteImport
+      parentRoute: typeof AppOnboardingRoute
+    }
+    '/_app/onboarding/profile': {
+      id: '/_app/onboarding/profile'
+      path: '/profile'
+      fullPath: '/onboarding/profile'
+      preLoaderRoute: typeof AppOnboardingProfileRouteImport
+      parentRoute: typeof AppOnboardingRoute
+    }
+    '/_app/onboarding/goals': {
+      id: '/_app/onboarding/goals'
+      path: '/goals'
+      fullPath: '/onboarding/goals'
+      preLoaderRoute: typeof AppOnboardingGoalsRouteImport
+      parentRoute: typeof AppOnboardingRoute
+    }
+    '/_app/onboarding/complete': {
+      id: '/_app/onboarding/complete'
+      path: '/complete'
+      fullPath: '/onboarding/complete'
+      preLoaderRoute: typeof AppOnboardingCompleteRouteImport
+      parentRoute: typeof AppOnboardingRoute
     }
   }
 }
 
+interface AppOnboardingRouteChildren {
+  AppOnboardingCompleteRoute: typeof AppOnboardingCompleteRoute
+  AppOnboardingGoalsRoute: typeof AppOnboardingGoalsRoute
+  AppOnboardingProfileRoute: typeof AppOnboardingProfileRoute
+  AppOnboardingTodosRoute: typeof AppOnboardingTodosRoute
+  AppOnboardingIndexRoute: typeof AppOnboardingIndexRoute
+}
+
+const AppOnboardingRouteChildren: AppOnboardingRouteChildren = {
+  AppOnboardingCompleteRoute: AppOnboardingCompleteRoute,
+  AppOnboardingGoalsRoute: AppOnboardingGoalsRoute,
+  AppOnboardingProfileRoute: AppOnboardingProfileRoute,
+  AppOnboardingTodosRoute: AppOnboardingTodosRoute,
+  AppOnboardingIndexRoute: AppOnboardingIndexRoute,
+}
+
+const AppOnboardingRouteWithChildren = AppOnboardingRoute._addFileChildren(
+  AppOnboardingRouteChildren,
+)
+
+interface AppProfileRouteChildren {
+  AppProfileUsernameRoute: typeof AppProfileUsernameRoute
+  AppProfileEditRoute: typeof AppProfileEditRoute
+}
+
+const AppProfileRouteChildren: AppProfileRouteChildren = {
+  AppProfileUsernameRoute: AppProfileUsernameRoute,
+  AppProfileEditRoute: AppProfileEditRoute,
+}
+
+const AppProfileRouteWithChildren = AppProfileRoute._addFileChildren(
+  AppProfileRouteChildren,
+)
+
 interface AppRouteChildren {
-  AppUsernameRoute: typeof AppUsernameRoute
+  AppChar58usernameRoute: typeof AppChar58usernameRoute
   AppExploreRoute: typeof AppExploreRoute
   AppHomeRoute: typeof AppHomeRoute
   AppMeRoute: typeof AppMeRoute
-  AppPremiumRoute: typeof AppPremiumRoute
-  AppSocialRoute: typeof AppSocialRoute
-  AppCommunityIdRoute: typeof AppCommunityIdRoute
-  AppProfileUsernameRoute: typeof AppProfileUsernameRoute
-  AppProfileEditRoute: typeof AppProfileEditRoute
-  AppCommunityIndexRoute: typeof AppCommunityIndexRoute
-  AppMarketIndexRoute: typeof AppMarketIndexRoute
+  AppOnboardingRoute: typeof AppOnboardingRouteWithChildren
+  AppProfileRoute: typeof AppProfileRouteWithChildren
   AppSettingsIndexRoute: typeof AppSettingsIndexRoute
 }
 
 const AppRouteChildren: AppRouteChildren = {
-  AppUsernameRoute: AppUsernameRoute,
+  AppChar58usernameRoute: AppChar58usernameRoute,
   AppExploreRoute: AppExploreRoute,
   AppHomeRoute: AppHomeRoute,
   AppMeRoute: AppMeRoute,
-  AppPremiumRoute: AppPremiumRoute,
-  AppSocialRoute: AppSocialRoute,
-  AppCommunityIdRoute: AppCommunityIdRoute,
-  AppProfileUsernameRoute: AppProfileUsernameRoute,
-  AppProfileEditRoute: AppProfileEditRoute,
-  AppCommunityIndexRoute: AppCommunityIndexRoute,
-  AppMarketIndexRoute: AppMarketIndexRoute,
+  AppOnboardingRoute: AppOnboardingRouteWithChildren,
+  AppProfileRoute: AppProfileRouteWithChildren,
   AppSettingsIndexRoute: AppSettingsIndexRoute,
 }
 
@@ -653,10 +732,11 @@ interface WwwRouteChildren {
   WwwAboutRoute: typeof WwwAboutRoute
   WwwCreateAccountRoute: typeof WwwCreateAccountRoute
   WwwErrorRoute: typeof WwwErrorRoute
+  WwwForgotPasswordRoute: typeof WwwForgotPasswordRoute
   WwwLoginRoute: typeof WwwLoginRoute
-  WwwManifestoRoute: typeof WwwManifestoRoute
-  WwwPlaybookRoute: typeof WwwPlaybookRoute
+  WwwSuperRoute: typeof WwwSuperRoute
   WwwIndexRoute: typeof WwwIndexRoute
+  WwwHelpSlugRoute: typeof WwwHelpSlugRoute
   WwwLegalCommunityRulesRoute: typeof WwwLegalCommunityRulesRoute
   WwwLegalCompanyRoute: typeof WwwLegalCompanyRoute
   WwwLegalCookiePolicyRoute: typeof WwwLegalCookiePolicyRoute
@@ -673,10 +753,11 @@ const WwwRouteChildren: WwwRouteChildren = {
   WwwAboutRoute: WwwAboutRoute,
   WwwCreateAccountRoute: WwwCreateAccountRoute,
   WwwErrorRoute: WwwErrorRoute,
+  WwwForgotPasswordRoute: WwwForgotPasswordRoute,
   WwwLoginRoute: WwwLoginRoute,
-  WwwManifestoRoute: WwwManifestoRoute,
-  WwwPlaybookRoute: WwwPlaybookRoute,
+  WwwSuperRoute: WwwSuperRoute,
   WwwIndexRoute: WwwIndexRoute,
+  WwwHelpSlugRoute: WwwHelpSlugRoute,
   WwwLegalCommunityRulesRoute: WwwLegalCommunityRulesRoute,
   WwwLegalCompanyRoute: WwwLegalCompanyRoute,
   WwwLegalCookiePolicyRoute: WwwLegalCookiePolicyRoute,

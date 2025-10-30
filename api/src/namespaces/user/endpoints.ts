@@ -4,7 +4,6 @@ import {
   authRequiredProcedure,
 } from "@api/lib/trpc";
 import * as userRepository from "./repository";
-import * as userService from "./repository";
 import { userSchemas } from "./schema";
 
 export const router = Router({
@@ -23,6 +22,21 @@ export const router = Router({
   updateUser: authRequiredProcedure
     .input(userSchemas.updateUser)
     .mutation((opts) => { }),
+
+  getSettings: authRequiredProcedure
+    .input(userSchemas.getSettings)
+    .query(async (opts) => {
+      // TODO: replace with real session user id
+      const userId = "demo-user" // (opts.ctx.session as any)?.userId
+      return userRepository.getSettings(userId)
+    }),
+
+  updateSettings: authRequiredProcedure
+    .input(userSchemas.updateSettings)
+    .mutation(async (opts) => {
+      const userId = "demo-user" // (opts.ctx.session as any)?.userId
+      return userRepository.updateSettings(userId, opts.input)
+    }),
 })
 
 export * as userEndpoints from "./endpoints";

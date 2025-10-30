@@ -1,0 +1,11 @@
+{
+  "name": "@wanderia/db",
+  "private": true,
+  "scripts": {
+    "up": "docker compose -f compose.yml up",
+    "repl": "docker exec -it wanderia-postgres psql -U oasis -d wanderia"
+  },
+  "publishConfig": {
+    "access": "restricted"
+  }
+}

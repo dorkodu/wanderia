@@ -1,0 +1,24 @@
+{
+  "name": "@dorkodu/spotlight",
+  "version": "1.0.0",
+  "description": "A configurable, type-safe spotlight/command palette component for React applications",
+  "main": "index.ts",
+  "type": "module",
+  "keywords": [
+    "react",
+    "spotlight",
+    "command-palette",
+    "search",
+    "typescript"
+  ],
+  "peerDependencies": {
+    "react": "^18.0.0",
+    "@tanstack/react-router": "^1.0.0",
+    "lucide-react": "^0.263.1"
+  },
+  "files": [
+    "**/*.ts",
+    "**/*.tsx",
+    "README.md"
+  ]
+}

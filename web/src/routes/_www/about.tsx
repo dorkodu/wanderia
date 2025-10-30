@@ -112,5 +112,3 @@ function About() {
     </Flex>
   );
 }
-
-export default About;

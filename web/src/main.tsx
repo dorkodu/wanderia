@@ -7,6 +7,8 @@ import reportWebVitals from "./reportWebVitals";
 import { routeTree } from "./routeTree.gen";
 
 import { ThemeProvider } from "./components/theme-provider";
+import { AuthProvider } from "./lib/auth/provider";
+
 import "./styles.css";
 
 declare module "@tanstack/react-router" {
@@ -36,7 +38,9 @@ if (rootElement && !rootElement.innerHTML) {
     <StrictMode>
       <TanstackQuery.Provider>
         <ThemeProvider defaultTheme="dark" storageKey="vite-ui-theme">
-          <RouterProvider router={router} />
+          <AuthProvider>
+            <RouterProvider router={router} />
+          </AuthProvider>
         </ThemeProvider>
       </TanstackQuery.Provider>
     </StrictMode>

@@ -5,20 +5,26 @@
     "noUnusedLocals": false,
     "noUnusedParameters": false,
     "noFallthroughCasesInSwitch": true,
-
     "alwaysStrict": true,
     "allowUnreachableCode": false,
     "noImplicitAny": false,
     "strictNullChecks": true,
     "noImplicitReturns": true,
     "noUncheckedIndexedAccess": true,
-
     "baseUrl": ".",
-
     "paths": {
-      "@api/*": ["./api/src/*"],
-      "@sdk/*": ["./sdk/src/*"],
-      "@web/*": ["./web/src/*"],
+      "@sdk/*": [
+        "./sdk/src/*"
+      ],
+      "@api/*": [
+        "./api/src/*"
+      ],
+      "@web/*": [
+        "./web/src/*"
+      ],
     }
   },
+  "exclude": [
+    "node_modules"
+  ]
 }

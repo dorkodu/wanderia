@@ -1,27 +1,26 @@
 import { createFileRoute } from "@tanstack/react-router";
 import Emoji from "@web/components/misc/Emoji";
-import { Container, Group, Stack } from "@web/components/ui/layout";
-import { Title } from "@web/components/ui/typography";
+import { Stack } from "@web/components/ui/layout";
 
 export const Route = createFileRoute("/_www/legal/terms-of-service")({
   component: TermsOfService,
 });
 
-export function TermsOfService() {
+function TermsOfService() {
   return (
-    <Container size={760}>
-      <Group wrap="nowrap">
+    <div className="flex flex-col items-center justify-center w-full max-w-3xl p-6 mx-auto space-y-6">
+      <div className="flex items-center gap-4 mb-6 mt-[8vh]">
         <Emoji emoji="📄" size={36} />
         <Stack gap={0}>
-          <Title order={1} fw={750} lh={1}>
+          <h1 className="text-3xl font-bold">
             Terms of Service
-          </Title>
+          </h1>
           {/* <Text span inherit variant="gradient" gradient={{ from: "#17CC38", to: "#6BD731", deg: 60 }}> Gamification</Text> */}
-          <Title order={2} color="dimmed" fw={600} size={18}>
+          <h2 className="text-lg text-muted-foreground font-medium">
             Governance rules, rights and responsibilities.
-          </Title>
+          </h2>
         </Stack>
-      </Group>
+      </div>
 
       <p>
         These Terms of Service ("Terms") govern your use of , accessible at{" "}
@@ -34,7 +33,7 @@ export function TermsOfService() {
         By accessing or using the service, you agree to be bound by these Terms. If you disagree
         with any part of the terms, then you may not access the service.
       </p>
-      <h2>Accounts</h2>
+      <h3 className="font-bold text-lg">Accounts</h3>
       <p>
         When you create an account with us, you must provide accurate, complete, and current
         information at all times. Failure to do so constitutes a breach of the Terms, which may
@@ -49,7 +48,7 @@ export function TermsOfService() {
         You agree not to disclose your password to any third party. You must notify us immediately
         upon becoming aware of any breach of security or unauthorized use of your account.
       </p>
-      <h2>Intellectual Property</h2>
+      <h3 className="font-bold text-lg">Intellectual Property</h3>
       <p>
         The service and its original content, features, and functionality are and will remain the
         exclusive property of Dorkodu and its licensors. The service is protected by copyright,
@@ -57,7 +56,7 @@ export function TermsOfService() {
         dress may not be used in connection with any product or service without the prior written
         consent of Dorkodu.
       </p>
-      <h2>Links To Other Websites</h2>
+      <h3 className="font-bold text-lg">Links To Other Websites</h3>
       <p>
         Our service may contain links to third-party websites or services that are not owned or
         controlled by Dorkodu.
@@ -74,7 +73,7 @@ export function TermsOfService() {
         We strongly advise you to read the terms and conditions and privacy policies of any
         third-party websites or services that you visit.
       </p>
-      <h2>Termination</h2>
+      <h3 className="font-bold text-lg">Termination</h3>
       <p>
         We may terminate or suspend your account immediately, without prior notice or liability, for
         any reason whatsoever, including without limitation if you breach the Terms.
@@ -83,7 +82,7 @@ export function TermsOfService() {
         Upon termination, your right to use the service will immediately cease. If you wish to
         terminate your account, you may simply discontinue using the service.
       </p>
-      <h2>Governing Law</h2>
+      <h3 className="font-bold text-lg">Governing Law</h3>
       <p>
         These Terms shall be governed and construed in accordance with the laws of the Republic of
         Turkey, without regard to its conflict of law provisions.
@@ -95,7 +94,7 @@ export function TermsOfService() {
         the entire agreement between us regarding our service and supersede and replace any prior
         agreements we might have between us regarding the service.
       </p>
-      <h2>Changes</h2>
+      <h3 className="font-bold text-lg">Changes</h3>
       <p>
         We reserve the right, at our sole discretion, to modify or replace these Terms at any time.
         If a revision is material, we will try to provide at least 30 days' notice prior to any new
@@ -107,11 +106,11 @@ export function TermsOfService() {
         to be bound by the revised terms. If you do not agree to the new terms, please stop using
         the service.
       </p>
-      <h2>Contact Us</h2>
+      <h3 className="font-bold text-lg">Contact Us</h3>
       <p>
         If you have any questions about these Terms, please contact us at{" "}
         <a href="mailto:hey@dorkodu.com">hey@dorkodu.com</a>.
       </p>
-    </Container>
+    </div>
   );
 }

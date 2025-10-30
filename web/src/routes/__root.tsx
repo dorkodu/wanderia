@@ -1,6 +1,7 @@
 import { Outlet, createRootRouteWithContext } from "@tanstack/react-router";
-import { TanStackRouterDevtools } from "@tanstack/react-router-devtools";
+import { AppSpotlightProvider } from "@web/components/app/spotlight";
 import { Toaster } from "@web/components/ui/sonner";
+import ModalsProvider from "@web/lib/modals/provider";
 
 export const Route = createRootRouteWithContext<{}>()({
   component: RootComponent,
@@ -8,10 +9,12 @@ export const Route = createRootRouteWithContext<{}>()({
 
 function RootComponent() {
   return (
-    <>
-      <Outlet />
-      <TanStackRouterDevtools position="bottom-right" />
-      <Toaster />
-    </>
+    <ModalsProvider>
+      <AppSpotlightProvider>
+        <Outlet />
+        {/* <TanStackRouterDevtools position="bottom-right" /> */}
+        <Toaster />
+      </AppSpotlightProvider>
+    </ModalsProvider>
   );
 }
