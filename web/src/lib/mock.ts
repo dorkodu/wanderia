@@ -1,5 +1,5 @@
 import { } from '@sdk/app'
-import { AccountTier, type GameState, IUser } from '@sdk/core'
+import { AccountTier, IUser } from '@sdk/core'
 
 import { ulid } from 'ulidx'
 

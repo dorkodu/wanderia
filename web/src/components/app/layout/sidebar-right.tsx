@@ -9,16 +9,6 @@ import {
   SidebarHeader,
   SidebarSeparator
 } from "@web/components/ui/sidebar"
-import { DailyStats } from "@web/namespaces/life/DailyStats"
-
-// This is sample data.
-const data = {
-  user: {
-    name: "Doruk Eray",
-    email: "@dorukeray",
-    avatar: "/avatars/shadcn.jpg",
-  },
-}
 
 export function SidebarRight({
   ...props
@@ -36,7 +26,7 @@ export function SidebarRight({
         <NavHeader />
       </SidebarHeader>
       <SidebarContent>
-        <DailyStats />
+        <p className="m-2">eskiden burda neymar olurdu <b>(daily stats)</b></p>
 
         <SidebarSeparator className="mx-0" />
         {Footer}
