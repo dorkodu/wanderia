@@ -1,5 +1,5 @@
 {
-  "name": "trekie",
+  "name": "wanderia",
   "version": "1.0.0",
   "private": true,
   "dependencies": {},
@@ -13,6 +13,11 @@
     "db"
   ],
   "scripts": {
+    "db:start": "podman run -d --name wanderia-postgres --replace -p 5432:5432 -e POSTGRES_USER=postgres -e POSTGRES_PASSWORD=postgres -e POSTGRES_DB=wanderia -v wanderia_pg18_data:/var/lib/postgresql docker.io/library/postgres:18",
+    "db:stop": "podman stop wanderia-postgres",
+    "db:logs": "podman logs -f wanderia-postgres",
+    "api": "cd api && bun dev",
+    "web": "cd web && bun dev",
     "clean": "rm -rf node_modules web/node_modules api/node_modules sdk/node_modules db/node_modules bun.lockb web/bun.lockb api/bun.lockb sdk/bun.lockb db/bun.lockb"
   }
 }
