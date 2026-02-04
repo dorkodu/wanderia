@@ -1,0 +1,17 @@
+{
+  "name": "@my-embedded-wallet/solana-sdk",
+  "version": "0.1.0",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "build": "tsc"
+  },
+  "dependencies": {
+    "@oko-wallet/oko-sdk-core": "^0.1.2-alpha.3",
+    "@solana/web3.js": "^1.87.6",
+    "bs58": "^5.0.0"
+  },
+  "devDependencies": {
+    "typescript": "^5.3.3"
+  }
+}

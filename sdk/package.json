@@ -5,10 +5,13 @@
   "type": "module",
   "scripts": {},
   "dependencies": {
+    "@noble/ed25519": "^2.2.3",
+    "@solana/kit": "^5.5.1",
     "@tanstack/react-query": "^5.90.5",
     "@trpc/client": "^11.6.0",
     "@trpc/server": "^11.6.0",
     "@trpc/tanstack-react-query": "^11.6.0",
+    "bs58": "^6.0.0",
     "dexie": "^4.2.1",
     "dexie-react-hooks": "^1.1.7",
     "immer": "^10.1.3",

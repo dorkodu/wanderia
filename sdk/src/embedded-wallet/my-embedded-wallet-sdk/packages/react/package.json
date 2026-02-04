@@ -1,0 +1,19 @@
+{
+  "name": "@my-embedded-wallet/react",
+  "version": "0.1.0",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "peerDependencies": {
+    "react": "^18.0.0",
+    "react-dom": "^18.0.0"
+  },
+  "dependencies": {
+    "@my-embedded-wallet/solana-sdk": "0.1.0",
+    "@oko-wallet/oko-sdk-core": "^0.1.2-alpha.3"
+  },
+  "devDependencies": {
+    "@types/react": "^18.2.0",
+    "@types/react-dom": "^18.2.0",
+    "typescript": "^5.3.3"
+  }
+}
