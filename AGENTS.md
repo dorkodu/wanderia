@@ -1,8 +1,9 @@
 # Trekie
 
-Trekie is a gamified life dashboard with AI productivity companion and social features.
+Wanderia is a launchpad & OS for agentic, onchain businesses.
 It is a full-stack web app with TypeScript frontend and backend.
-The core functionality with domain related things lives in the SDK library inside the `sdk/` folder, with separate web client app (`web/`), API server (`api/`) and database (`db/`) workspaces in their own folders.
+
+The core functionality & domain related things lives in the SDK library inside the `sdk/` folder, with separate web client app (`web/`), API server (`api/`) and database (`db/`) workspaces in their own folders.
 
 ## Build & Commands
 
@@ -26,7 +27,6 @@ The core functionality with domain related things lives in the SDK library insid
 - Double quotes, semicolons, no trailing commas
 - Use JSDoc docstrings for documenting TypeScript definitions, not `//` comments
 - 100 character line limit
-- Imports: Use consistent-type-imports
 - Use descriptive variable/function names
 - In CamelCase names, use "URL" (not "Url"), "API" (not "Api"), "ID" (not "Id")
 - Prefer functional programming patterns
@@ -46,11 +46,11 @@ The core functionality with domain related things lives in the SDK library insid
 
 - Frontend: React, TypeScript, Tanstack Router
 - Backend: ElysiaJS, TypeScript, tRPC, BetterAuth
-- Database: PostgreSQL with Drizzle ORM
-- State management: Zustand, Dexie, Tanstack Query, Tanstack Form for forms.
-- Styling: Tailwind CSS, Shadcn UI
+- Database: PostgreSQL, Drizzle ORM
+- State management: Zustand, Dexie, Tanstack Query, Tanstack Form
+- Styling: Shadcn UI, Tailwind CSS
 - Build tool: Vite
-- Package manager: bun
+- Package manager & Runtime: bun
 
 ## Security
 

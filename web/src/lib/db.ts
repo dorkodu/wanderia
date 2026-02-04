@@ -41,7 +41,7 @@ export function startAppDb(
 }
 
 // ------------------ Actual DB Creation Step ---------------------
-> 
+
 export const db = createAppDb()
 startAppDb({
   db,

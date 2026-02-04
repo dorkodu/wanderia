@@ -13,14 +13,14 @@
     "noUncheckedIndexedAccess": true,
     "baseUrl": ".",
     "paths": {
+      "@web/*": [
+        "./web/src/*"
+      ],
       "@sdk/*": [
         "./sdk/src/*"
       ],
       "@api/*": [
         "./api/src/*"
-      ],
-      "@web/*": [
-        "./web/src/*"
       ],
     }
   },

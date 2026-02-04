@@ -3,9 +3,9 @@ import {
   AccordionContent,
   AccordionItem,
   AccordionTrigger,
-} from "@web/components/ui/accordion"
-import Emoji from "../misc/Emoji"
-import { Badge } from "../ui/badge"
+} from "@web/components/ui/accordion";
+import Emoji from "../misc/Emoji";
+import { Badge } from "../ui/badge";
 
 const items = [
   {
@@ -97,47 +97,49 @@ const items = [
 
 export default function FAQ() {
   return (
-    <div className="space-y-4 max-w-3xl mx-auto">
-      <div className="text-center mb-12">
-        <div className="flex items-center justify-center gap-2 mb-4">
-          <Emoji emoji="❓" size={40} />
-          <h2 className="text-3xl font-extrabold tracking-tight">FAQs</h2>
+    <section id="faq" className="relative py-24 px-6">
+      <div className="space-y-4 max-w-3xl mx-auto">
+        <div className="text-center mb-12">
+          <div className="flex items-center justify-center gap-2 mb-4">
+            <Emoji emoji="❓" size={40} />
+            <h2 className="text-3xl font-extrabold tracking-tight">FAQs</h2>
+          </div>
+          <p className="text-lg text-muted-foreground">
+            All you might want to know about Wanderia.
+          </p>
         </div>
-        <p className="text-lg text-muted-foreground">
-          All you might want to know about Wanderia.
-        </p>
-      </div>
 
-      {items.map((category) => (
-        <div key={category.category} className="space-y-4 mx-2">
-          <Badge className="bg-gradient-to-tr from-indigo-600/70 to-green-400/50 text-indigo-800/90 dark:text-white 
+        {items.map((category) => (
+          <div key={category.category} className="space-y-4 mx-2">
+            <Badge className="bg-gradient-to-tr from-indigo-600/70 to-green-400/50 text-indigo-800/90 dark:text-white 
           border-0
           text-lg font-bold px-3 py-0.5 rounded-lg">
-            {category.category.toUpperCase()}
-          </Badge>
-          <Accordion
-            type="single"
-            collapsible
-            className="-space-y-px"
-            defaultValue="3"
-          >
-            {category.questions.map((item, index) => (
-              <AccordionItem
-                value={index.toString()}
-                key={index}
-                className="bg-background has-focus-visible:border-ring has-focus-visible:ring-ring/50 relative border px-4 py-1 outline-none first:rounded-t-md last:rounded-b-md last:border-b has-focus-visible:z-10 has-focus-visible:ring-[3px]">
-                <AccordionTrigger className="justify-start gap-3 rounded-md py-2 text-md leading-6 outline-none hover:no-underline focus-visible:ring-0 [&>svg]:-order-1 cursor-pointer">
-                  {item.question}
-                </AccordionTrigger>
-                <AccordionContent className="dark:text-muted-foreground text-[16px] leading-normal ps-7 pb-2">
-                  {item.answer}
-                </AccordionContent>
-              </AccordionItem>
-            ))}
-          </Accordion>
-        </div>
-      ))
-      }
-    </div >
-  )
+              {category.category.toUpperCase()}
+            </Badge>
+            <Accordion
+              type="single"
+              collapsible
+              className="-space-y-px"
+              defaultValue="3"
+            >
+              {category.questions.map((item, index) => (
+                <AccordionItem
+                  value={index.toString()}
+                  key={index}
+                  className="bg-background has-focus-visible:border-ring has-focus-visible:ring-ring/50 relative border px-4 py-1 outline-none first:rounded-t-md last:rounded-b-md last:border-b has-focus-visible:z-10 has-focus-visible:ring-[3px]">
+                  <AccordionTrigger className="justify-start gap-3 rounded-md py-2 text-md leading-6 outline-none hover:no-underline focus-visible:ring-0 [&>svg]:-order-1 cursor-pointer">
+                    {item.question}
+                  </AccordionTrigger>
+                  <AccordionContent className="dark:text-muted-foreground text-[16px] leading-normal ps-7 pb-2">
+                    {item.answer}
+                  </AccordionContent>
+                </AccordionItem>
+              ))}
+            </Accordion>
+          </div>
+        ))
+        }
+      </div>
+    </section>
+  );
 }
