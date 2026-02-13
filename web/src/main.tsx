@@ -7,7 +7,6 @@ import reportWebVitals from "./reportWebVitals";
 import { routeTree } from "./routeTree.gen";
 
 import { ThemeProvider } from "./components/theme-provider";
-import { AuthProvider } from "./lib/auth/provider";
 
 import "./styles.css";
 
@@ -38,9 +37,7 @@ if (rootElement && !rootElement.innerHTML) {
     <StrictMode>
       <TanstackQuery.Provider>
         <ThemeProvider defaultTheme="dark" storageKey="vite-ui-theme">
-          <AuthProvider>
-            <RouterProvider router={router} />
-          </AuthProvider>
+          <RouterProvider router={router} />
         </ThemeProvider>
       </TanstackQuery.Provider>
     </StrictMode>

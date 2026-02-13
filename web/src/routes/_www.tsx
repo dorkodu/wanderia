@@ -1,4 +1,4 @@
-import { IconBrandInstagram, IconBrandTelegram, IconBrandTwitter, IconBrandYoutube } from "@tabler/icons-react";
+import { IconBrandGithub, IconBrandInstagram, IconBrandTelegram, IconBrandTwitter, IconBrandYoutube } from "@tabler/icons-react";
 import { createFileRoute, Outlet } from "@tanstack/react-router";
 import { Footer } from "@web/components/www/footer";
 import { Header } from "@web/components/www/header";
@@ -24,35 +24,33 @@ function WebsiteLayout() {
           {
             title: "Product",
             links: [
-              { name: "Overview", href: "/#overview" },
               { name: "Features", href: "/#features" },
-              { name: "SDK", href: "/#sdk" },
+              { name: "Pricing", href: "/#pricing" },
               { name: "Docs", href: "/docs" },
             ],
           },
           {
             title: "Company",
             links: [
-              { name: "About", href: "https://dorkodu.com" },
+              { name: "About", href: "/about" },
               { name: "Blog", href: "https://dorkodu.substack.com" },
               { name: "Open Source", href: "https://github.com/dorkodu" },
             ],
           },
         ]}
-        description="Your Gamified Life Dashboard & AI Productivity Companion"
+        description="The launchpad & OS for agentic, onchain businesses."
         logo={{
-          src: "/images/trekie_Icon.svg",
-          alt: "Trekie Logo",
-          title: "",
-          url: "/"
+          src: "/images/wanderia_Brand_White.svg",
+          alt: "Wanderia",
+          title: "Wanderia",
+          url: "/",
         }}
         socialLinks={[
-          { icon: <IconBrandTwitter />, href: "https://twitter.com/trekieapp", label: "Twitter" },
-          { icon: <IconBrandInstagram />, href: "https://instagram.com/trekieapp", label: "Instagram" },
-          { icon: <IconBrandTelegram />, href: "https://t.me/dorkodu", label: "Telegram" },
-          { icon: <IconBrandYoutube />, href: "https://youtube.com/@dorkodu", label: "YouTube" },
-          { icon: <IconBrandTwitter />, href: "https://bsky.com/user/dorkodu.com", label: "Bluesky" },
-          { icon: <IconBrandYoutube />, href: "https://github.com/dorkodu", label: "GitHub" },
+          { icon: <IconBrandTwitter className="size-4" />, href: "https://twitter.com/wanderia", label: "Twitter" },
+          { icon: <IconBrandInstagram className="size-4" />, href: "https://instagram.com/wanderia", label: "Instagram" },
+          { icon: <IconBrandTelegram className="size-4" />, href: "https://t.me/dorkodu", label: "Telegram" },
+          { icon: <IconBrandYoutube className="size-4" />, href: "https://youtube.com/@dorkodu", label: "YouTube" },
+          { icon: <IconBrandGithub className="size-4" />, href: "https://github.com/dorkodu", label: "GitHub" },
         ]}
       />
     </>
