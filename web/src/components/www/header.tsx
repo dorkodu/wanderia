@@ -1,9 +1,8 @@
-import { IconMenu2, IconX } from "@tabler/icons-react";
+import { IconArrowRight, IconMenu2, IconX } from "@tabler/icons-react";
 import { Link } from "@tanstack/react-router";
 import { Button } from "@web/components/ui/button";
 import { cn } from "@web/lib/utils";
 import { useEffect, useState } from "react";
-import ThemeToggle from "../theme-toggles";
 
 const navLinks = [
   { href: "/#features", label: "Features" },
@@ -17,7 +16,7 @@ export function Header() {
   const [mobileOpen, setMobileOpen] = useState(false);
 
   useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 20);
+    const onScroll = () => setScrolled(window.scrollY > 10);
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
@@ -25,35 +24,35 @@ export function Header() {
   return (
     <header
       className={cn(
-        "fixed top-0 left-0 right-0 z-50 transition-all duration-300",
+        "fixed top-0 left-0 right-0 z-50 transition-all duration-200",
         scrolled
-          ? "bg-background/80 backdrop-blur-xl border-b border-border/50 shadow-sm"
+          ? "bg-white/95 dark:bg-background/95 backdrop-blur-md border-b border-border/40"
           : "bg-transparent"
       )}
     >
-      <nav className="mx-auto max-w-6xl px-6">
+      <nav className="mx-auto max-w-[1280px] px-6 md:px-10">
         <div className="flex h-16 items-center justify-between">
           {/* Logo */}
           <Link to="/" className="flex items-center gap-2 shrink-0">
             <img
               src="/images/wanderia_Brand_White.svg"
               alt="Wanderia"
-              className="h-10 hidden dark:block"
+              className="h-8 hidden dark:block"
             />
             <img
               src="/images/wanderia_Brand.svg"
               alt="Wanderia"
-              className="h-10 dark:hidden"
+              className="h-8 dark:hidden"
             />
           </Link>
 
           {/* Desktop nav */}
-          <div className="hidden md:flex items-center gap-1">
+          <div className="hidden md:flex items-center gap-0.5">
             {navLinks.map((link) => (
               <a
                 key={link.href}
                 href={link.href}
-                className="px-3 py-2 text-sm font-medium text-muted-foreground hover:text-foreground transition-colors rounded-lg hover:bg-muted/50"
+                className="px-3.5 py-2 text-[15px] font-medium text-foreground/80 hover:text-foreground transition-colors"
               >
                 {link.label}
               </a>
@@ -62,13 +61,20 @@ export function Header() {
 
           {/* Desktop right */}
           <div className="hidden md:flex items-center gap-3">
-            <ThemeToggle />
+            <Link
+              to="/login"
+              className="px-3.5 py-2 text-[15px] font-medium text-indigo-600 dark:text-indigo-400 hover:text-indigo-700 dark:hover:text-indigo-300 transition-colors"
+            >
+              Sign in
+            </Link>
             <Button
               asChild
-              size="sm"
-              className="rounded-xl font-bold bg-gradient-to-r from-emerald-600 to-cyan-500 hover:from-emerald-500 hover:to-cyan-400 shadow-md shadow-emerald-500/20 transition-all duration-300 hover:shadow-emerald-500/30"
+              className="h-9 rounded-full px-5 text-sm font-semibold bg-indigo-600 hover:bg-indigo-700 text-white shadow-none transition-colors"
             >
-              <Link to="/create-account">Get Started</Link>
+              <Link to="/create-account">
+                Get started
+                <IconArrowRight className="ml-1 size-3.5" />
+              </Link>
             </Button>
           </div>
 
@@ -99,21 +105,26 @@ export function Header() {
               <a
                 key={link.href}
                 href={link.href}
-                className="px-3 py-2.5 text-sm font-medium text-muted-foreground hover:text-foreground transition-colors rounded-lg hover:bg-muted/50"
+                className="px-3 py-2.5 text-[15px] font-medium text-foreground/80 hover:text-foreground transition-colors rounded-lg hover:bg-muted/50"
                 onClick={() => setMobileOpen(false)}
               >
                 {link.label}
               </a>
             ))}
-            <div className="flex items-center gap-2 px-3 pt-2 border-t border-border/50 mt-2">
+            <div className="flex items-center gap-2 px-3 pt-3 border-t border-border/40 mt-2">
               <Button
                 asChild
-                size="sm"
-                className="flex-1 rounded-xl font-bold bg-gradient-to-r from-emerald-600 to-cyan-500"
+                className="flex-1 h-10 rounded-full text-sm font-semibold bg-indigo-600 hover:bg-indigo-700 text-white"
               >
-                <Link to="/create-account">Get Started</Link>
+                <Link to="/create-account">Get started</Link>
               </Button>
-              <ThemeToggle />
+              <Button
+                asChild
+                variant="outline"
+                className="h-10 rounded-full px-5 text-sm font-semibold"
+              >
+                <Link to="/login">Sign in</Link>
+              </Button>
             </div>
           </div>
         </div>

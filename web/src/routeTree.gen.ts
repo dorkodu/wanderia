@@ -214,7 +214,6 @@ const AppOnboardingCompleteRoute = AppOnboardingCompleteRouteImport.update({
 } as any)
 
 export interface FileRoutesByFullPath {
-  '/': typeof WwwIndexRoute
   '/:username': typeof AppChar58usernameRoute
   '/explore': typeof AppExploreRoute
   '/home': typeof AppHomeRoute
@@ -228,6 +227,7 @@ export interface FileRoutesByFullPath {
   '/forgot-password': typeof WwwForgotPasswordRoute
   '/login': typeof WwwLoginRoute
   '/super': typeof WwwSuperRoute
+  '/': typeof WwwIndexRoute
   '/onboarding/complete': typeof AppOnboardingCompleteRoute
   '/onboarding/goals': typeof AppOnboardingGoalsRoute
   '/onboarding/profile': typeof AppOnboardingProfileRoute
@@ -242,13 +242,12 @@ export interface FileRoutesByFullPath {
   '/legal/refund-policy': typeof WwwLegalRefundPolicyRoute
   '/legal/terms-of-service': typeof WwwLegalTermsOfServiceRoute
   '/onboarding/': typeof AppOnboardingIndexRoute
-  '/settings/': typeof AppSettingsIndexRoute
-  '/docs/': typeof WwwDocsIndexRoute
-  '/help/': typeof WwwHelpIndexRoute
-  '/legal/': typeof WwwLegalIndexRoute
+  '/settings': typeof AppSettingsIndexRoute
+  '/docs': typeof WwwDocsIndexRoute
+  '/help': typeof WwwHelpIndexRoute
+  '/legal': typeof WwwLegalIndexRoute
 }
 export interface FileRoutesByTo {
-  '/': typeof WwwIndexRoute
   '/:username': typeof AppChar58usernameRoute
   '/explore': typeof AppExploreRoute
   '/home': typeof AppHomeRoute
@@ -261,6 +260,7 @@ export interface FileRoutesByTo {
   '/forgot-password': typeof WwwForgotPasswordRoute
   '/login': typeof WwwLoginRoute
   '/super': typeof WwwSuperRoute
+  '/': typeof WwwIndexRoute
   '/onboarding/complete': typeof AppOnboardingCompleteRoute
   '/onboarding/goals': typeof AppOnboardingGoalsRoute
   '/onboarding/profile': typeof AppOnboardingProfileRoute
@@ -320,7 +320,6 @@ export interface FileRoutesById {
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
   fullPaths:
-    | '/'
     | '/:username'
     | '/explore'
     | '/home'
@@ -334,6 +333,7 @@ export interface FileRouteTypes {
     | '/forgot-password'
     | '/login'
     | '/super'
+    | '/'
     | '/onboarding/complete'
     | '/onboarding/goals'
     | '/onboarding/profile'
@@ -348,13 +348,12 @@ export interface FileRouteTypes {
     | '/legal/refund-policy'
     | '/legal/terms-of-service'
     | '/onboarding/'
-    | '/settings/'
-    | '/docs/'
-    | '/help/'
-    | '/legal/'
+    | '/settings'
+    | '/docs'
+    | '/help'
+    | '/legal'
   fileRoutesByTo: FileRoutesByTo
   to:
-    | '/'
     | '/:username'
     | '/explore'
     | '/home'
@@ -367,6 +366,7 @@ export interface FileRouteTypes {
     | '/forgot-password'
     | '/login'
     | '/super'
+    | '/'
     | '/onboarding/complete'
     | '/onboarding/goals'
     | '/onboarding/profile'
@@ -433,14 +433,14 @@ declare module '@tanstack/react-router' {
     '/_www': {
       id: '/_www'
       path: ''
-      fullPath: '/'
+      fullPath: ''
       preLoaderRoute: typeof WwwRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/_app': {
       id: '/_app'
       path: ''
-      fullPath: '/'
+      fullPath: ''
       preLoaderRoute: typeof AppRouteImport
       parentRoute: typeof rootRouteImport
     }
@@ -545,28 +545,28 @@ declare module '@tanstack/react-router' {
     '/_www/legal/': {
       id: '/_www/legal/'
       path: '/legal'
-      fullPath: '/legal/'
+      fullPath: '/legal'
       preLoaderRoute: typeof WwwLegalIndexRouteImport
       parentRoute: typeof WwwRoute
     }
     '/_www/help/': {
       id: '/_www/help/'
       path: '/help'
-      fullPath: '/help/'
+      fullPath: '/help'
       preLoaderRoute: typeof WwwHelpIndexRouteImport
       parentRoute: typeof WwwRoute
     }
     '/_www/docs/': {
       id: '/_www/docs/'
       path: '/docs'
-      fullPath: '/docs/'
+      fullPath: '/docs'
       preLoaderRoute: typeof WwwDocsIndexRouteImport
       parentRoute: typeof WwwRoute
     }
     '/_app/settings/': {
       id: '/_app/settings/'
       path: '/settings'
-      fullPath: '/settings/'
+      fullPath: '/settings'
       preLoaderRoute: typeof AppSettingsIndexRouteImport
       parentRoute: typeof AppRoute
     }

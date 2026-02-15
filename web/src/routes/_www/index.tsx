@@ -1,9 +1,9 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { CTASection } from "@web/components/www/cta-section";
 import FAQ from "@web/components/www/faq";
-import { Features, Punchline, SovereignAIAgents } from "@web/components/www/features";
+import { Features } from "@web/components/www/features";
 import { Hero } from "@web/components/www/hero";
-import { PremiumHero, PricingSection } from "@web/components/www/premium-sections";
+import { LogoBar } from "@web/components/www/logo-bar";
+import { SocialProof } from "@web/components/www/premium-sections";
 import { StatsBanner } from "@web/components/www/stats-banner";
 
 export const Route = createFileRoute("/_www/")({
@@ -20,33 +20,13 @@ export const Route = createFileRoute("/_www/")({
 
 function Page() {
   return (
-    <main className="overflow-hidden">
-      {/* Hero - Full viewport with animated background */}
+    <main>
       <Hero />
-
-      {/* Stats Banner - Social proof */}
-      <StatsBanner />
-
-      {/* Premium Hero - Quick premium pitch */}
-      <PremiumHero />
-
-      {/* Features - Bento grid */}
+      <LogoBar />
       <Features />
-
-      {/* Punchline - Launch/Manage/Reward steps */}
-      <Punchline />
-
-      {/* AI Agents section */}
-      <SovereignAIAgents />
-
-      {/* Pricing */}
-      <PricingSection />
-
-      {/* FAQ */}
+      <StatsBanner />
+      <SocialProof />
       <FAQ />
-
-      {/* Final CTA */}
-      <CTASection />
     </main>
   );
 }

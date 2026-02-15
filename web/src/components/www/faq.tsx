@@ -4,7 +4,6 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from "@web/components/ui/accordion";
-import Emoji from "../misc/Emoji";
 
 const items = [
   {
@@ -119,48 +118,46 @@ const items = [
 
 export default function FAQ() {
   return (
-    <section id="faq" className="relative py-28 px-6">
-      <div className="space-y-6 max-w-3xl mx-auto">
-        <div className="text-center mb-12">
-          <div className="flex items-center justify-center gap-2 mb-4">
-            <Emoji emoji="❓" size={40} />
-            <h2 className="text-3xl font-extrabold tracking-tight">FAQs</h2>
-          </div>
-          <p className="text-lg text-muted-foreground">
-            All you might want to know about Wanderia.
-          </p>
-        </div>
+    <section id="faq" className="bg-white dark:bg-background py-20 md:py-28">
+      <div className="mx-auto max-w-[800px] px-6 md:px-10">
+        <h2 className="text-3xl md:text-4xl font-semibold tracking-[-0.02em] text-foreground mb-4">
+          Frequently asked questions
+        </h2>
+        <p className="text-muted-foreground/70 mb-12">
+          Everything you need to know about Wanderia.
+        </p>
 
-        {items.map((category) => (
-          <div key={category.category} className="space-y-3">
-            <div className="inline-flex items-center px-3 py-1 rounded-lg bg-gradient-to-r from-emerald-500/10 to-cyan-500/10 border border-emerald-500/10">
-              <span className="text-xs font-bold uppercase tracking-wider text-emerald-400">
+        <div className="space-y-8">
+          {items.map((category) => (
+            <div key={category.category}>
+              <span className="inline-block text-xs font-semibold uppercase tracking-widest text-indigo-600 dark:text-indigo-400 mb-4">
                 {category.category}
               </span>
+              <Accordion
+                type="single"
+                collapsible
+                className="-space-y-px"
+              >
+                {category.questions.map((item, index) => (
+                  <AccordionItem
+                    value={`${category.category}-${index}`}
+                    key={index}
+                    className="border border-border/40 bg-white dark:bg-card px-5 py-1 first:rounded-t-xl last:rounded-b-xl last:border-b"
+                  >
+                    <AccordionTrigger className="justify-start gap-3 py-3 text-[15px] font-medium leading-snug hover:no-underline focus-visible:ring-0 [&>svg]:-order-1 cursor-pointer">
+                      {item.question}
+                    </AccordionTrigger>
+                    <AccordionContent className="text-muted-foreground text-[15px] leading-relaxed ps-7 pb-4">
+                      {item.answer}
+                    </AccordionContent>
+                  </AccordionItem>
+                ))}
+              </Accordion>
             </div>
-            <Accordion
-              type="single"
-              collapsible
-              className="-space-y-px"
-            >
-              {category.questions.map((item, index) => (
-                <AccordionItem
-                  value={index.toString()}
-                  key={index}
-                  className="bg-white/[0.02] has-focus-visible:border-ring has-focus-visible:ring-ring/50 relative border border-white/5 px-4 py-1 outline-none first:rounded-t-xl last:rounded-b-xl last:border-b has-focus-visible:z-10 has-focus-visible:ring-[3px]"
-                >
-                  <AccordionTrigger className="justify-start gap-3 rounded-md py-2 text-md leading-6 outline-none hover:no-underline focus-visible:ring-0 [&>svg]:-order-1 cursor-pointer">
-                    {item.question}
-                  </AccordionTrigger>
-                  <AccordionContent className="text-muted-foreground text-[15px] leading-relaxed ps-7 pb-3">
-                    {item.answer}
-                  </AccordionContent>
-                </AccordionItem>
-              ))}
-            </Accordion>
-          </div>
-        ))}
+          ))}
+        </div>
       </div>
     </section>
   );
 }
+

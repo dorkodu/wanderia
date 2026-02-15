@@ -1,256 +1,110 @@
-import {
-  IconAdOff,
-  IconArrowRight,
-  IconBuildings,
-  IconCheck,
-  IconClock,
-  IconInfinity,
-  IconMail,
-  IconMultiplier2x,
-  IconPin,
-  IconUserHeart,
-  IconUsersGroup,
-  IconWorld,
-  IconX,
-} from "@tabler/icons-react";
-import { useNavigate } from "@tanstack/react-router";
+import { IconArrowRight, IconPlus } from "@tabler/icons-react";
+import { Link } from "@tanstack/react-router";
 import { Button } from "@web/components/ui/button";
-import Emoji from "../misc/Emoji";
+import { useState } from "react";
 
-export function PremiumHero() {
-  const navigate = useNavigate();
+const caseStudies = [
+  {
+    emoji: "🌿",
+    name: "GreenDAO",
+    headline: "GreenDAO builds a regenerative farming economy on Wanderia.",
+  },
+  {
+    emoji: "🎮",
+    name: "PlayGuild",
+    headline:
+      "PlayGuild gamifies open-source contribution tracking with XP & tokens.",
+  },
+  {
+    emoji: "🏘️",
+    name: "UrbanCommons",
+    headline:
+      "UrbanCommons coordinates 2,000+ neighborhood volunteers with onchain rewards.",
+  },
+  {
+    emoji: "🧠",
+    name: "NeuralCollective",
+    headline:
+      "NeuralCollective uses AI agents to onboard & govern a decentralized research lab.",
+  },
+];
 
-  return (
-    <section className="relative py-20 px-6 overflow-hidden">
-      <div className="mx-auto max-w-4xl">
-        <div className="relative rounded-3xl overflow-hidden p-8 md:p-12 bg-gradient-to-br from-emerald-600 via-cyan-600 to-violet-600">
-          {/* Decorative */}
-          <div className="absolute top-0 right-0 w-80 h-80 bg-white/10 rounded-full blur-[100px]" />
-          <div className="absolute bottom-0 left-0 w-80 h-80 bg-white/10 rounded-full blur-[100px]" />
-
-          <div className="relative grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
-            {/* Content */}
-            <div className="space-y-6 text-white">
-              <h2 className="text-3xl md:text-4xl font-black tracking-tight">
-                Supercharge Your{" "}
-                <span className="text-emerald-200">Community</span>
-              </h2>
-              <p className="text-lg text-white/85 leading-relaxed">
-                Unlock premium features to scale your regenerative community.
-                Your first week is on us.
-              </p>
-              <Button
-                className="w-full sm:w-auto h-14 px-8 text-lg font-bold rounded-2xl
-                  bg-white text-emerald-700 hover:bg-emerald-50
-                  shadow-lg shadow-black/20 transition-all duration-300 hover:scale-[1.02]"
-                onClick={() => navigate({ to: "/super" })}
-              >
-                <span className="flex items-center gap-2">
-                  Try Free for 7 Days
-                  <IconArrowRight className="w-5 h-5" />
-                </span>
-              </Button>
-            </div>
-
-            {/* Features */}
-            <div className="space-y-3">
-              {[
-                {
-                  icon: IconAdOff,
-                  title: "Ad-free Experience",
-                  description: "No interruptions, full productivity.",
-                },
-                {
-                  icon: IconMultiplier2x,
-                  title: "Doubled Gains",
-                  description: "More XP, tokens, and rewards.",
-                },
-                {
-                  icon: IconUsersGroup,
-                  title: "Unlimited Groups",
-                  description: "Create unlimited community spaces.",
-                },
-              ].map((feature, i) => (
-                <div
-                  key={i}
-                  className="flex items-center gap-4 p-3 rounded-xl bg-white/10 backdrop-blur-sm"
-                >
-                  <div className="p-2 rounded-lg bg-white/20">
-                    <feature.icon className="w-6 h-6 text-white" />
-                  </div>
-                  <div>
-                    <h4 className="font-bold text-white">{feature.title}</h4>
-                    <p className="text-sm text-white/75">
-                      {feature.description}
-                    </p>
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-  );
-}
-
-export function PricingSection() {
-  const navigate = useNavigate();
+export function SocialProof() {
+  const [activeIndex, setActiveIndex] = useState<number | null>(null);
 
   return (
-    <section id="pricing" className="relative py-28 overflow-hidden">
-      {/* Background */}
-      <div className="absolute inset-0 -z-10">
-        <div className="absolute top-1/4 left-0 w-[500px] h-[500px] bg-cyan-500/5 rounded-full blur-[120px]" />
-        <div className="absolute bottom-1/4 right-0 w-[500px] h-[500px] bg-violet-500/5 rounded-full blur-[120px]" />
-      </div>
+    <section className="bg-white dark:bg-background py-20 md:py-28">
+      <div className="mx-auto max-w-[1280px] px-6 md:px-10">
+        {/* Section headline */}
+        <h2 className="max-w-[720px] text-[1.75rem] sm:text-[2rem] md:text-[2.5rem] leading-[1.2] tracking-[-0.02em] font-medium mb-14">
+          <span className="text-foreground font-semibold">
+            Building communities of all sizes.{" "}
+          </span>
+          <span className="text-muted-foreground/60">
+            Launch and grow your project on a reliable platform that adapts to
+            your needs.
+          </span>
+        </h2>
 
-      <div className="mx-auto max-w-6xl px-6">
-        {/* Header */}
-        <div className="text-center mb-16">
-          <div className="inline-flex items-center gap-2 mb-6">
-            <Emoji emoji="💸" size={40} />
-            <h2 className="text-3xl sm:text-4xl font-black tracking-tight">
-              Simple Pricing
-            </h2>
-          </div>
-          <p className="max-w-xl mx-auto text-lg text-muted-foreground">
-            One platform to gamify your community and 10x your growth.
-          </p>
-        </div>
-
-        {/* Pricing cards */}
-        <div className="grid md:grid-cols-2 gap-6 max-w-4xl mx-auto mb-12">
-          {/* Starter */}
-          <div className="relative rounded-3xl border border-white/5 bg-white/[0.02] p-8 transition-all duration-300 hover:border-emerald-500/20 hover:shadow-xl hover:shadow-emerald-500/5">
-            <div className="mb-6">
-              <h3 className="text-2xl font-bold mb-2">Starter</h3>
-              <p className="text-muted-foreground">
-                All the basics for a new beginning
-              </p>
-            </div>
-
-            <div className="mb-6">
-              <span className="text-4xl font-black">Free</span>
-              <span className="text-muted-foreground ml-2">forever</span>
-            </div>
-
+        {/* Enterprise pitch */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-10 mb-16">
+          <div>
+            <h3 className="text-xl md:text-2xl font-semibold leading-snug text-foreground mb-5">
+              Transform your community with
+              <br />
+              regenerative infrastructure
+            </h3>
             <Button
-              className="w-full h-12 rounded-xl text-lg font-bold
-                bg-gradient-to-r from-emerald-600 to-cyan-500
-                hover:from-emerald-500 hover:to-cyan-400
-                transition-all duration-300"
-              onClick={() => navigate({ to: "/create-account" })}
+              asChild
+              className="h-12 rounded-full px-6 text-[15px] font-semibold bg-indigo-600 hover:bg-indigo-700 text-white shadow-none transition-colors"
             >
-              Get Started Free
+              <Link to="/create-account">
+                Wanderia for projects
+                <IconArrowRight className="ml-1.5 size-4" />
+              </Link>
             </Button>
-
-            <div className="mt-8 space-y-3">
-              {[
-                { included: true, text: "3 Life Goals" },
-                { included: true, text: "8 Commitments" },
-                { included: true, text: "Live Stats" },
-                { included: true, text: "Social Feed" },
-                { included: false, text: "No Rewards" },
-                { included: false, text: "No Integrations" },
-              ].map((item, i) => (
-                <div key={i} className="flex items-center gap-3">
-                  {item.included ? (
-                    <div className="p-0.5 rounded bg-emerald-500/20">
-                      <IconCheck className="w-4 h-4 text-emerald-400" />
-                    </div>
-                  ) : (
-                    <div className="p-0.5 rounded bg-white/5">
-                      <IconX className="w-4 h-4 text-muted-foreground" />
-                    </div>
-                  )}
-                  <span
-                    className={item.included ? "" : "text-muted-foreground"}
-                  >
-                    {item.text}
-                  </span>
-                </div>
-              ))}
-            </div>
           </div>
-
-          {/* Pro */}
-          <div className="relative rounded-3xl bg-gradient-to-br from-emerald-600 via-cyan-600 to-violet-600 p-8 text-white shadow-xl shadow-emerald-500/10">
-            {/* Popular badge */}
-            <div className="absolute -top-3 left-1/2 -translate-x-1/2 px-4 py-1 rounded-full bg-white text-emerald-700 text-sm font-bold shadow-lg">
-              Most Popular
-            </div>
-
-            <div className="mb-6">
-              <h3 className="text-2xl font-bold mb-2">Pro</h3>
-              <p className="text-white/75">Supercharge your community</p>
-            </div>
-
-            <div className="mb-6">
-              <span className="text-4xl font-black">$8</span>
-              <span className="text-white/75 ml-1">/month</span>
-            </div>
-
-            <Button className="w-full h-12 rounded-xl text-lg font-bold bg-white text-emerald-700 hover:bg-emerald-50 transition-all duration-300">
-              Try Free for 7 Days
-            </Button>
-
-            <div className="mt-8 space-y-3">
-              {[
-                { icon: IconInfinity, text: "Unlimited Everything" },
-                { icon: IconAdOff, text: "Ad-free Experience" },
-                { icon: IconMultiplier2x, text: "Doubled Gains" },
-                { icon: IconWorld, text: "Public Pages" },
-                { icon: IconPin, text: "Profile Highlights" },
-                { icon: IconUsersGroup, text: "Unlimited Groups" },
-              ].map((item, i) => (
-                <div key={i} className="flex items-center gap-3">
-                  <div className="p-1 rounded bg-white/20">
-                    <item.icon className="w-5 h-5" />
-                  </div>
-                  <span>{item.text}</span>
-                </div>
-              ))}
-            </div>
+          <div>
+            <p className="text-muted-foreground/80 leading-relaxed">
+              Communities on Wanderia use onchain gamification, AI agents, and
+              purpose-backed tokens to grow their
+              projects—from launching internationally to reimagining how
+              contributors get rewarded.
+            </p>
           </div>
         </div>
 
-        {/* Additional options */}
-        <div className="grid md:grid-cols-2 gap-4 max-w-4xl mx-auto">
-          <div className="rounded-2xl border border-white/5 bg-white/[0.02] p-6 transition-all duration-300 hover:border-emerald-500/20">
-            <div className="flex items-center gap-3 mb-3">
-              <div className="p-2 rounded-xl bg-gradient-to-br from-emerald-500 to-cyan-500 text-white">
-                <IconUserHeart className="w-6 h-6" />
-              </div>
-              <h3 className="text-xl font-bold">Group Plan</h3>
-            </div>
-            <p className="text-muted-foreground mb-4">
-              Perfect for friend groups, teams, and families to grow together.
-            </p>
-            <div className="flex items-center gap-2 text-muted-foreground">
-              <IconClock className="w-5 h-5" />
-              <span>Coming Soon</span>
-            </div>
-          </div>
-
-          <div className="rounded-2xl border border-white/5 bg-white/[0.02] p-6 transition-all duration-300 hover:border-violet-500/20">
-            <div className="flex items-center gap-3 mb-3">
-              <div className="p-2 rounded-xl bg-gradient-to-br from-violet-500 to-purple-500 text-white">
-                <IconBuildings className="w-6 h-6" />
-              </div>
-              <h3 className="text-xl font-bold">Enterprise</h3>
-            </div>
-            <p className="text-muted-foreground mb-4">
-              Custom solutions for organizations with advanced needs.
-            </p>
-            <a
-              href="mailto:hey@dorkodu.com"
-              className="flex items-center gap-2 text-emerald-400 font-medium hover:underline"
+        {/* Case studies accordion */}
+        <div className="divide-y divide-border/50">
+          {caseStudies.map((study, i) => (
+            <button
+              key={i}
+              className="flex w-full items-center gap-4 py-5 text-left group"
+              onClick={() => setActiveIndex(activeIndex === i ? null : i)}
             >
-              <IconMail className="w-5 h-5" />
-              <span>Contact Us</span>
-            </a>
-          </div>
+              {/* Emoji avatar */}
+              <span className="flex shrink-0 items-center justify-center size-10 rounded-xl bg-muted/50 text-xl">
+                {study.emoji}
+              </span>
+
+              {/* Headline */}
+              <span className="flex-1 text-[15px] sm:text-base font-medium text-foreground group-hover:text-indigo-600 dark:group-hover:text-indigo-400 transition-colors">
+                {study.headline}
+              </span>
+
+              {/* Action */}
+              {activeIndex === i ? (
+                <span className="shrink-0 text-sm font-medium text-indigo-600 dark:text-indigo-400 flex items-center gap-1">
+                  Read the story
+                  <IconArrowRight className="size-3.5" />
+                </span>
+              ) : (
+                <span className="shrink-0 p-1 text-muted-foreground">
+                  <IconPlus className="size-4" />
+                </span>
+              )}
+            </button>
+          ))}
         </div>
       </div>
     </section>
