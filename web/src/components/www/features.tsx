@@ -64,7 +64,7 @@ function ProductCard({ card }: { card: SolutionCard }) {
           className={`absolute inset-0 bg-gradient-to-br ${card.gradient} dark:opacity-30`}
         />
         <div className="absolute inset-0 flex items-center justify-center">
-          <card.icon className="size-20 text-indigo-600/20 dark:text-indigo-400/20" />
+          <card.icon className="size-20 text-emerald-600/20 dark:text-emerald-400/20" />
         </div>
       </div>
     </div>

@@ -4,50 +4,32 @@ import { Button } from "@web/components/ui/button";
 
 export function Hero() {
   return (
-    <section className="relative min-h-[90vh] flex items-end overflow-hidden bg-white dark:bg-background">
-      {/* Gradient swoosh image */}
-      <div className="absolute inset-0 pointer-events-none">
-        <img
-          src="/images/hero-swoosh.png"
-          alt=""
-          className="absolute right-0 top-0 h-full w-[65%] object-cover object-left select-none"
-          draggable={false}
-        />
-        {/* Fade overlay for readability */}
-        <div className="absolute inset-0 bg-gradient-to-r from-white via-white/80 to-transparent dark:from-background dark:via-background/80 w-[55%]" />
-      </div>
-
+    <section className="relative min-h-[70vh] flex items-center overflow-hidden bg-white dark:bg-background">
       <div className="relative z-10 mx-auto w-full max-w-[1280px] px-6 md:px-10 pb-20 pt-32">
         {/* Stat counter */}
         <p className="mb-6 text-sm text-muted-foreground tracking-wide">
-          Communities launched on Wanderia:{" "}
-          <span className="text-indigo-600 dark:text-indigo-400 font-medium tabular-nums">
+          Projects launched on Wanderia:{" "}
+          <span className="text-emerald-600 dark:text-emerald-400 font-medium tabular-nums">
             127
           </span>
         </p>
 
         {/* Main headline */}
-        <h1 className="max-w-[720px] text-[2.75rem] sm:text-[3.25rem] md:text-[3.75rem] lg:text-[4.25rem] leading-[1.1] tracking-[-0.02em] font-medium">
-          <span className="text-foreground">The launchpad for </span>
-          <span className="text-muted-foreground/60">
-            regenerative onchain communities. Build your project, launch a
-            token, reward contributors
-          </span>
-          <span className="text-foreground">—from </span>
-          <span className="text-muted-foreground/60">
-            your first member to your millionth.
+        <h1 className="max-w-[800px] text-[2.75rem] sm:text-[3.25rem] md:text-[3.75rem] lg:text-[4.25rem] leading-[1.1] tracking-[-0.02em] font-medium">
+          <span className="text-foreground font-bold">Build an <span className="text-blue-600 dark:text-blue-400">agentic</span> <span className="text-emerald-600 dark:text-emerald-400">onchain</span> business</span>
+          <span className="dark:text-muted-foreground/50 text-muted-foreground/80 font-bold">{" "}
+            with your community.
           </span>
         </h1>
 
         {/* CTA Buttons */}
         <div className="mt-10 flex flex-wrap items-center gap-3">
-          <Button
-            asChild
-            className="h-12 rounded-full px-6 text-[15px] font-semibold bg-indigo-600 hover:bg-indigo-700 text-white shadow-none transition-colors"
+          <Button asChild
+            className="h-13 rounded-2xl text-xl font-extrabold bg-linear-to-tr from-emerald-600 to-emerald-600 hover:from-emerald-500 hover:to-teal-400 text-white text-shadow-2xs transition-all"
           >
             <Link to="/create-account">
-              Get started
-              <IconArrowRight className="ml-1.5 size-4" />
+              GET STARTED
+              <IconArrowRight className="ml-1.5 size-auto" />
             </Link>
           </Button>
 

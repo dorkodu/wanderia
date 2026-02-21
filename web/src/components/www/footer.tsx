@@ -1,5 +1,6 @@
 import { cn } from "@web/lib/utils";
 import type React from "react";
+import ThemeToggle from "../theme-toggles";
 
 interface FooterProps {
   logo?: {
@@ -98,7 +99,10 @@ export const Footer = ({
 
         {/* Bottom bar */}
         <div className="mt-12 flex flex-col justify-between gap-4 border-t border-white/5 pt-6 text-xs text-muted-foreground/60 md:flex-row md:items-center">
-          <p>{copyright}</p>
+          <div className="flex items-center gap-3">
+            <p>{copyright}</p>
+            <ThemeToggle />
+          </div>
           {legalLinks.length > 0 && (
             <ul className="flex flex-wrap gap-4">
               {legalLinks.map((link, idx) => (

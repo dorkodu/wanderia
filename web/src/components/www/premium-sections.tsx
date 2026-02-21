@@ -56,7 +56,7 @@ export function SocialProof() {
             </h3>
             <Button
               asChild
-              className="h-12 rounded-full px-6 text-[15px] font-semibold bg-indigo-600 hover:bg-indigo-700 text-white shadow-none transition-colors"
+              className="h-12 rounded-full px-6 text-[15px] font-semibold bg-gradient-to-r from-emerald-600 to-teal-500 hover:from-emerald-500 hover:to-teal-400 text-white shadow-none transition-all"
             >
               <Link to="/create-account">
                 Wanderia for projects
@@ -88,13 +88,13 @@ export function SocialProof() {
               </span>
 
               {/* Headline */}
-              <span className="flex-1 text-[15px] sm:text-base font-medium text-foreground group-hover:text-indigo-600 dark:group-hover:text-indigo-400 transition-colors">
+              <span className="flex-1 text-[15px] sm:text-base font-medium text-foreground group-hover:text-emerald-600 dark:group-hover:text-emerald-400 transition-colors">
                 {study.headline}
               </span>
 
               {/* Action */}
               {activeIndex === i ? (
-                <span className="shrink-0 text-sm font-medium text-indigo-600 dark:text-indigo-400 flex items-center gap-1">
+                <span className="shrink-0 text-sm font-medium text-emerald-600 dark:text-emerald-400 flex items-center gap-1">
                   Read the story
                   <IconArrowRight className="size-3.5" />
                 </span>

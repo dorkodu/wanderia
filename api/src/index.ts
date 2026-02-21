@@ -10,7 +10,7 @@ const app = new Elysia()
 
   .use(
     cors({
-      origin: ["http://localhost:5173", "https://trekie.io", "http://trekie.io"],
+      origin: ["http://localhost:5173", "https://wanderia.xyz", "http://wanderia.xyz"],
       methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
       credentials: true,
       allowedHeaders: ["Content-Type", "Authorization"],
@@ -35,7 +35,7 @@ const app = new Elysia()
 
   .decorate('db', db)
 
-  .get('/', () => 'Welcome to Trekie API -- this is the index.')
+  .get('/', () => 'Welcome to Wanderia API -- this is the index.')
 
   .post("/echo", ({ body }) => { return body; })
 

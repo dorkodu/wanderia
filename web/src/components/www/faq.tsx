@@ -130,7 +130,7 @@ export default function FAQ() {
         <div className="space-y-8">
           {items.map((category) => (
             <div key={category.category}>
-              <span className="inline-block text-xs font-semibold uppercase tracking-widest text-indigo-600 dark:text-indigo-400 mb-4">
+              <span className="inline-block text-xs font-semibold uppercase tracking-widest text-emerald-600 dark:text-emerald-400 mb-4">
                 {category.category}
               </span>
               <Accordion
