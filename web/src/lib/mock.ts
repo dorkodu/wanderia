@@ -1,4 +1,3 @@
-import { } from '@sdk/app'
 import { AccountTier, IUser } from '@sdk/core'
 
 import { ulid } from 'ulidx'
@@ -23,21 +22,6 @@ export function generateMockUser(): IUser {
   }
 }
 
-export function generateMockGameState(): GameState {
-  return {
-    user: generateMockUser(),
-    xp: 0,
-    coins: 0,
-    momentum: 0,
-    streak: 0,
-    dailyTarget: 10,
-    lastActive: new Date("20/02/2024 16:34").getTime(),
-    lastXp: new Date("20/02/2024 16:34").getTime(),
-    lastStreak: new Date("20/02/2024 16:34").getTime(),
-    xpHistory: {},
-    lastDailyCheck: undefined,
-  }
-}
 
 export async function fillMockUserData() {
 }

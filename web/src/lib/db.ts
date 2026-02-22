@@ -2,9 +2,6 @@ import Dexie, { type Table, type Transaction } from 'dexie'
 
 import { IUser } from '@sdk/core'
 
-import { trekie } from './trekie'
-
-
 export type IAppDb = Dexie & {
   users: Table<IUser, string>
 }
@@ -23,9 +20,6 @@ export function startAppDb(
   // Schema declaration:
   db.version(2).stores({
     users: 'id, &username',
-    goals: 'id, userId',
-    todos: 'id, userId, completed',
-    momentumSnapshots: 'id, windowDays, createdAt'
   })
 
   db.on("populate", onPopulate)
@@ -47,8 +41,7 @@ startAppDb({
   db,
   onPopulate: async (t) => {
     try {
-      const user = trekie.game().user
-      await db.users.add(user, user.id)
+      // await db.users.add(user, user.id)
 
       console.info("[app] db populated.")
     } catch (error) {
