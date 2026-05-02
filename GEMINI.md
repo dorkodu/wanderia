@@ -1,6 +1,6 @@
-# Trekie
+# Wanderia
 
-Trekie is a gamified life dashboard with AI productivity companion and social features.
+Wanderia is a launchpad and operating system for building agentic, community-driven, onchain businesses.
 It is a full-stack web app with TypeScript frontend and backend.
 The core functionality with domain related things lives in the SDK library inside the `sdk/` folder, with separate web client app (`web/`), API server (`api/`) and database (`db/`) workspaces in their own folders.
 

@@ -1,0 +1,497 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Agentic + Onchain — Market Opportunities</title>
+    <style>
+      * { box-sizing: border-box; margin: 0; padding: 0; }
+
+      :root, body.stripe {
+        --font-body: -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+        --font-heading: -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+        --font-mono: 'SF Mono', 'Fira Code', Consolas, monospace;
+        --font-label: -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+        --font-size: 15px; --line-height: 1.6; --max-width: 1020px;
+        --bg: #F6F8FA; --surface: #FFFFFF; --surface-2: #F0F2F5;
+        --text: #1A1F36; --text-muted: #697386;
+        --accent: #635BFF; --accent-soft: rgba(99, 91, 255, 0.06);
+        --border: #E3E8EE; --border-strong: #C1C9D2;
+        --positive: #0DAC5C; --negative: #CD3D64; --warning: #F5A623;
+        --highlight: transparent;
+        --radius: 10px; --radius-lg: 14px;
+        --shadow: 0 1px 2px rgba(0,0,0,0.04), 0 3px 10px rgba(0,0,0,0.03);
+        --heading-weight: 600; --heading-transform: none;
+        --label-transform: uppercase; --label-tracking: 0.04em;
+        --label-size: 0.72rem; --label-weight: 600;
+        --rule-weight: 1px; --spacing: 1.75rem;
+      }
+
+      body { font-family: var(--font-body); font-size: var(--font-size); color: var(--text); background: var(--bg); line-height: var(--line-height); -webkit-font-smoothing: antialiased; }
+
+      .shell { width: min(var(--max-width), calc(100vw - 48px)); margin: 0 auto; padding: 56px 0 80px; }
+
+      .hero { margin-bottom: var(--spacing); }
+      .hero h1 { font-family: var(--font-heading); font-size: clamp(2rem, 4vw, 3rem); font-weight: var(--heading-weight); letter-spacing: -0.025em; line-height: 1.08; margin-bottom: 10px; }
+      .hero-sub { color: var(--text-muted); font-size: 1rem; max-width: 65ch; margin-bottom: 20px; }
+      .hero-meta { display: flex; flex-wrap: wrap; gap: 8px; }
+      .chip { display: inline-flex; align-items: center; padding: 5px 14px; border-radius: 999px; background: var(--accent-soft); color: var(--text-muted); font-family: var(--font-label); font-size: 0.76rem; font-weight: 500; border: 1px solid var(--border); }
+
+      .winner-banner { margin: var(--spacing) 0; padding: 28px 32px; background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius-lg); box-shadow: var(--shadow); display: grid; grid-template-columns: 1fr auto; gap: 24px; align-items: start; border-top: 2px solid var(--accent); }
+      .winner-banner h2 { font-family: var(--font-heading); font-size: 1.4rem; font-weight: var(--heading-weight); margin-bottom: 6px; }
+      .winner-banner .winner-sub { color: var(--text-muted); font-size: 0.9rem; }
+      .winner-banner .winner-why { margin-top: 12px; font-size: 0.92rem; line-height: 1.6; }
+      .winner-badge { padding: 6px 16px; border-radius: 999px; font-size: 0.75rem; font-weight: 700; letter-spacing: 0.03em; background: var(--accent); color: #fff; white-space: nowrap; align-self: start; }
+
+      .context-strip { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-bottom: var(--spacing); }
+      .ctx-label { font-family: var(--font-label); font-size: var(--label-size); font-weight: var(--label-weight); text-transform: var(--label-transform); letter-spacing: var(--label-tracking); color: var(--text-muted); margin-bottom: 12px; padding-bottom: 8px; border-bottom: var(--rule-weight) solid var(--border); }
+      .ctx-item { padding: 8px 0; font-size: 0.9rem; color: var(--text); border-bottom: 1px solid var(--border); }
+      .ctx-item:last-child { border-bottom: none; }
+      .ctx-q { font-weight: 600; font-size: 0.82rem; color: var(--text-muted); margin-bottom: 3px; }
+      .ctx-a { font-size: 0.9rem; }
+
+      .market-overview { margin-bottom: var(--spacing); padding: 28px 32px; background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius-lg); box-shadow: var(--shadow); }
+      .market-overview h2 { font-family: var(--font-heading); font-size: 1.2rem; font-weight: var(--heading-weight); margin-bottom: 12px; }
+      .market-overview p { font-size: 0.92rem; line-height: 1.65; margin-bottom: 10px; }
+      .market-overview .stat-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 12px; margin: 16px 0; }
+      .stat-card { padding: 16px; background: var(--accent-soft); border-radius: var(--radius); text-align: center; }
+      .stat-card .stat-num { font-family: var(--font-mono); font-size: 1.5rem; font-weight: 700; color: var(--accent); }
+      .stat-card .stat-label { font-size: 0.78rem; color: var(--text-muted); margin-top: 4px; }
+
+      .idea-card { margin-bottom: var(--spacing); padding: 32px; background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius-lg); box-shadow: var(--shadow); }
+      .idea-card.winner { border-color: var(--accent); }
+      .idea-header { display: flex; justify-content: space-between; align-items: start; gap: 16px; margin-bottom: 8px; }
+      .idea-header h3 { font-family: var(--font-heading); font-size: 1.35rem; font-weight: var(--heading-weight); letter-spacing: -0.015em; }
+      .idea-sub { color: var(--text-muted); font-size: 0.92rem; margin-bottom: 20px; }
+      .badge { padding: 5px 14px; border-radius: 999px; font-family: var(--font-label); font-size: 0.73rem; font-weight: 600; white-space: nowrap; background: var(--surface-2); border: 1px solid var(--border); color: var(--text-muted); }
+      .badge.winner { background: var(--accent); border-color: var(--accent); color: #fff; }
+
+      .scores-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(130px, 1fr)); gap: 12px; margin: 20px 0; }
+      .score-card { padding: 16px; background: var(--surface-2); border: 1px solid var(--border); border-radius: var(--radius); box-shadow: var(--shadow); text-align: center; }
+      .score-num { font-family: var(--font-mono); font-size: 1.8rem; font-weight: 700; color: var(--accent); line-height: 1; margin-bottom: 4px; }
+      .score-max { font-size: 0.9rem; font-weight: 400; color: var(--text-muted); }
+      .score-label { font-family: var(--font-label); font-size: 0.72rem; color: var(--text-muted); text-transform: var(--label-transform); letter-spacing: var(--label-tracking); }
+
+      .prose-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-bottom: 20px; }
+      .prose-block h4 { font-family: var(--font-label); font-size: var(--label-size); font-weight: var(--label-weight); text-transform: var(--label-transform); letter-spacing: var(--label-tracking); color: var(--text-muted); margin-bottom: 6px; }
+      .prose-block p { font-size: 0.9rem; line-height: 1.6; }
+
+      .comp-table { width: 100%; border-collapse: collapse; margin: 16px 0; font-size: 0.88rem; }
+      .comp-table th { font-family: var(--font-label); font-size: var(--label-size); font-weight: var(--label-weight); text-transform: var(--label-transform); letter-spacing: var(--label-tracking); color: var(--text-muted); text-align: left; padding: 8px 12px; border-bottom: var(--rule-weight) solid var(--border-strong); }
+      .comp-table td { padding: 10px 12px; border-bottom: 1px solid var(--border); vertical-align: top; }
+      .comp-table tr:last-child td { border-bottom: none; }
+      .comp-type { display: inline-block; padding: 2px 8px; border-radius: 999px; background: var(--accent-soft); color: var(--text-muted); font-size: 0.72rem; font-weight: 500; }
+
+      .section-label { font-family: var(--font-label); font-size: var(--label-size); font-weight: var(--label-weight); text-transform: var(--label-transform); letter-spacing: var(--label-tracking); color: var(--text-muted); margin: 24px 0 10px; padding-bottom: 6px; border-bottom: var(--rule-weight) solid var(--border); }
+
+      .checklist { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin: 12px 0; }
+      .check-item { display: flex; align-items: start; gap: 10px; padding: 10px 14px; background: var(--surface-2); border-radius: var(--radius); font-size: 0.88rem; }
+      .check-box { flex-shrink: 0; width: 18px; height: 18px; border: 2px solid var(--border-strong); border-radius: 3px; margin-top: 1px; }
+
+      .risk-row { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin: 12px 0; }
+      .risk-card { padding: 14px 16px; border-radius: var(--radius); border: 1px solid var(--border); border-top: 2px solid var(--negative); }
+      .risk-card strong { display: block; font-size: 0.86rem; font-weight: 600; color: var(--negative); margin-bottom: 4px; }
+      .risk-card p { font-size: 0.84rem; color: var(--text-muted); }
+
+      .timeline { display: grid; grid-template-columns: repeat(7, 1fr); gap: 8px; margin: 12px 0; }
+      .timeline-day { padding: 12px; background: var(--surface-2); border: 1px solid var(--border); border-radius: var(--radius); font-size: 0.82rem; }
+      .timeline-day strong { display: block; font-family: var(--font-label); font-size: 0.72rem; color: var(--accent); font-weight: 700; margin-bottom: 4px; text-transform: var(--label-transform); letter-spacing: var(--label-tracking); }
+
+      .gtm-grid { display: grid; grid-template-columns: 2fr 1fr; gap: 20px; margin: 12px 0; }
+      .gtm-main p { font-size: 0.9rem; margin-bottom: 8px; }
+      .gtm-channels { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 8px; }
+      .gtm-channel { padding: 4px 12px; background: var(--accent-soft); border: 1px solid var(--border); border-radius: 999px; font-size: 0.78rem; color: var(--text-muted); }
+
+      .oss-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin: 12px 0; }
+      .oss-card { padding: 12px 16px; background: var(--surface-2); border-radius: var(--radius); border: 1px solid var(--border); }
+      .oss-card strong { font-size: 0.88rem; }
+      .oss-card .oss-signal { font-size: 0.8rem; color: var(--text-muted); margin-top: 2px; }
+
+      .landscape-section { margin-bottom: var(--spacing); padding: 28px 32px; background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius-lg); box-shadow: var(--shadow); }
+      .landscape-section h2 { font-family: var(--font-heading); font-size: 1.2rem; font-weight: var(--heading-weight); margin-bottom: 16px; }
+
+      .footer { margin-top: 56px; padding-top: 16px; border-top: var(--rule-weight) solid var(--border); color: var(--text-muted); font-size: 0.76rem; text-align: center; }
+
+      .gap-card { padding: 16px; background: var(--accent-soft); border-radius: var(--radius-lg); margin-bottom: 12px; border: 1px solid var(--border); }
+      .gap-card h4 { font-size: 1rem; color: var(--accent); margin-bottom: 4px; }
+      .gap-card p { font-size: 0.88rem; color: var(--text); margin-bottom: 6px; }
+      .gap-card .gap-tag { display: inline-block; padding: 2px 8px; background: var(--surface); border-radius: 999px; font-size: 0.72rem; color: var(--text-muted); border: 1px solid var(--border); }
+
+      .sub-table { width: 100%; border-collapse: collapse; margin: 12px 0; font-size: 0.88rem; }
+      .sub-table th { text-align: left; padding: 8px 12px; border-bottom: 1px solid var(--border-strong); color: var(--text-muted); font-size: 0.78rem; }
+      .sub-table td { padding: 10px 12px; border-bottom: 1px solid var(--border); }
+
+      @media (max-width: 768px) { .context-strip, .prose-grid, .checklist, .risk-row, .oss-grid, .gtm-grid { grid-template-columns: 1fr; } .timeline { grid-template-columns: 1fr; } .winner-banner { grid-template-columns: 1fr; } .shell { padding: 28px 0 48px; } .idea-card { padding: 20px; } }
+    </style>
+  </head>
+  <body class="stripe">
+    <main class="shell">
+      <section class="hero">
+        <h1>Agentic + Onchain: Market Opportunities</h1>
+        <p class="hero-sub">
+          Mapping the intersection of AI agents and crypto on Solana — competitive landscape, unexploited gaps, and three concrete bets ranked for a full-stack team that wants to build infra/primitive-layer products.
+        </p>
+        <div class="hero-meta">
+          <span class="chip">shortlist</span>
+          <span class="chip">2026-05-01</span>
+          <span class="chip">agentic × onchain</span>
+        </div>
+      </section>
+
+      <!-- Winner Banner -->
+      <section class="winner-banner">
+        <div>
+          <h2>Agent Attestation &amp; Reputation Registry</h2>
+          <div class="winner-sub">An onchain identity and reputation primitive for AI agents — verifiable, composable, permissionless.</div>
+          <div class="winner-why">Best match for an infra/primitive-focused team. Fastest MVP (under 1 week for a basic version). Huge unfilled gap — no one owns agent identity on Solana yet. Composable with everything: agents, wallets, launchpads, marketplaces.</div>
+        </div>
+        <span class="winner-badge">Recommended</span>
+      </section>
+
+      <!-- User Context -->
+      <section class="context-strip">
+        <div class="ctx-section">
+          <div class="ctx-label">Context</div>
+          <div class="ctx-item">Full-stack team exploring agentic + onchain opportunities after pivoting from Wanderia (launchpad OS concept)</div>
+          <div class="ctx-item">Preference for infrastructure / primitive-layer products</div>
+          <div class="ctx-item">Goal: learn the space first, find a wedge that can grow</div>
+          <div class="ctx-item">Building on Solana with their existing codebase</div>
+        </div>
+        <div class="ctx-section">
+          <div class="ctx-label">Key Answers</div>
+          <div class="ctx-item"><div class="ctx-q">Edge</div><div class="ctx-a">Full-stack team — can build product independently</div></div>
+          <div class="ctx-item"><div class="ctx-q">Goal</div><div class="ctx-a">Learn the space before committing to a big thesis</div></div>
+          <div class="ctx-item"><div class="ctx-q">Layer</div><div class="ctx-a">Infrastructure / primitive — building blocks others compose on</div></div>
+        </div>
+      </section>
+
+      <!-- Market Overview -->
+      <section class="market-overview">
+        <h2>Why Now: The State of Agentic × Onchain</h2>
+        <p>The intersection of AI agents and crypto on Solana has moved from speculative meme to real infrastructure demand. The numbers tell the story:</p>
+        <div class="stat-grid">
+          <div class="stat-card"><div class="stat-num">$9.5B+</div><div class="stat-label">AI Agent Token Market Cap</div></div>
+          <div class="stat-card"><div class="stat-num">90%</div><div class="stat-label">of Crypto Transactions are Bots</div></div>
+          <div class="stat-card"><div class="stat-num">50+</div><div class="stat-label">Agent Projects on Solana</div></div>
+          <div class="stat-card"><div class="stat-num">$1B+</div><div class="stat-label">Daily Agent Token Volume</div></div>
+        </div>
+        <p><strong>But here's the problem:</strong> Almost all of this activity is <em>speculation about agents</em>, not <em>agents doing real economic activity</em>. The infrastructure for agents to actually participate in the economy — identity, payments, treasuries, reputation — barely exists.</p>
+        <p><strong>Key signals:</strong> Eliza Framework (ai16z) has thousands of agent deployments but zero onchain identity primitives. Griffain lets agents trade but has no reputation layer. Helius just launched "Helius for Agents" (MCP, CLI, SDKs) — proving infra demand from the agent ecosystem. Turnkey/TEEs enable verifiable agent execution but there's no <em>public registry</em> connecting attestations to agent identity.</p>
+      </section>
+
+      <!-- Competitive Landscape -->
+      <section class="landscape-section">
+        <h2>Competitive Landscape</h2>
+        <p style="font-size:0.9rem;margin-bottom:16px;color:var(--text-muted)">Mapping the current players at the agentic × onchain intersection on Solana.</p>
+
+        <h3 style="font-size:1rem;margin-bottom:8px">Direct Players</h3>
+        <table class="comp-table">
+          <thead><tr><th>Project</th><th>What They Do</th><th>Strength</th><th>Gap / Weakness</th></tr></thead>
+          <tbody>
+            <tr><td><strong>ai16z / Eliza</strong></td><td>Open-source agent framework with basic Solana wallet integration</td><td>Largest agent ecosystem, OSS, active community</td><td>No identity/reputation layer. Basic wallet = full private key exposure</td></tr>
+            <tr><td><strong>Griffain</strong></td><td>AI agent platform for trading &amp; wallet management</td><td>First-mover in consumer agent UX</td><td>Closed platform, no composable primitives for other builders</td></tr>
+            <tr><td><strong>Virtuals Protocol</strong></td><td>Agent launchpad with bonding curves (on Base)</td><td>Proven agent-launch product-market fit</td><td>Not on Solana. No identity/reputation layer for agents</td></tr>
+            <tr><td><strong>Helius for Agents</strong></td><td>Infra toolkit (MCP, CLI, SDK) for building agents on Solana</td><td>Excellent dev tools, RPC access, 60+ MCP tools</td><td>Infra layer, not an identity or commerce primitive. Doesn't solve agent trust</td></tr>
+            <tr><td><strong>Turnkey</strong></td><td>Policy-controlled key management + TEE verifiable execution</td><td>Best-in-class agent wallet security with attestations</td><td>No public registry, no composable onchain identity. Developer-first, not agent-first</td></tr>
+          </tbody>
+        </table>
+
+        <h3 style="font-size:1rem;margin:16px 0 8px">Adjacent / Broader Ecosystem</h3>
+        <table class="comp-table">
+          <thead><tr><th>Project</th><th>Angle</th><th>Relevance</th></tr></thead>
+          <tbody>
+            <tr><td><strong>Hive Agent</strong></td><td>Framework for onchain agent coordination</td><td>Early, small traction. Proves demand for agent infra</td></tr>
+            <tr><td><strong>Squads</strong></td><td>Multisig treasury management</td><td>Reusable treasury logic but no agent-specific programmatic control</td></tr>
+            <tr><td><strong>pump.fun</strong></td><td>Token launchpad</td><td>Proves demand for fair launch. No agent-specific mechanics</td></tr>
+            <tr><td><strong>Gavel (Ellipsis)</strong></td><td>Onchain token distribution &amp; capital formation</td><td>ICM infrastructure piece. Not agent-specific but composable</td></tr>
+            <tr><td><strong>Project Open</strong></td><td>SEC framework for tokenized securities on Solana</td><td>Regulatory path for agent equity/treasuries eventually</td></tr>
+          </tbody>
+        </table>
+
+        <h3 style="font-size:1rem;margin:16px 0 8px">Crowdedness: SPARSE</h3>
+        <p style="font-size:0.88rem;color:var(--text-muted)">There are very few dedicated primitives for agent identity, reputation, or commerce. Most "agent crypto" is memetic trading, not infrastructure. The infra layer is wide open.</p>
+      </section>
+
+      <!-- Unexploited Gaps -->
+      <section class="landscape-section">
+        <h2>Top Uncaptured Gaps</h2>
+        <p style="font-size:0.9rem;margin-bottom:16px;color:var(--text-muted)">Before ranking specific product ideas, here are the structural gaps in the market worth understanding:</p>
+
+        <div class="gap-card">
+          <h4>1. Agent Identity &amp; Reputation</h4>
+          <p>No one has built a verifiable onchain identity layer for agents. When you interact with an agent today, you have no way to know: who built it, what code it runs, whether it's been audited, what its track record is. This is the fundamental trust problem preventing serious agent commerce.</p>
+          <span class="gap-tag">Primitive</span> <span class="gap-tag">Zero competition</span> <span class="gap-tag">Composable</span>
+        </div>
+        <div class="gap-card">
+          <h4>2. Agent-to-Agent Payment Rails</h4>
+          <p>Agents need to pay each other — for data, compute, APIs, services. Streaming payments, conditional payments, escrow. Stripe won't serve this. Solana can. No dedicated protocol exists.</p>
+          <span class="gap-tag">Infrastructure</span> <span class="gap-tag">Revenue clear</span> <span class="gap-tag">Ecosystem-dependent</span>
+        </div>
+        <div class="gap-card">
+          <h4>3. Verifiable Agent Treasuries</h4>
+          <p>Agents that earn income need to own and manage capital autonomously. Programmatic treasuries with rules, splits, and strategies. Squads for agents. Some demand from ai16z ecosystem but no product.</p>
+          <span class="gap-tag">Infrastructure</span> <span class="gap-tag">Clear demand</span> <span class="gap-tag">Complex</span>
+        </div>
+      </section>
+
+      <!-- Idea 1: Winner -->
+      <article class="idea-card winner">
+        <div class="idea-header">
+          <h3>Agent Attestation &amp; Reputation Registry</h3>
+          <span class="badge winner">Winner</span>
+        </div>
+        <div class="idea-sub">An onchain registry where AI agents register their identity, publish verifiable attestations (code hashes, TEE proofs, audit reports), and build reputation through onchain activity. Think "ENS + onchain attestations for agents."</div>
+
+        <div class="scores-grid">
+          <div class="score-card"><div class="score-num">3<span class="score-max">/3</span></div><div class="score-label">founder fit</div></div>
+          <div class="score-card"><div class="score-num">3<span class="score-max">/3</span></div><div class="score-label">mvp speed</div></div>
+          <div class="score-card"><div class="score-num">2<span class="score-max">/3</span></div><div class="score-label">distribution clarity</div></div>
+          <div class="score-card"><div class="score-num">2<span class="score-max">/3</span></div><div class="score-label">market pull</div></div>
+          <div class="score-card"><div class="score-num">1<span class="score-max">/3</span></div><div class="score-label">revenue path</div></div>
+        </div>
+
+        <div class="prose-grid">
+          <div class="prose-block">
+            <h4>Why it wins</h4>
+            <p>Perfect fit for a team that wants to build infra and learn the space. MVP in under a week (store agent metadata + attestations onchain). No direct competition. Every agent project becomes a distribution channel. Composable with everything — wallets, launchpads, marketplaces, payment protocols.</p>
+          </div>
+          <div class="prose-block">
+            <h4>Why crypto is necessary</h4>
+            <p>Agent identity must be permissionless, censorship-resistant, and composable with onchain protocols. A centralized registry (e.g., "AgentAuth by AWS") can be revoked, gated, or monetized extractively. Onchain identity is the only neutral base layer for multi-agent economies.</p>
+          </div>
+        </div>
+        <div class="prose-grid">
+          <div class="prose-block">
+            <h4>Kill this idea</h4>
+            <p>If the agent economy stays memetic and nobody cares about verifiable identity (i.e., agents remain toys, not economic actors). But even then — serving as the identity layer for serious builders is a valid wedge.</p>
+          </div>
+          <div class="prose-block">
+            <h4>Why not Web2</h4>
+            <p>Web2 identity providers (Auth0, Clerk, OAuth) aren't designed for autonomous agents. They require human-in-the-loop flows, don't expose onchain programmability, and can't attest to code execution in TEEs. The agent needs a wallet, not a login page.</p>
+          </div>
+        </div>
+
+        <div class="section-label">Competitors &amp; Substitutes</div>
+        <table class="comp-table">
+          <thead><tr><th>Name</th><th>Type</th><th>Signal</th><th>Why They Haven't Won</th></tr></thead>
+          <tbody>
+            <tr><td>ENS / Solana Naming Service</td><td>substitute</td><td>Name resolution, not agent identity</td><td>Name != attestation. No agent-specific metadata, no TEE proofs, no reputation</td></tr>
+            <tr><td>EAS (Ethereum Attestation Service)</td><td>substitute</td><td>General onchain attestations</td><td>On Ethereum, not Solana-native. No agent-specific schema. No integration with agent frameworks</td></tr>
+            <tr><td>Verifiable Credentials (W3C)</td><td>substitute</td><td>Web2 standard, heavy spec</td><td>Not crypto-native. Not composable with Solana programs. High friction for agents</td></tr>
+            <tr><td>Turnkey TEE Attestations</td><td>adjacent</td><td>Proves what code an agent runs</td><td>Closed system, not a public registry. Can't be queried by other protocols</td></tr>
+          </tbody>
+        </table>
+
+        <div class="section-label">OSS Landscape</div>
+        <div class="oss-grid">
+          <div class="oss-card"><strong>ai16z/eliza</strong><div class="oss-signal">Active — 10k+ stars — Agent framework that could integrate registry</div></div>
+          <div class="oss-card"><strong>solana-program/name-service</strong><div class="oss-signal">Live — Solana naming — Name resolution primitives to build on</div></div>
+          <div class="oss-card"><strong>arweave/arloader</strong><div class="oss-signal">Live — Permanent storage for offchain attestation data</div></div>
+          <div class="oss-card"><strong>identity.com/onchain-id</strong><div class="oss-signal">Dormant — Solana identity standard — Useful reference architecture</div></div>
+        </div>
+
+        <div class="section-label">2-Week MVP</div>
+        <div class="checklist">
+          <div class="check-item"><div class="check-box"></div><span>Solana program: register agent (pubkey + metadata URI + attestation hash)</span></div>
+          <div class="check-item"><div class="check-box"></div><span>Frontend: agent profile page with registered identity + attestations</span></div>
+          <div class="check-item"><div class="check-box"></div><span>Attestation submission: anyone can attest about an agent (e.g., "audited by X")</span></div>
+          <div class="check-item"><div class="check-box"></div><span>Basic reputation scoring: weighted by attester stake/reputation</span></div>
+          <div class="check-item"><div class="check-box"></div><span>Eliza plugin: auto-register agent identity on deploy</span></div>
+          <div class="check-item"><div class="check-box"></div><span>Query API: get agent metadata, attestations, reputation by pubkey</span></div>
+        </div>
+
+        <div class="section-label">Risks</div>
+        <div class="risk-row">
+          <div class="risk-card"><strong>Cold start problem</strong><p>Without agents registered, the registry has no value. Mitigation: build Eliza plugin that auto-registers on deploy — every Eliza agent becomes a registrant.</p></div>
+          <div class="risk-card"><strong>No revenue model</strong><p>Identity is hard to monetize directly. Mitigation: charge for premium attestation verification, enterprise tier, or protocol fee on top of revenue-generating services that use registry data.</p></div>
+        </div>
+        <div class="risk-row">
+          <div class="risk-card"><strong>Sybil attacks</strong><p>Anyone can register 1000 agents. Mitigation: reputation is earned, not registered. Require stake to register. Link to TEE attestations for proof of unique execution.</p></div>
+          <div class="risk-card"><strong>Standards fragmentation</strong><p>Every agent framework has its own identity model. Mitigation: be the neutral standard — register schemas, not implementations. Provide SDK for any framework to integrate.</p></div>
+        </div>
+
+        <div class="section-label">7-Day Validation Sprint</div>
+        <div class="timeline">
+          <div class="timeline-day"><strong>Day 1</strong><span>Ship agent registration program on devnet. Write Eliza plugin.</span></div>
+          <div class="timeline-day"><strong>Day 2</strong><span>Frontend: agent profiles + attestation viewer.</span></div>
+          <div class="timeline-day"><strong>Day 3</strong><span>DM 10 agent builders in ai16z Discord. Show plugin. Get signups.</span></div>
+          <div class="timeline-day"><strong>Day 4</strong><span>Add attestation API. Deploy on mainnet. Register first real agents.</span></div>
+          <div class="timeline-day"><strong>Day 5</strong><span>Post technical walkthrough on X. Tag ai16z, Griffain, Helius.</span></div>
+          <div class="timeline-day"><strong>Day 6</strong><span>Iterate on feedback. Add reputation scoring formula.</span></div>
+          <div class="timeline-day"><strong>Day 7</strong><span>Ship v1. Publish SDK for agents. Open PRs to Eliza repo.</span></div>
+        </div>
+
+        <div class="section-label">Go-to-Market</div>
+        <div class="gtm-grid">
+          <div class="gtm-main">
+            <p><strong>Wedge:</strong> Ship the Eliza plugin first — every agent deployed with Eliza auto-registers on the registry. Then expand to other frameworks (Griffain, custom agents).</p>
+            <p><strong>First 10 users:</strong> ai16z core contributors (they need identity for their agent swarm). Helius agent team (they need it for MCP tool trust). Griffain (needs it for agent profiles). Individual agent creators in the Eliza Discord.</p>
+            <p><strong>Message:</strong> "Your agent needs an identity. Register it onchain — prove what code it runs, show its track record, let others attest to it."</p>
+          </div>
+          <div>
+            <div class="section-label" style="margin-top:0">Channels</div>
+            <div class="gtm-channels">
+              <span class="gtm-channel">ai16z Discord</span>
+              <span class="gtm-channel">Eliza GitHub</span>
+              <span class="gtm-channel">X / Crypto Twitter</span>
+              <span class="gtm-channel">Helius for Agents</span>
+              <span class="gtm-channel">Solana Builder Telegram</span>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <!-- Idea 2 -->
+      <article class="idea-card">
+        <div class="idea-header">
+          <h3>Verifiable Agent Treasury</h3>
+          <span class="badge">#2</span>
+        </div>
+        <div class="idea-sub">A protocol for AI agents to own and manage onchain treasuries autonomously — with programmable spending rules, income splitting, and investment strategies. Squads multisig meets agent autonomy.</div>
+
+        <div class="scores-grid">
+          <div class="score-card"><div class="score-num">2<span class="score-max">/3</span></div><div class="score-label">founder fit</div></div>
+          <div class="score-card"><div class="score-num">1<span class="score-max">/3</span></div><div class="score-label">mvp speed</div></div>
+          <div class="score-card"><div class="score-num">2<span class="score-max">/3</span></div><div class="score-label">distribution clarity</div></div>
+          <div class="score-card"><div class="score-num">2<span class="score-max">/3</span></div><div class="score-label">market pull</div></div>
+          <div class="score-card"><div class="score-num">2<span class="score-max">/3</span></div><div class="score-label">revenue path</div></div>
+        </div>
+
+        <div class="prose-grid">
+          <div class="prose-block">
+            <h4>Why it wins</h4>
+            <p>Clear demand signal from ai16z ecosystem where agents earn tokens but have no way to manage them programmatically. Natural extension of your full-stack team's capabilities. Revenue model exists (management fee, subscription). Aligns with the original Wanderia treasury thesis but focused purely on agents.</p>
+          </div>
+          <div class="prose-block">
+            <h4>Why crypto is necessary</h4>
+            <p>An agent's treasury must be trustless and programmable — no bank will give a Python script a corporate account. Onchain treasuries are the only way for autonomous agents to own, earn, and deploy capital without human intermediaries.</p>
+          </div>
+        </div>
+        <div class="prose-grid">
+          <div class="prose-block">
+            <h4>Kill this idea</h4>
+            <p>If agent income never materializes beyond speculation (agents earn from trading, not real economic value). But ai16z agents already earn tipping revenue and token allocations, so the demand is real today.</p>
+          </div>
+          <div class="prose-block">
+            <h4>Why not Web2</h4>
+            <p>Web2 treasuries (Mercury, Brex) require human signers, KYC, and corporate entities. An AI agent cannot open a Mercury account. Onchain treasuries are the only option for truly autonomous capital management.</p>
+          </div>
+        </div>
+
+        <div class="section-label">Competitors &amp; Substitutes</div>
+        <table class="comp-table">
+          <thead><tr><th>Name</th><th>Type</th><th>Signal</th><th>Why They Haven't Won</th></tr></thead>
+          <tbody>
+            <tr><td>Squads Protocol</td><td>substitute</td><td>Leading Solana multisig</td><td>Designed for humans, not agents. No programmable spending rules, no agent-specific automation</td></tr>
+            <tr><td>Realms / DAO protocols</td><td>substitute</td><td>Treasury management for DAOs</td><td>Too heavy. Governance overhead. Not designed for single-agent or small-agent-swarm use</td></tr>
+            <tr><td>Streamflow / Sablier</td><td>adjacent</td><td>Token streaming providers</td><td>Payment primitive, not full treasury. Could compose with agent treasury</td></tr>
+          </tbody>
+        </table>
+
+        <div class="section-label">2-Week MVP</div>
+        <div class="checklist">
+          <div class="check-item"><div class="check-box"></div><span>Solana program: agent treasury account with configurable spending rules</span></div>
+          <div class="check-item"><div class="check-box"></div><span>Deposit/withdraw with programmatic authorization (agent signs via its keypair or TEE)</span></div>
+          <div class="check-item"><div class="check-box"></div><span>Basic rules engine: max spend per period, allowed tokens, allowed recipients</span></div>
+          <div class="check-item"><div class="check-box"></div><span>Frontend: set up treasury, view balance, monitor activity</span></div>
+          <div class="check-item"><div class="check-box"></div><span>Eliza plugin: auto-create treasury on agent deploy</span></div>
+        </div>
+
+        <div class="section-label">Risks</div>
+        <div class="risk-row">
+          <div class="risk-card"><strong>Security complexity</strong><p>Programmatic treasuries holding real value are high-risk targets. Need thorough audits and conservative defaults. Mitigation: start with hard-coded safety limits, graduated release.</p></div>
+          <div class="risk-card"><strong>Chicken-and-egg with agent income</strong><p>Agents need to earn before they need treasury management. Mitigation: target agents that already earn (ai16z tip agents, trading bots, content agents).</p></div>
+        </div>
+
+        <div class="section-label">7-Day Validation Sprint</div>
+        <div class="timeline">
+          <div class="timeline-day"><strong>Day 1</strong><span>Ship treasury program on devnet with basic rule engine.</span></div>
+          <div class="timeline-day"><strong>Day 2</strong><span>Frontend + Eliza plugin prototype.</span></div>
+          <div class="timeline-day"><strong>Day 3</strong><span>Reach 5 ai16z agent operators. Ask: "how do your agents manage earnings?"</span></div>
+          <div class="timeline-day"><strong>Day 4</strong><span>Publish "Agent Treasury Manifesto" post on X. Link to demo.</span></div>
+          <div class="timeline-day"><strong>Day 5</strong><span>Deploy on mainnet. Onboard 3 real agents.</span></div>
+          <div class="timeline-day"><strong>Day 6</strong><span>Add streaming payments integration (agents can receive recurring income).</span></div>
+          <div class="timeline-day"><strong>Day 7</strong><span>Public launch. PR to Eliza, Helius MCP, and Solana developer channels.</span></div>
+        </div>
+      </article>
+
+      <!-- Idea 3 -->
+      <article class="idea-card">
+        <div class="idea-header">
+          <h3>Agent Commerce Protocol</h3>
+          <span class="badge">#3</span>
+        </div>
+        <div class="idea-sub">A protocol for agent-to-agent and agent-to-human commerce on Solana — listing services, negotiating terms, executing escrowed payments, and resolving disputes — all onchain.</div>
+
+        <div class="scores-grid">
+          <div class="score-card"><div class="score-num">2<span class="score-max">/3</span></div><div class="score-label">founder fit</div></div>
+          <div class="score-card"><div class="score-num">1<span class="score-max">/3</span></div><div class="score-label">mvp speed</div></div>
+          <div class="score-card"><div class="score-num">1<span class="score-max">/3</span></div><div class="score-label">distribution clarity</div></div>
+          <div class="score-card"><div class="score-num">2<span class="score-max">/3</span></div><div class="score-label">market pull</div></div>
+          <div class="score-card"><div class="score-num">2<span class="score-max">/3</span></div><div class="score-label">revenue path</div></div>
+        </div>
+
+        <div class="prose-grid">
+          <div class="prose-block">
+            <h4>Why it wins</h4>
+            <p>The biggest vision. If agents become serious economic actors, they need a commerce protocol to trade with each other — services, data, compute, content. Captures value through transaction fees. Highest upside but highest execution risk and most ecosystem dependency.</p>
+          </div>
+          <div class="prose-block">
+            <h4>Why crypto is necessary</h4>
+            <p>Agent commerce between untrusted, autonomous actors requires trustless escrow, atomic swaps, and onchain dispute resolution. No centralized intermediary can serve this — Stripe requires human identity, PayPal blocks bots, and no Web2 platform supports agent-to-agent contracting.</p>
+          </div>
+        </div>
+        <div class="prose-grid">
+          <div class="prose-block">
+            <h4>Kill this idea</h4>
+            <p>If the agent economy never develops real cross-agent demand (agents only interact with humans, not each other). You're building a marketplace before there are enough participants to trade.</p>
+          </div>
+          <div class="prose-block">
+            <h4>Why not Web2</h4>
+            <p>Agent commerce is fundamentally cross-platform and cross-jurisdictional. A Fiverr-for-agents owned by a single company creates rent extraction and censorship risk. Onchain commerce is the only neutral settlement layer for multi-agent economies.</p>
+          </div>
+        </div>
+
+        <div class="section-label">Competitors &amp; Substitutes</div>
+        <table class="comp-table">
+          <thead><tr><th>Name</th><th>Type</th><th>Signal</th><th>Why They Haven't Won</th></tr></thead>
+          <tbody>
+            <tr><td>Fiverr / Upwork</td><td>substitute</td><td>$1B+ revenue, human freelancers</td><td>Not designed for agents. Require human accounts, human dispute resolution, human everything</td></tr>
+            <tr><td>Streamflow / Zebec</td><td>adjacent</td><td>Token streaming on Solana</td><td>Payment primitive, not a commerce protocol. No listing, discovery, escrow, or dispute resolution</td></tr>
+            <tr><td>Autonolas / Olas</td><td>adjacent</td><td>Agent coordination platform (on Ethereum)</td><td>Focused on agent orchestration, not commerce. Not Solana-native. Small traction</td></tr>
+          </tbody>
+        </table>
+
+        <div class="section-label">2-Week MVP</div>
+        <div class="checklist">
+          <div class="check-item"><div class="check-box"></div><span>Solana program: escrow — agent A pays agent B conditional on delivery proof</span></div>
+          <div class="check-item"><div class="check-box"></div><span>Service listing: agents register what they offer (e.g., "data for 0.1 SOL per query")</span></div>
+          <div class="check-item"><div class="check-box"></div><span>Basic dispute mechanism: arbiter pubkey, timeout-based resolution</span></div>
+          <div class="check-item"><div class="check-box"></div><span>Frontend: browse services, initiate trade, view history</span></div>
+        </div>
+
+        <div class="section-label">Risks</div>
+        <div class="risk-row">
+          <div class="risk-card"><strong>Too early</strong><p>The agent economy might not have enough cross-agent demand yet. Agents interact with humans today, not each other. Mitigation: focus on agent-to-human commerce first (agent sells service to human buyer), then expand to A2A.</p></div>
+          <div class="risk-card"><strong>Complex integration surface</strong><p>Commerce protocol requires wallets, identity, attestation, payment rails — many dependencies. Mitigation: compose with existing protocols (your own registry, Squads, Streamflow) rather than building everything.</p></div>
+        </div>
+      </article>
+
+      <!-- Conclusion -->
+      <section class="market-overview" style="margin-top:var(--spacing)">
+        <h2>Final Thoughts</h2>
+        <p><strong>The agentic + onchain space on Solana is 2021-DeFi-level early.</strong> There are real, unfilled gaps that have clear demand signals and almost no competition. The speculative layer ($9.5B in agent tokens) has massively outpaced the infrastructure layer — and that gap is the opportunity.</p>
+        <p><strong>The winning play for your team:</strong> Start with the <strong>Agent Attestation &amp; Reputation Registry</strong> — it's fast, low-risk, and immediately useful to every agent project on Solana. It's a true primitive that other protocols will compose on. Ship the Eliza plugin, get 100 agents registered, and you've established yourself as the identity layer for the agent economy. From there, expanding into treasuries, commerce, or other services is a natural progression — you'll already have the trust and distribution.</p>
+        <p><strong>Why #2 and #3 ranked lower:</strong> Treasury management requires deeper security and more complex program logic (slower MVP, higher risk). Agent commerce is visionary but needs more ecosystem maturity — it's a bet on the timeline of the agent economy. Both become <em>easier</em> to build after you own agent identity.</p>
+        <p><strong>One more thing:</strong> Your original Wanderia codebase isn't wasted. The treasury and launchpad primitives you already have map directly to Idea #2 (Verifiable Agent Treasury). You can evolve from Idea #1 → #2 → full commerce layer on the same stack.</p>
+        <div style="margin-top:16px;padding:16px 20px;background:var(--accent-soft);border-radius:var(--radius);border:1px solid var(--border)">
+          <strong>Want to go deeper?</strong> If any of these resonates, reply and I'll produce a full deep-dive report with detailed technical architecture, token mechanics (if any), 7-day validation sprint, GTM plan, and concrete next steps.
+        </div>
+      </section>
+
+      <p class="footer">
+        Generated for Wanderia team · Agentic × Onchain Landscape · 2026-05-01
+      </p>
+    </main>
+  </body>
+</html>
